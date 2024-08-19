@@ -9,6 +9,7 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - statsposts.qmd
       - href: linux-resources.qmd
         text: Linux resources
 

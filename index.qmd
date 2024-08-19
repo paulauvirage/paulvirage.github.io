@@ -18,19 +18,19 @@ about:
 
 I am a conservation biologist, with a background in statistics, based in Sierra Leone for half of the year and otherwise working remotely from the UK.
 
-My employment comprises three part-time posts: data scientist for the charity [World Parrot Trust](https://www.parrots.org/) Central and West African projects, with particular emphasis on Timneh and Grey Parrots; managing biodiversity projects at Outamba-Kilimi National Park for the charity and national NGO Pan Verus Project; and, as Visiting Lecturer, teaching and supervising data science/statistics to postgraduate students and professionals through the Department of Biological Sciences, Fourah Bay College, University of Sierra Leone.
+My employment comprises three part-time posts: data scientist for the charity [World Parrot Trust](https://www.parrots.org/) Central and West African projects, with particular emphasis on Timneh and Grey Parrots; managing biodiversity projects at Outamba-Kilimi National Park in Sierra Leone for the charity and national NGO Pan Verus Project; and, as Visiting Lecturer, teaching and supervising data science/statistics to postgraduate students and professionals through the Department of Biological Sciences, Fourah Bay College, University of Sierra Leone.
 
 A new venture, with both Pan Verus Project and World Parrot Trust, is the development of wildlife tourism in Sierra Leone.
 
 ### What is on this website
 
-I maintain two blogs here: data science/stats, mostly with [R](https://www.r-project.org/), aimed at people who do not want calculus and matrix algebra, but are willing to code and think; and wildlife sightings and resources to make finding and enjoying birds and other wildlife in Sierra Leone easier.
+I maintain two blogs here: data science/stats applied mainly to conservation biology, mostly using the [R](https://www.r-project.org/) language, aimed at people who do not want calculus and matrix algebra, but are willing to code and think; and wildlife sightings and resources to make finding and enjoying birds and other wildlife in Sierra Leone easier.
 
 In addition, there are notes written as much to me as to others, on maintaining and using my Linux laptop and an assortment of Free and Open Source Software.
 
 ### Research and other professional interests
 
-My interests, mostly with birds, but drifting into other vertebrate fauna and flora where the opportunity, usually through student projects, arises, are:
+My interests, mostly with birds, but drifting into other vertebrate fauna and also flora where the opportunity, usually through student projects, arises, are:
 
 -   Modelling species' distribution, abundance and niche;
 
@@ -40,4 +40,4 @@ My interests, mostly with birds, but drifting into other vertebrate fauna and fl
 
 -   acoustic species' identification and monitoring.
 
-###  
+### 

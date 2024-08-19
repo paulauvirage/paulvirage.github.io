@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-10-24">
+<meta name="description" content="An introduction to regression, through modelling with one predictor linearly related to a continuous outcome">
 
-<title>Paul Robinson</title>
+<title>Simple linear regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,17 +72,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Paul Robinson</span>
     </a>
   </div>
@@ -90,19 +93,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./statsposts.html"> 
+    <a class="nav-link" href="../../statsposts.html"> 
 <span class="menu-text">Data science blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./linux-resources.html"> 
+    <a class="nav-link" href="../../linux-resources.html"> 
 <span class="menu-text">Linux resources</span></a>
   </li>  
 </ul>
@@ -114,75 +117,63 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Simple linear regression</h1>
+                  <div>
+        <div class="description">
+          An introduction to regression, through modelling with one predictor linearly related to a continuous outcome
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">regression</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 24, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-  <ul>
-  <li><a href="#who-am-i" id="toc-who-am-i" class="nav-link active" data-scroll-target="#who-am-i">Who am I</a></li>
-  <li><a href="#what-is-on-this-website" id="toc-what-is-on-this-website" class="nav-link" data-scroll-target="#what-is-on-this-website">What is on this website</a></li>
-  <li><a href="#research-and-other-professional-interests" id="toc-research-and-other-professional-interests" class="nav-link" data-scroll-target="#research-and-other-professional-interests">Research and other professional interests</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<div class="quarto-about-trestles column-page-left">
-  <div class="about-entity">
-    <img src="media/moi.jpg" class="about-image
-  rectangle " style="width: 20em;">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Paul Robinson</h1>
-</div>
-<div class="quarto-title-meta column-page-left">
-  </div>
-</header>
-    <div class="about-links">
-  <a href="https://github.com/paulauvirage" class="about-link" rel="" target="">
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="https://www.linkedin.com" class="about-link" rel="" target="">
-     <span class="about-link-text">Linkedin</span>
-  </a>
-  <a href="mailto:spiloptila@gmail.com" class="about-link" rel="" target="">
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content column-page-left" id="quarto-document-content">
-
-<section id="who-am-i" class="level3">
-<h3 data-anchor-id="who-am-i">Who am I</h3>
-<p>I am a conservation biologist, with a background in statistics, based in Sierra Leone for half of the year and otherwise working remotely from the UK.</p>
-<p>My employment comprises three part-time posts: data scientist for the charity <a href="https://www.parrots.org/">World Parrot Trust</a> Central and West African projects, with particular emphasis on Timneh and Grey Parrots; managing biodiversity projects at Outamba-Kilimi National Park in Sierra Leone for the charity and national NGO Pan Verus Project; and, as Visiting Lecturer, teaching and supervising data science/statistics to postgraduate students and professionals through the Department of Biological Sciences, Fourah Bay College, University of Sierra Leone.</p>
-<p>A new venture, with both Pan Verus Project and World Parrot Trust, is the development of wildlife tourism in Sierra Leone.</p>
-</section>
-<section id="what-is-on-this-website" class="level3">
-<h3 data-anchor-id="what-is-on-this-website">What is on this website</h3>
-<p>I maintain two blogs here: data science/stats applied mainly to conservation biology, mostly using the <a href="https://www.r-project.org/">R</a> language, aimed at people who do not want calculus and matrix algebra, but are willing to code and think; and wildlife sightings and resources to make finding and enjoying birds and other wildlife in Sierra Leone easier.</p>
-<p>In addition, there are notes written as much to me as to others, on maintaining and using my Linux laptop and an assortment of Free and Open Source Software.</p>
-</section>
-<section id="research-and-other-professional-interests" class="level3">
-<h3 data-anchor-id="research-and-other-professional-interests">Research and other professional interests</h3>
-<p>My interests, mostly with birds, but drifting into other vertebrate fauna and also flora where the opportunity, usually through student projects, arises, are:</p>
-<ul>
-<li><p>Modelling species’ distribution, abundance and niche;</p></li>
-<li><p>human-wildlife interaction and conflicts;</p></li>
-<li><p>spatial and temporal modelling of land use and species’ change, including applications of GIS; and</p></li>
-<li><p>acoustic species’ identification and monitoring.</p></li>
-</ul>
-</section>
-<section id="section" class="level3">
-<h3 data-anchor-id="section"></h3>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
-</section>
-</main></div>
-</div>
- <!-- /main -->
+
+
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{2022,
+  author = {},
+  title = {Simple Linear Regression},
+  date = {2022-10-24},
+  url = {https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-2022" class="csl-entry quarto-appendix-citeas" role="listitem">
+<span>“Simple Linear Regression.”</span> 2022. October 24, 2022. <a href="https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/">https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -347,6 +338,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

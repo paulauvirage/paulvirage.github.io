@@ -1,0 +1,8 @@
+---
+title: "Data science blog"
+listing: 
+  contents: statsposts
+  type: grid
+  sort: "date desc"
+  categories: true
+---
