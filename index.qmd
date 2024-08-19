@@ -14,7 +14,7 @@ about:
       href: mailto:spiloptila@gmail.com
 ---
 
-### Who am I
+### Me
 
 I am a conservation biologist, with a background in statistics, based in Sierra Leone for half of the year and otherwise working remotely from the UK.
 
