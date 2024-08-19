@@ -1,11 +1,43 @@
 ---
-title: "paulauvirage.github.io"
+title: "Paul Robinson"
+image: media/moi.jpg
+about:
+  template: trestles
+  image-shape: rectangle
+  image-width: 20em
+  links: 
+    - text: GitHub
+      href: https://github.com/paulauvirage
+    - text: Linkedin
+      href: https://www.linkedin.com
+    - text: Email
+      href: mailto:spiloptila@gmail.com
 ---
 
-This is a Quarto website.
+### Who am I
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I am a conservation biologist, with a background in statistics, based in Sierra Leone for half of the year and otherwise working remotely from the UK.
 
-```{r}
-1 + 1
-```
+My employment comprises three part-time posts: data scientist for the charity [World Parrot Trust](https://www.parrots.org/) Central and West African projects, with particular emphasis on Timneh and Grey Parrots; managing biodiversity projects at Outamba-Kilimi National Park for the charity and national NGO Pan Verus Project; and, as Visiting Lecturer, teaching and supervising data science/statistics to postgraduate students and professionals through the Department of Biological Sciences, Fourah Bay College, University of Sierra Leone.
+
+A new venture, with both Pan Verus Project and World Parrot Trust, is the development of wildlife tourism in Sierra Leone.
+
+### What is on this website
+
+I maintain two blogs here: data science/stats, mostly with [R](https://www.r-project.org/), aimed at people who do not want calculus and matrix algebra, but are willing to code and think; and wildlife sightings and resources to make finding and enjoying birds and other wildlife in Sierra Leone easier.
+
+In addition, there are notes written as much to me as to others, on maintaining and using my Linux laptop and an assortment of Free and Open Source Software.
+
+### Research and other professional interests
+
+My interests, mostly with birds, but drifting into other vertebrate fauna and flora where the opportunity, usually through student projects, arises, are:
+
+-   Modelling species' distribution, abundance and niche;
+
+-   human-wildlife interaction and conflicts;
+
+-   spatial and temporal modelling of land use and species' change, including applications of GIS; and
+
+-   acoustic species' identification and monitoring.
+
+###  

@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "paulauvirage.github.io"
+  title: "Paul Robinson"
   navbar:
     left:
       - href: index.qmd
