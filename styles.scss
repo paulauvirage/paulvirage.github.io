@@ -5,9 +5,14 @@
 //@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Nunito:wght@300;800&family=Roboto+Mono:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
 // fonts
-$nunito: 'Nunito', sans-serif; 
-$josefin: 'Josefin Sans', sans-serif; 
+$redhat: 'Red Hat', sans-serif; 
+$josefin: 'Josefin Sans', sans-serif;
+$monospace: 'Nanum Gohtic Coding', sans-serif;
 
 // Colors
 $light-green: #D1D9CE;
@@ -21,36 +26,37 @@ $orange: #ad7237;
 $champagne-pink: #f2dfce;
 $old-lace: #fff1e0;
 $metallic-seaweed: #0d7680;
+$darkred: #900c3f;
 
 // Base document colors
 $navbar-bg: $metallic-seaweed;
 $navbar-fg: $medium-green; 
-$navbar-hl: $purple; 
+$navbar-hl: $old-lace; 
 $body-bg: $champagne-pink;
 $body-color: $medium-gray;
 $footer-bg: $metallic-seaweed; 
-$link-color: $purple;
+$link-color: $darkred;
 
 // Inline code
-$code-bg: $cream;
-$code-color: $orange; 
+//$code-bg: $cream;
+//$code-color: $orange; 
 
 // Code blocks
-$code-block-bg: $cream;
+//$code-block-bg: $cream;
 
 /*-- scss:rules --*/
 
 /* ELEMENT SELECTORS */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $josefin; 
+  font-family: $redhat; 
   letter-spacing: 1px;
   font-weight: 700;
-  color: $medium-gray;
+  color: $darkred;
 }
 
 body {
-  font-family: $nunito;
+  font-family: $redhat;
   line-height: 1.5; // min 1.5 suggested for assistive tech
   font-size: 19.5px;
   font-weight: 350;

@@ -3,14 +3,17 @@ title: "Paul Robinson"
 image: media/moi.jpg
 about:
   template: trestles
-  image-shape: rounded
+  image-shape: rectangle
   image-width: 20em
-  links: 
-    - text: GitHub
+  links:
+    - icon: github
+      text: GitHub
       href: https://github.com/paulauvirage
-    - text: Linkedin
+    - icon: linkedin
+      text: Linkedin
       href: https://www.linkedin.com
-    - text: Email
+    - icon: envelope
+      text: Email
       href: mailto:spiloptila@gmail.com
 ---
 

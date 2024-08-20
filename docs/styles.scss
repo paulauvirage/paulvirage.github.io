@@ -26,7 +26,7 @@ $metallic-seaweed: #0d7680;
 $navbar-bg: $metallic-seaweed;
 $navbar-fg: $medium-green; 
 $navbar-hl: $purple; 
-$body-bg: $champagne-pink;
+$body-bg: $purple;
 $body-color: $medium-gray;
 $footer-bg: $metallic-seaweed; 
 $link-color: $purple;
@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  font-family: $nunito;
+  font-family: $josefin;
   line-height: 1.5; // min 1.5 suggested for assistive tech
   font-size: 19.5px;
   font-weight: 350;
