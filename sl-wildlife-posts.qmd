@@ -1,0 +1,8 @@
+---
+title: "Sierra Leone Wildlife blog"
+listing: 
+  contents: sl-wildlife-posts
+  type: default
+  sort: "date desc"
+  categories: true
+---

@@ -1,0 +1,11 @@
+---
+title: "Birding from my balcony"
+description: "A year of breakfast birding in suburban Freetown"
+ 
+date: 20-08-2024
+categories: [birding] # self-defined categories
+citation: 
+  url: https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/ 
+image: homepanorama.jpg
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---

@@ -1,0 +1,8 @@
+---
+title: "Linux resources"
+listing: 
+  contents: linux-posts
+  type: table
+  sort: "date desc"
+  categories: true
+---

@@ -8,10 +8,11 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
       - statsposts.qmd
-      - href: linux-resources.qmd
-        text: Linux resources
+      - sl-wildlife-posts.qmd
+      - wildlife-tourism.qmd
+      - linux-posts.qmd
+      
 
 format:
   html:
