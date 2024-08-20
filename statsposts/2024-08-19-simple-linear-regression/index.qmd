@@ -9,3 +9,5 @@ citation:
 image: weblog-simple-linear-regression.png
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
+
+[sam csik's blog](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/) article has instructions and code, how to add footnotes and a bibliography and citations and how to populate margins. Use these.
