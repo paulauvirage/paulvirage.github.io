@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -130,7 +130,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.scss">
 </head>
 
 <body class="nav-fixed">
@@ -211,37 +211,37 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="birding" data-listing-date-sort="1754611200000" data-listing-file-modified-sort="1724144969068" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html" class="no-external"></a></p><a href="./sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html" class="no-external">
-<p><img loading="lazy" src="./sl-wildlife-posts/2024-08-19-simple-linear-regression/homepanorama.jpg" class="thumbnail-image"></p>
-</a><p><a href="./sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html" class="no-external">Birding from my balcony</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html" class="no-external"></a>
-</div>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="birding" data-listing-date-sort="1754611200000" data-listing-file-modified-sort="1724144969068" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./sl-wildlife-posts/2024-08-19-simple-linear-regression/homepanorama.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Birding from my balcony
+</h5>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('birding'); return false;">
 birding
 </div>
 </div>
-<div class="listing-description">
-<a href="./sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html" class="no-external">A year of breakfast birding in suburban Freetown</a>
+<div class="card-text listing-description">
+A year of breakfast birding in suburban Freetown
 </div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
 </div>
-<div class="metadata">
-<a href="./sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html" class="no-external">
 <div class="listing-date">
 Aug 8, 2025
 </div>
-</a>
 </div>
+</div>
+</div>
+</a>
 </div>
 </div>
 <div class="listing-no-matching d-none">

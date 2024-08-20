@@ -19,7 +19,7 @@ format:
     theme:
       light: minty
       dark: solar
-    css: styles.css
+    css: styles.scss
     toc: true
     page-layout: full
 
