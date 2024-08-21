@@ -1,6 +1,6 @@
 ---
 title: "Data science blog"
-description: "Whilst my main interest is statistical inference and so modelling, there is no avoiding the longer workflow of acquiring and tidying data and exploratory analysis, which may be as far as one can go, so I have used the wider term *data science*."
+description: "This is mostly inferential statistics/modelling, but read the first post for what is here."
 listing: 
   contents: statsposts
   type: grid
