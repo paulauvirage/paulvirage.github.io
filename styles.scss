@@ -41,8 +41,8 @@ $link-color: $darkred;
 //$code-bg: $cream;
 //$code-color: $orange; 
 
-// Code blocks
-//$code-block-bg: $cream;
+//Code blocks
+$code-block-bg: $old-lace;
 
 /*-- scss:rules --*/
 
@@ -79,7 +79,7 @@ blockquote {
 
 // banner titles (these turned dark green after updating to Quarto v1.5.56, so forcing them to be gray again with this rule)
 .quarto-title-banner h1 {
-  color: $medium-gray;
+  color: $old-lace;
 }
 
 // figure caption text styling
