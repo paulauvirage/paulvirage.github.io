@@ -6,16 +6,16 @@
     ]
   },
   {
-    "listing": "/sl-wildlife-posts.html",
-    "items": [
-      "/sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html"
-    ]
-  },
-  {
     "listing": "/statsposts.html",
     "items": [
       "/statsposts/2024-08-19-simple-linear-regression/index.html",
       "/statsposts/2024-08-22-course-introduction/index.html"
+    ]
+  },
+  {
+    "listing": "/sl-wildlife-posts.html",
+    "items": [
+      "/sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html"
     ]
   }
 ]

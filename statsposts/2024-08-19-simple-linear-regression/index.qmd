@@ -36,7 +36,7 @@ This worked example is possible because the data has been made easily, publicly 
 
 ### The objectives of regression
 
-Let's review what regression aims to do, applied to the lion nose data.
+Let's review what regression aims to do, applied to the lion nose data, in the call-out box below.
 
 ::: {.callout-note collapse="true"}
 ## The objectives of regression
@@ -47,28 +47,28 @@ The sample data for a regression problem, gathered for the project or reused, co
 
 Regression, and statistical inference more generally, is therefore a problem of prediction in the face of uncertainty. There is uncertainty about whether:
 
-- the sample represents the population;
-- the measurements are truly measuring the features of interest ("measurement validity"); and
-- the mathematical relation between outcome and predictor is causal.
+-   the sample represents the population;
+-   the measurements are truly measuring the features of interest ("measurement validity"); and
+-   the mathematical relation between outcome and predictor is causal.
 
-Regression usually seeks to predict the average outcome for the predictor(s). To be more explicit in applying this reasoning to the lion nose data set, the predictor is the amount of black on the nose and the outcome which it is aimed to predict is the age of a lion for which the predictor (nose black marks) has been measured, but the outcome (age) is not known. 
+Regression usually seeks to predict the average outcome for the predictor(s). To be more explicit in applying this reasoning to the lion nose data set, the predictor is the amount of black on the nose and the outcome which it is aimed to predict is the age of a lion for which the predictor (nose black marks) has been measured, but the outcome (age) is not known.
 
 An hypothesis test could establish whether or not there is a relation between measured nose markings and age, usually phrased as a **null hypothesis**; H~0~ there is no relation, versus the **alternative hypothesis** that H~0~ is not supported.
 
 This course will not concern itself much with hypothesis testing, but rather the more useful measurement of effects; is there a predictable change in the amount nose marking with age?
 
-It is very unlikely that every lion of a certain age will have exactly the same amount of nose markings. If this was true, you would not need to use statistics, but rather simple algebra. Variability, arising from whatever processes cause nose markings and/or measurement error, are likely to give a range of values for lions of the same age. A regression model uses this variability and the size of the sample data (number of individuals with both nose marking and age measured) to estimate and report on the uncertainty in any prediction. Depending on the method of inference used - Frequentist or Bayesian - the uncertainty is reported as **confidence intervals** or **credible intervals** which have subtly different meanings. This will be discussed more later. What is important to remember is that statistical modelling, as opposed to deterministic modelling, is: necessary when there is variability in the data; and is reported with measures of uncertainty. *add important uses of regression from Gelman p5?*  
+It is very unlikely that every lion of a certain age will have exactly the same amount of nose markings. If this was true, you would not need to use statistics, but rather simple algebra. Variability, arising from whatever processes cause nose markings and/or measurement error, are likely to give a range of values for lions of the same age. A regression model uses this variability and the size of the sample data (number of individuals with both nose marking and age measured) to estimate and report on the uncertainty in any prediction. Depending on the method of inference used - Frequentist or Bayesian - the uncertainty is reported as **confidence intervals** or **credible intervals** which have subtly different meanings. This will be discussed more later. What is important to remember is that statistical modelling, as opposed to deterministic modelling, is: necessary when there is variability in the data; and is reported with measures of uncertainty. *add important uses of regression from Gelman p5?*
 :::
 
 ### Analysis of the lion nose data with R
 
 #### Step 1. Subject matter questions
 
-When possible choose an important question that is likely to be soluble from the data. The Lion is classified as globally [Vulnerable](https://www.iucnredlist.org/species/15951/259030422). Trophy hunting is economically valuable. Therefore an investigation of how selective trophy hunting could minimise the impact on the population size is of importance. There is evidence that trophy hunting older lions could cause less impact on the population and that lion age can be measured unobtrusively from the amount of black marking on the nose. The broad questions are:
+When possible choose an important question that is likely to be soluble from the data. The Lion is classified as globally [Vulnerable](https://www.iucnredlist.org/species/15951/259030422). Trophy hunting is economically valuable. Therefore an investigation of how selective trophy hunting could minimise the impact on the lion population size is of importance. There is evidence that trophy hunting older lions could cause less impact on the population and that lion age can be measured unobtrusively from the amount of black marking on the nose. The broad questions are:
 
-a. Is there a difference in nose marking with age (hypothesis test)?
-b. Can the difference be modelled to provide a measure of how nose markings change with age (regression model); and
-c. Can the model be applied, for example to regulate permits for trophy hunting?
+a.  Is there a difference in nose marking with age (hypothesis test)?
+b.  Can the difference be modelled to provide a measure of how nose markings change with age (regression model); and
+c.  Can the model be applied, for example to regulate permits for trophy hunting?
 
 #### Step 3. Exploratory data analysis (EDA), jumping Step 2 (Study Design) as existing data is being used.
 
@@ -79,9 +79,9 @@ Let's start with question b. The data is already collected, so the usual **Step 
 
 If you are familiar with software that comes ready packaged with all of its capabilities, R may seem strange. It follows a different philosophy of bundling up one or a few related tasks into a package. When R is first downloaded onto your computer, it comes with 15 "base" packages, of the c21,000 packages available in the cloud on the [Comprehensive R Archive network](https://cran.r-project.org/web/packages/) and others on other cloud storage locations.
 
-Any analysis usually needs more than the base packages. This course will use an extra 20 or so. You can, with an internet connection, download and install any extra packages onto your computer, where they will be added to your package library (see the packages tab in R Studio's lower right window). As developers work on packages, the changed version needs to be updated on your computer. You will not be prompted to update. In R Studio the packages -> update tab is available for this. It will, with an internet connection, search for those of your installed packages that have updates and give you the option to install the updated versions. Most packages are less than 1M in size and few more than 5MB, so I recommend you check and update packages as often as you have a stable internet connection. I have about 100 packages and update (there usually is something to update) daily, but less often is fine.
+Any analysis usually needs more than the base packages. This course will use an extra 20 or so. You can, with an internet connection, download and install any extra packages onto your computer, where they will be added to your package library (see the packages tab in R Studio's lower right window). As developers work on packages, the changed version needs to be updated on your computer. You will not be prompted to update. In R Studio the packages -\> update tab is available for this. It will, with an internet connection, search for those of your installed packages that have updates and give you the option to install the updated versions. Most packages are less than 1MB in size and few more than 5MB, so I recommend you check and update packages as often as you have a stable internet connection. I have about 100 packages and update (there usually is something to update) daily, but less often is fine.
 
-Once a package is on your computer, it is not yet available to use in your current analysis session. For this you need to import the package from your library, with a line of code using the `library` function; for example `library(marginaleffect)` to import the Marginal Effects package. Repeat this for each package. In writing a script of R code for any work, you usually start with lines to import the necessary packages, as without them the subsequent code depending on them will not run.   
+Once a package is on your computer, it is not yet available to use in your current analysis session. For this you need to import the package from your library, with a line of code using the `library` function; for example `library(marginaleffect)` to import the Marginal Effects package. Repeat this for each package. In writing a script of R code for any work, you usually start with lines to import the necessary packages, as without them the subsequent code depending on them will not run.
 :::
 
 ```{r filename = "Import packages into current session"}
@@ -98,21 +98,26 @@ library(marginaleffects)
 library(rstanarm) # Bayesian inference
 ```
 
+
 ```{r filename = "Import and plot lion nose data"}
 #| message: false
-#| code-summary: "Import packages to session"
+#| code-summary: "Import and plot lion nose data"
 #| code-block-bg: true
 #| highlight-style: github
 
-lion_noses <- as.data.frame(LionNoses)
+lion_noses <- as.data.frame(LionNoses)                    # <1>
 
-ggplot(LionNoses, aes(proportion.black, age)) +
-  geom_point() +
-  geom_smooth(method = "lm", formula = y ~ x) +
-  xlab("Proportion of nose black") +
-  ylab("Age (years)")
+ggplot(LionNoses, aes(proportion.black, age)) +           # <2>
+  geom_point() +                                          # <3>
+  geom_smooth(method = "lm", formula = y ~ x) +           
+  xlab("Proportion of nose black") +                      # <4>
+  ylab("Age (years)")                                     # <4>
 ```
 
+1. Load `LionNoses` from the `abd` package into a data.frame
+2. Create a ggplot object with the lion_noses data, with the predictor variable proportion.black on the x axis and age on the y axis
+3. Add a scatterplot with `geom_point`
+4. Change the x and y axis labels with `xlab` and `ylab`
 
 [sam csik's blog](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/) article has instructions and code, how to add footnotes and a bibliography and citations and how to populate margins. Use these.
 

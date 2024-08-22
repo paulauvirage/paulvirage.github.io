@@ -31,7 +31,8 @@ format:
     toc: true
     page-layout: full
     code-copy: true
-    code-fold: false
+    code-fold: true
+    code-summary: "Show the code"
     code-block-border-left: "#900c3f"
     #css: styles.scss
 
