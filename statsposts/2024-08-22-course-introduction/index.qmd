@@ -1,0 +1,87 @@
+---
+title: "Course introduction"
+description: "What is statistics and how to implement it with careful thinking and R"
+ 
+date: 08/21/2024
+categories: [R, regression] # self-defined categories
+citation: 
+  url: https://paulauvirage.github.io/posts/2024-08-22-course-introduction/ 
+image: weblog-simple-linear-regression.png 
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+To start, click on the arrow in the "Document structure" box, below.
+
+::: {.callout-note collapse="true"}
+### Document structure
+
+This tutorial assumes that you are working in R Studio.
+
+As with all posts in this group, the main text is interspersed with two types of blocks.
+
+"Call-outs" of supporting information, such as this one, are folded away to avoid their interfering with a first read of the post. I recommend reading them all. You can unfold them by clicking on the far right arrow inside the box.
+
+Code blocks, with a grey background and monotype font, are not folded away. They allow you to implement all of the analysis in the post on your computer. You can cut and paste the code in each code block into your own R scripting window in R Studio, by clicking on the clipboard in the left of the block, but I recommend your typing it in, to get practice in how R code works in R Studio.
+:::
+
+### Working example - trophy hunting of lions
+
+Trophy hunting of lions, particularly males, is a controversial, but [active](https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!), means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride. The amount of black on a lion's nose is the best remote indicator of age. This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package `abd` and has been used for an example of linear regression in the online book [Statistics for ecologists](https://statistics4ecologists-v2.netlify.app/linreg) .
+
+::: {.callout-note collapse="true"}
+## The advantages of open data
+
+This worked example is possible because the data has been made easily, publicly accessible. It is not essential, though it is helpful, that it is accessible through an `R` package. In a later post an optimal workflow for scientists will be discussed in which open data is a component.\
+Note that there are five types of callouts, including: `note`, `warning`, `important`, `tip`, and `caution`.
+:::
+
+### The objectives of regression
+
+Let's review what regression aims to do.
+
+::: {.callout-note collapse="true"}
+## The objectives of regression
+
+Regression is the most widely used method of **statistical inference**, generalising from the sample on which measurements have been taken to the population for which a hypothesis or, more often and more usefully, the size and direction of effects, is sought.
+
+The sample data contains, for each unit on which measurements have been taken, the **outcome** it is hope to explain and one or more **predictors** which it is hoped can explain variability in the outcome.
+
+Regression is
+:::
+
+Load the required packages.
+
+:
+
+### Questions for regression
+
+hypothesis testing (is there a relation between age and black nose) and regression (size and direction of effect of age on black nose; sampling and measurement uncertainty) including prediction (if we photo a lion of unknown age on its territory, how good (accurate and precise) is this model as a predictor of its age? Good enough to be implemented in awarding shooting permits?)
+
+::: {.callout-note collapse="true"}
+## Package management in R
+:::
+
+```{r filename = "Import packages into current session"}
+#| message: false
+#| code-summary: "Import packages to session"
+#| code-block-bg: true
+#| highlight-style: github
+# run the function install.packages("abd") if the package abd is not already installed  
+library(abd) # Run each time you need to use the package in a new R session
+```
+
+[sam csik's blog](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/) article has instructions and code, how to add footnotes and a bibliography and citations and how to populate margins. Use these.
+
+::: callout-note
+Note that there are five types of callouts, including: `note`, `warning`, `important`, `tip`, and `caution`.
+:::
+
+::: callout-tip
+## Tip with Title
+
+This is an example of a callout with a title.
+:::
+
+### refs to add
+
+Loveridge, A.J., Wijers, M., Mandisodza-Chikerema, R. et al. Anthropogenic edge effects and aging errors by hunters can affect the sustainability of lion trophy hunting. Sci Rep 13, 95 (2023). https://doi.org/10.1038/s41598-022-25020-9 Whitman, K., Starfield, A. M., Quadling, H. S., & Packer, C. (2004). Sustainable trophy hunting of african lions. Nature, 428(6979), 175.

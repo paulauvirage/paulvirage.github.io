@@ -12,7 +12,7 @@
 // fonts
 $redhat: 'Red Hat', sans-serif; 
 $josefin: 'Josefin Sans', sans-serif;
-$monospace: 'Nanum Gohtic Coding', sans-serif;
+$monospace: 'Nanum Gothic Coding', sans-serif;
 
 // Colors
 $light-green: #D1D9CE;
@@ -27,6 +27,7 @@ $champagne-pink: #f2dfce;
 $old-lace: #fff1e0;
 $metallic-seaweed: #0d7680;
 $darkred: #900c3f;
+$light-gray: #c2c8d1;
 
 // Base document colors
 $navbar-bg: $metallic-seaweed;
@@ -42,11 +43,21 @@ $link-color: $darkred;
 //$code-color: $orange; 
 
 //Code blocks
-$code-block-bg: $old-lace;
+$code-block-bg: $light-gray;
 
 /*-- scss:rules --*/
 
 /* ELEMENT SELECTORS */
+
+code.sourceCode {
+    font-family: $monospace;
+    font-size: 15px;
+}
+
+.styled-output .cell-output {
+  background-color: lightgreen;
+  border-radius: 4px;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $redhat; 
