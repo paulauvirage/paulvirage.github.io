@@ -1,0 +1,1 @@
+@book{Cox_Donnelly_2011, place={Cambridge}, title={Principles of Applied Statistics}, publisher={Cambridge University Press}, author={Cox, D. R. and Donnelly, Christl A.}, year={2011}} <div></div>

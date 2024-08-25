@@ -28,6 +28,8 @@ $old-lace: #fff1e0;
 $metallic-seaweed: #0d7680;
 $darkred: #900c3f;
 $light-gray: #c2c8d1;
+$quarto-bg: #FFC994;
+$quarto-codeblock: #F1C08E;
 
 // Base document colors
 $navbar-bg: $metallic-seaweed;
@@ -93,6 +95,19 @@ blockquote {
 // banner titles (these turned dark green after updating to Quarto v1.5.56, so forcing them to be gray again with this rule)
 .quarto-title-banner h1 {
   color: $old-lace;
+}
+
+// tippy box for code annotation
+//.tippy-box[data-theme~=quarto] {
+//    background-color: #fff1e0
+//}
+
+.tippy-box[data-theme~="quarto"] {
+  background-color: $old-lace;
+  border: solid $border-width $border-color;
+  border-radius: $border-radius;
+  color: $body-color;
+  font-size: $font-size-sm;
 }
 
 // figure caption text styling
