@@ -97,6 +97,7 @@ div.csl-indent {
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -223,6 +224,7 @@ div.csl-indent {
   <li><a href="#working-example---trophy-hunting-of-lions" id="toc-working-example---trophy-hunting-of-lions" class="nav-link active" data-scroll-target="#working-example---trophy-hunting-of-lions">Working example - trophy hunting of lions</a></li>
   <li><a href="#the-objectives-of-regression" id="toc-the-objectives-of-regression" class="nav-link" data-scroll-target="#the-objectives-of-regression">The objectives of regression</a></li>
   <li><a href="#analysis-of-the-lion-nose-data-with-r" id="toc-analysis-of-the-lion-nose-data-with-r" class="nav-link" data-scroll-target="#analysis-of-the-lion-nose-data-with-r">Analysis of the lion nose data with R</a></li>
+  <li><a href="#notes-on-stuff-to-addadded" id="toc-notes-on-stuff-to-addadded" class="nav-link" data-scroll-target="#notes-on-stuff-to-addadded">Notes on stuff to add/added</a></li>
   <li><a href="#refs-to-add" id="toc-refs-to-add" class="nav-link" data-scroll-target="#refs-to-add">refs to add</a></li>
   </ul>
 </nav>
@@ -248,7 +250,7 @@ Document structure
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This tutorial assumes that you are working in R Studio.</p>
-<p>The main text we follow is <span class="citation" data-cites="Gelman_Hill_Vehtari_2020">(<a href="#ref-Gelman_Hill_Vehtari_2020" role="doc-biblioref">Gelman, Hill, and Vehtari 2020</a>)</span>, available for <a href="https://avehtari.github.io/ROS-Examples/index.html">free download</a></p>
+<p>The main text followed is <span class="citation" data-cites="Gelman_Hill_Vehtari_2020">(<a href="#ref-Gelman_Hill_Vehtari_2020" role="doc-biblioref">Gelman, Hill, and Vehtari 2020</a>)</span>, available for <a href="https://avehtari.github.io/ROS-Examples/index.html">free download</a>. Supplementary recommended books are <span class="citation" data-cites="Fox_Weisberg_2018">(<a href="#ref-Fox_Weisberg_2018" role="doc-biblioref">Fox and Weisberg 2018</a>)</span>.</p>
 <p>As with all posts in this group, the main text is interspersed with two types of blocks.</p>
 <p><strong>Call-outs</strong> of supporting information, such as this one, are folded away to avoid their interfering with a first read of the post. I recommend reading them all. You can unfold them by clicking on the far right arrow inside the box.</p>
 <p><strong>Code blocks</strong> are folded away with an arrow to the left of the numbered code block, for example <code>Code 2.1 Import packages to session</code>. They allow you to implement all of the analysis in the post on your computer. Each code block has numbered notes to the right, referring to particular lines. Click on the number and a box will pop up with a brief explanation of the code. Click again and the pop up closes. I am assuming you read the posts in sequence, so the earlier posts will have pop up explanations that are not repeated in the later code blocks. You can cut and paste the code in each code block into your own R scripting window in R Studio, by clicking on the clipboard in the right end of the block, but I recommend your typing it in, to get practice in how R code works in R Studio.</p>
@@ -257,7 +259,7 @@ Document structure
 </div>
 <section id="working-example---trophy-hunting-of-lions" class="level3">
 <h3 class="anchored" data-anchor-id="working-example---trophy-hunting-of-lions">Working example - trophy hunting of lions</h3>
-<p>Trophy hunting of lions, particularly males, is a controversial, but <a href="https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&amp;text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!">active</a>, means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride. The amount of black on a lion’s nose is the best remote indicator of age. This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package <code>abd</code> and has been used for an example of linear regression in the online book <a href="https://statistics4ecologists-v2.netlify.app/linreg">Statistics for ecologists</a> .</p>
+<p>Trophy hunting of lions, particularly males, is a controversial, but <a href="https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&amp;text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!">active</a>, means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride <span class="citation" data-cites="whitman2004">(<a href="#ref-whitman2004" role="doc-biblioref">Whitman et al. 2004</a>)</span>, <span class="citation" data-cites="loveridge2023">(<a href="#ref-loveridge2023" role="doc-biblioref">Loveridge et al. 2023</a>)</span>. The amount of black on a lion’s nose is the best remote indicator of age . This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package <code>abd</code> and has been used for an example of linear regression in the online book <a href="https://statistics4ecologists-v2.netlify.app/linreg">Statistics for ecologists</a> <span class="citation" data-cites="fieberg2024">(<a href="#ref-fieberg2024" role="doc-biblioref">Fieberg 2024</a>)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -400,7 +402,7 @@ Package management in R
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
 <summary>Code 3.1 Import packages to session</summary>
-<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(abd) <span class="co"># a biological data package that includes the lion nose data</span></span>
+<div class="sourceCode cell-code" id="annotated-cell-1" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(abd) <span class="co"># a biological data package that includes the lion nose data</span></span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># eight packages including ggplot2 for data visualisation</span></span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
@@ -408,13 +410,16 @@ Package management in R
 <span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span>
 <span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdist)</span>
 <span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggtext)</span>
-<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-annotation">
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="1,2,3,4,5,6,7,8,9" data-code-annotation="1">The first lines of any <code>R</code> script usually add packages from your library into your current work session with the <code>library</code> function. If you do not have one or more of these packages installed you will need to first run <code>install.packages(abd)</code> etc or alternatively, if the package is on<code>CRAN</code> (Comprehensive R Archive Network’s 21,000 packages) use the package -&gt; install button in R Studio’s lower right window and follow the instructions.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="1,2,3,4,5,6,7,8,9,10,11,12" data-code-annotation="1">The first lines of any <code>R</code> script usually add packages from your library into your current work session with the <code>library</code> function. If you do not have one or more of these packages installed you will need to first run <code>install.packages(abd)</code> etc or alternatively, if the package is on<code>CRAN</code> (Comprehensive R Archive Network’s 21,000 packages) use the package -&gt; install button in R Studio’s lower right window and follow the instructions.</span>
 </dd>
 </dl>
 </div>
@@ -422,7 +427,7 @@ Package management in R
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
 <summary>Code 3.2 Import lion nose data</summary>
-<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(LionNoses)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-2" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(LionNoses)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-annotation">
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
@@ -438,7 +443,7 @@ Package management in R
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
 <summary>Code 3.3 Create new variable and plot lion nose data</summary>
-<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="ot">&lt;-</span> lion_noses <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="annotated-cell-3" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="ot">&lt;-</span> lion_noses <span class="sc">|&gt;</span></span>
 <span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">percentage.black =</span> <span class="dv">100</span><span class="sc">*</span>proportion.black)</span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2">2</button><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lion_noses, <span class="fu">aes</span>(percentage.black, age)) <span class="sc">+</span></span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3">3</button><span id="annotated-cell-3-4" class="code-annotation-target"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
@@ -490,109 +495,288 @@ Package management in R
 </div>
 </div>
 <p>The scatterplot above (from Code 3.3) shows that there is a trend of increased black on the nose with age, but with variability and with fewer samples for older lions.</p>
-<p>add quote on stats being extracting meaning/information from data, but add best possible information, so the meaning is in the model, ble/green box example just a poor model. he non model is usggesting all we need to know is in the data, whilst we know it is imprecise (sampling variability) and the menaing is in a model.</p>
-<div class="cell">
+<p>add quote on stats being extracting meaning/information from data, but add best possible information, so the meaning is in the model, ble/green box example just a poor model. he non model is usggesting all we need to know is in the data, whilst we know it is imprecise (sampling variability) and the meaning is in a model. Model vs non model.</p>
+</section>
+<section id="model-formulation-and-inference" class="level4">
+<h4 class="anchored" data-anchor-id="model-formulation-and-inference">Model formulation and inference</h4>
+<p>Certainly there is, with variability, an increase in nose markings with age. The first model fit, which we may complicate later, is to suggest a straight line fit. As our data have only one predictor this is a <strong>simple linear regression</strong> with nose markings predicting age.</p>
+<p>The model, let’s call it <strong><em>m1</em></strong>, is:</p>
+<p>y = intercept + slope*percentage.black + error</p>
+<p>If you remember WASSCE maths, this is the straight line formula <code>y = mx + c</code>, where m is the slope of the straight line and c is the intercept where the line meets the y axis with the addition of what statisticians call, unfortunately, error. In fact error is anything that may account for uncertainty and so an imperfect fit. This could be measurement error on the nose markings, but also other variables, not measured and so not in this model, that may influence nose markings, for example the lifetime health of a lion. It is unlikely can nose marking will perfectly predict age, like tree rings.</p>
+<p>Slope and Intercept are <strong>parameters</strong>, for which m1, constrained as a straight line model, will select measures, given the data, which are in some mathematical sense a best fit of the data to the line.</p>
+<p>At this stage, I do not want to complicate things with discussing whether classical or Bayesian inference should be used. We shall dodge the issue for now by running the model with the Bayesian inference package <code>rstanarm</code> with flat priors, which is identical to a classical fit. This may mean nothing, but don’t worry for now. We will return to this. Let’s run the code (<code>Code 3.4</code>) and print the R output (<code>Code 3.5</code>). Read carefully the code annotation note in Code 3.4, which describes the R syntax for writing a model.</p>
+<div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
-<summary>Code 3.4 Simple linear model; classical and Bayesian</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Code 3.4 Simple linear model</summary>
+<div class="sourceCode cell-code" id="annotated-cell-4" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1">1</button><span id="annotated-cell-4-1" class="code-annotation-target"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses,</span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">prior_intercept =</span> <span class="cn">NULL</span>, <span class="at">prior =</span> <span class="cn">NULL</span>, <span class="at">prior_aux =</span> <span class="cn">NULL</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="1,2" data-code-annotation="1">This is our first specification of a model in R, so worth looking at in detail, as most R modelling code is similar. The function <code>stan_glm</code> names the inferential method, in this case Bayesian inference from the <code>rstnarm</code> package. The tilde <code>~</code> separates the left and right sides of the equation. To the left is the outcome (age) and to the right the predictors, in this case just percentage.black. The data is specified, usually from the name of the file loaded into the R Studio environment. There may then be extra <strong><em>arguments</em></strong>, in this example specifying the priors to make the Bayesian model identical to a classical model. The assigment symbol <code>&lt;-</code> saves the output of the model as an object <code>m1</code> which is visible in the R Studio environment.</span>
+</dd>
+</dl>
 </div>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">classical</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Bayesian</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="cell">
+</div>
+<div class="cell" data-code-block-bg="true" data-highlight-style="github" data-source-line-numbers="1" data-output-line-numbers="7-9,12-13">
 <details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = age ~ percentage.black, data = lion_noses)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--2.5449 -1.1117 -0.5285  0.9635  4.3421 
-
-Coefficients:
-                 Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)        0.8790     0.5688   1.545    0.133    
-percentage.black   0.1065     0.0151   7.053 7.68e-08 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 1.669 on 30 degrees of freedom
-Multiple R-squared:  0.6238,    Adjusted R-squared:  0.6113 
-F-statistic: 49.75 on 1 and 30 DF,  p-value: 7.677e-08</code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Code 3.5 model 1 output</summary>
+<div class="sourceCode cell-code" id="cb1" data-source-line-numbers="1" data-code-line-numbers="1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>stan_glm
- family:       gaussian [identity]
- formula:      age ~ percentage.black
- observations: 32
- predictors:   2
-------
-                 Median MAD_SD
-(Intercept)      0.9    0.6   
-percentage.black 0.1    0.0   
-
-Auxiliary parameter(s):
-      Median MAD_SD
-sigma 1.7    0.2   
-
-------
-* For help interpreting the printed output see ?print.stanreg
-* For info on the priors used see ?prior_summary.stanreg</code></pre>
+<div class="sourceCode" id="cb2" data-output-line-numbers="7-9,12-13" data-code-line-numbers="7-9,12-13"><pre class="sourceCode numberSource highlight numberLines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>stan_glm</span>
+<span id="cb2-2"><a href="#cb2-2"></a> family:       gaussian [identity]</span>
+<span id="cb2-3"><a href="#cb2-3"></a> formula:      age ~ percentage.black</span>
+<span id="cb2-4"><a href="#cb2-4"></a> observations: 32</span>
+<span id="cb2-5"><a href="#cb2-5"></a> predictors:   2</span>
+<span id="cb2-6"><a href="#cb2-6"></a>------</span>
+<span id="cb2-7"><a href="#cb2-7"></a>                 Median MAD_SD</span>
+<span id="cb2-8"><a href="#cb2-8"></a>(Intercept)      0.9    0.6   </span>
+<span id="cb2-9"><a href="#cb2-9"></a>percentage.black 0.1    0.0   </span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a>Auxiliary parameter(s):</span>
+<span id="cb2-12"><a href="#cb2-12"></a>      Median MAD_SD</span>
+<span id="cb2-13"><a href="#cb2-13"></a>sigma 1.7    0.2   </span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a>------</span>
+<span id="cb2-16"><a href="#cb2-16"></a>* For help interpreting the printed output see ?print.stanreg</span>
+<span id="cb2-17"><a href="#cb2-17"></a>* For info on the priors used see ?prior_summary.stanreg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell">
+<p>When the model m1 is run, a large amount of information is saved into m1, now visible in the R Studio environment. The essentials for interpreting the model are shown above, with the <code>print(m1)</code> command, but we could also look at any of the 27 stored objects individually, most of which we will not use, for example the coefficients with <code>m1$coefficients</code>, which gives the same information as the Median column in the summary, although to more decimal places. This option to look more carefully at the output, rather than be presented with just a summary, is distinctive to R and other coding softwares.</p>
+<p>The output is telling us, for now ignoring statistical uncertainty, that the best fit to the proposed model <code>y = intercept + slope*percentage.black + error</code> is:</p>
+<p style="text-align: center;">
+<b>age = 0.9 + 0.1*percentage.black</b>
+</p>
+<p>Let’s plot this.</p>
+<div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
-<summary>Code 3.4 Comparison of simple linear regression with classical and Bayesian inference</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">26</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">5</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="st">"y = 0.9 + 0.1x"</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(lion_noses, <span class="fu">aes</span>(percentage.black, age)) <span class="sc">+</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fl">0.9</span>, <span class="at">slope =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"percentage black on nose"</span>) <span class="sc">+</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"age (years)"</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(lion_noses, <span class="fu">aes</span>(percentage.black, age)) <span class="sc">+</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fl">0.9</span>, <span class="at">slope =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"percentage black on nose"</span>) <span class="sc">+</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"age (years)"</span>) </span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">geom_label</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(x,y, <span class="at">label =</span> label),</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">"black"</span>,</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Code 3.6 A plot of the simple linear regression for model 1</summary>
+<div class="sourceCode cell-code" id="cb3" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(lion_noses, <span class="fu">aes</span>(percentage.black, age)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fl">0.9</span>, <span class="at">slope =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"percentage black on nose"</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"age (years)"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">26</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">5</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="st">"y = 0.9 + 0.1x"</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">geom_label</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(x,y, <span class="at">label =</span> label),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/">sam csik’s blog</a> article has instructions and code, how to add footnotes and a bibliography and citations and how to populate margins. Use these.</p>
+<div class="cell" data-code-block-bg="true" data-highlight-style="github">
+<details class="code-fold">
+<summary>Code 3.6 A comparison of classical and Bayesian models</summary>
+<div class="sourceCode cell-code" id="cb4" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"OLS classical"</span> <span class="ot">=</span> <span class="fu">lm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"OLS rstanarm default priors"</span> <span class="ot">=</span> <span class="fu">stan_glm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"OLS rstnarm flat priors"</span> <span class="ot">=</span> <span class="fu">stan_glm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses, <span class="at">prior_intercept =</span> <span class="cn">NULL</span>, <span class="at">prior =</span> <span class="cn">NULL</span>, <span class="at">prior_aux =</span> <span class="cn">NULL</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-code-block-bg="true" data-highlight-style="github">
+<details class="code-fold">
+<summary>Code 3.7 A comparison of classical and Bayesian models</summary>
+<div class="sourceCode cell-code" id="cb5" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models, <span class="at">gof_map =</span> <span class="cn">NA</span>, <span class="at">statistic =</span> <span class="st">'conf.int'</span>, <span class="at">conf_level =</span> <span class="fl">0.95</span>, <span class="at">stars =</span> <span class="cn">TRUE</span>, <span class="at">shape =</span> term <span class="sc">~</span> model <span class="sc">+</span> statistic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script>
+      function styleCell_jsjzra9olicws7k5bxwf(i, j, css_id) {
+        var table = document.getElementById("tinytable_jsjzra9olicws7k5bxwf");
+        table.rows[i].cells[j].classList.add(css_id);
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_jsjzra9olicws7k5bxwf');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_jsjzra9olicws7k5bxwf(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_jsjzra9olicws7k5bxwf");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(0, 0, 'tinytable_css_idv7n1k4iq6ashwcxee9oa') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(0, 1, 'tinytable_css_idztsrf3eopywg39mtp2y2') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(0, 2, 'tinytable_css_idztsrf3eopywg39mtp2y2') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(0, 3, 'tinytable_css_idztsrf3eopywg39mtp2y2') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(0, 4, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(0, 5, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(0, 6, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(0, 7, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(0, 8, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(0, 9, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(1, 0, 'tinytable_css_idzsk22pkz6idej4z5o01o') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(1, 1, 'tinytable_css_id4t165peu3j7wv7cwebhv') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(1, 2, 'tinytable_css_id4t165peu3j7wv7cwebhv') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(1, 3, 'tinytable_css_id4t165peu3j7wv7cwebhv') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(1, 4, 'tinytable_css_id4t165peu3j7wv7cwebhv') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(1, 5, 'tinytable_css_id4t165peu3j7wv7cwebhv') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(1, 6, 'tinytable_css_id4t165peu3j7wv7cwebhv') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(1, 7, 'tinytable_css_id4t165peu3j7wv7cwebhv') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(1, 8, 'tinytable_css_id4t165peu3j7wv7cwebhv') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(1, 9, 'tinytable_css_id4t165peu3j7wv7cwebhv') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(2, 0, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(2, 1, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(2, 2, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(2, 3, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(2, 4, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(2, 5, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(2, 6, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(2, 7, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(2, 8, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(2, 9, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(3, 0, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(3, 1, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(3, 2, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(3, 3, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(3, 4, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(3, 5, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(3, 6, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(3, 7, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(3, 8, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(3, 9, 'tinytable_css_iddzvconetci9wtj0zdwmy') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(4, 0, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(4, 1, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(4, 2, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(4, 3, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(4, 4, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(4, 5, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(4, 6, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(4, 7, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(4, 8, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+window.addEventListener('load', function () { styleCell_jsjzra9olicws7k5bxwf(4, 9, 'tinytable_css_idt5i8r4ap6lhqid9ivbmg') })
+    </script>
+
+    <style>
+    .table td.tinytable_css_idv7n1k4iq6ashwcxee9oa, .table th.tinytable_css_idv7n1k4iq6ashwcxee9oa {  text-align: center;  text-align: left; }
+    .table td.tinytable_css_idztsrf3eopywg39mtp2y2, .table th.tinytable_css_idztsrf3eopywg39mtp2y2 {  text-align: center;  border-bottom: solid 0.05em #d3d8dc; }
+    .table td.tinytable_css_iddzvconetci9wtj0zdwmy, .table th.tinytable_css_iddzvconetci9wtj0zdwmy {  text-align: center; }
+    .table td.tinytable_css_idzsk22pkz6idej4z5o01o, .table th.tinytable_css_idzsk22pkz6idej4z5o01o {  text-align: left;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_id4t165peu3j7wv7cwebhv, .table th.tinytable_css_id4t165peu3j7wv7cwebhv {  text-align: center;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idt5i8r4ap6lhqid9ivbmg, .table th.tinytable_css_idt5i8r4ap6lhqid9ivbmg {  text-align: left; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_jsjzra9olicws7k5bxwf" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+<tr>
+<th scope="col" align="center" colspan="1"> </th>
+<th scope="col" align="center" colspan="3">OLS classical</th>
+<th scope="col" align="center" colspan="3">OLS rstanarm default priors</th>
+<th scope="col" align="center" colspan="3">OLS rstnarm flat priors</th>
+</tr>
+        
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">Est.</th>
+                <th scope="col">2.5 %</th>
+                <th scope="col">97.5 %</th>
+                <th scope="col">Est.</th>
+                <th scope="col">2.5 %</th>
+                <th scope="col">97.5 %</th>
+                <th scope="col">Est.</th>
+                <th scope="col">2.5 %</th>
+                <th scope="col">97.5 %</th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan="10">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>(Intercept)     </td>
+                  <td>0.879   </td>
+                  <td>-0.283</td>
+                  <td>2.041</td>
+                  <td>0.892</td>
+                  <td>-0.317</td>
+                  <td>2.059</td>
+                  <td>0.876</td>
+                  <td>-0.313</td>
+                  <td>2.114</td>
+                </tr>
+                <tr>
+                  <td>percentage.black</td>
+                  <td>0.106***</td>
+                  <td>0.076 </td>
+                  <td>0.137</td>
+                  <td>0.106</td>
+                  <td>0.075 </td>
+                  <td>0.138</td>
+                  <td>0.107</td>
+                  <td>0.075 </td>
+                  <td>0.138</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+<div class="cell" data-code-block-bg="true" data-highlight-style="github">
+<details class="code-fold">
+<summary>Code 3.9 A plot with CIs</summary>
+<div class="sourceCode cell-code" id="cb6" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelplot</span>(models, <span class="at">coef_omit =</span> <span class="st">"(Intercept)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre data-code-line-numbers=""><code>Warning: 
+`modelsummary` uses the `performance` package to extract goodness-of-fit
+statistics from models of this class. You can specify the statistics you wish
+to compute by supplying a `metrics` argument to `modelsummary`, which will then
+push it forward to `performance`. Acceptable values are: "all", "common",
+"none", or a character vector of metrics names. For example: `modelsummary(mod,
+metrics = c("RMSE", "R2")` Note that some metrics are computationally
+expensive. See `?performance::performance` for details.
+ This warning appears once per session.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -621,25 +805,33 @@ Tip with Title
 </div>
 <div class="cell">
 <details class="code-fold">
-<summary>Code 3.5 Plot uncertainty</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_epred_draws</span>(m2) <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .epred), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.95</span>)) <span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Oranges"</span>) <span class="sc">+</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Code 3.7 Plot uncertainty</summary>
+<div class="sourceCode cell-code" id="cb8" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_epred_draws</span>(m1) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .epred), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.95</span>)) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Oranges"</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>final section shiny app?? Check Morega</p>
 </section>
+</section>
+<section id="notes-on-stuff-to-addadded" class="level3">
+<h3 class="anchored" data-anchor-id="notes-on-stuff-to-addadded">Notes on stuff to add/added</h3>
+<p>added quarto <a href="https://github.com/shafayetShafee/line-highlight#line-highlight-extension-for-quarto">line-highlight</a> extension for highlighting code, including output code</p>
+<p>final section shiny app??</p>
+<p>Check Paula Morega</p>
+<p>add labels to code chunks <a href="https://github.com/kazuyanagimoto/quarto-awesomecv-typst">cv quarto template</a></p>
+<p>add <a href="https://books.ropensci.org/targets/literate-programming.html">targets</a></p>
+<p><a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/">sam csik’s blog</a> article has instructions and code, how to add footnotes and a bibliography and citations and how to populate margins. Use these. also recommends <a href="https://www.w3schools.com/cssref/pr_font_weight.php">W3 schools for css/scss/html</a></p>
 </section>
 <section id="refs-to-add" class="level3">
 <h3 class="anchored" data-anchor-id="refs-to-add">refs to add</h3>
@@ -653,8 +845,20 @@ Tip with Title
 <div id="ref-Cox_Donnelly_2011" class="csl-entry" role="listitem">
 Cox, D. R., and Christl A. Donnelly. 2011. <em>Principles of Applied Statistics</em>. Cambridge University Press.
 </div>
+<div id="ref-fieberg2024" class="csl-entry" role="listitem">
+Fieberg, John. 2024. <em>Statistics for Ecologists: A Frequentist and Bayesian Treatment of Modern Regression Models</em>. University of Minnesota Libraries Publishing. <a href="https://doi.org/10.24926/9781959870029">https://doi.org/10.24926/9781959870029</a>.
+</div>
+<div id="ref-Fox_Weisberg_2018" class="csl-entry" role="listitem">
+Fox, John, and Sanford Weisberg. 2018. <em>An <span>R</span> Companion to Applied Regression</em>. 3rd Edition. Sage Publications.
+</div>
 <div id="ref-Gelman_Hill_Vehtari_2020" class="csl-entry" role="listitem">
 Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. <em>Regression and Other Stories</em>. Analytical Methods for Social Research. Cambridge University Press.
+</div>
+<div id="ref-loveridge2023" class="csl-entry" role="listitem">
+Loveridge, Andrew J., Matthew Wijers, Roseline Mandisodza-Chikerema, David W. Macdonald, and Guillaume Chapron. 2023. <span>“Anthropogenic Edge Effects and Aging Errors by Hunters Can Affect the Sustainability of Lion Trophy Hunting.”</span> <em>Scientific Reports</em> 13 (1). <a href="https://doi.org/10.1038/s41598-022-25020-9">https://doi.org/10.1038/s41598-022-25020-9</a>.
+</div>
+<div id="ref-whitman2004" class="csl-entry" role="listitem">
+Whitman, Karyl, Anthony M. Starfield, Henley S. Quadling, and Craig Packer. 2004. <span>“Sustainable Trophy Hunting of African Lions.”</span> <em>Nature</em> 428 (6979): 175–78. <a href="https://doi.org/10.1038/nature02395">https://doi.org/10.1038/nature02395</a>.
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{2024,
   author = {},
@@ -1289,4 +1493,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.js" defer="true"></script>
 </body></html>
