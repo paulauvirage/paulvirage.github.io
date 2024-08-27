@@ -20,7 +20,7 @@ To start, click on the arrow in the "Document structure" box, below.
 
 This tutorial assumes that you are working in R Studio.
 
-The main text followed is [@Gelman_Hill_Vehtari_2020], available for [free download](https://avehtari.github.io/ROS-Examples/index.html). Supplementary recommended books are [@Fox_Weisberg_2018].
+The main text followed is [@Gelman_Hill_Vehtari_2020], available for [free download](https://avehtari.github.io/ROS-Examples/index.html). Supplementary recommended books are [@Fox_Weisberg_2018], [@Alexander_2023] available [free to read online](https://tellingstorieswithdata.com/).
 
 As with all posts in this group, the main text is interspersed with two types of blocks.
 
@@ -146,6 +146,8 @@ library(gridExtra)                                                            # 
 library(modelsummary)                                                         # <1>
 library(kableExtra)                                                           # <1> 
 library(gt)                                                                   # <1>
+library(rstantools)                                                           # <1>
+library(tidybayes)                                                            # <1>
 ```
 
 1.  The first lines of any `R` script usually add packages from your library into your current work session with the `library` function. If you do not have one or more of these packages installed you will need to first run `install.packages(abd)` etc or alternatively, if the package is on`CRAN` (Comprehensive R Archive Network's 21,000 packages) use the package -\> install button in R Studio's lower right window and follow the instructions.
@@ -186,7 +188,7 @@ ggplot(lion_noses, aes(percentage.black, age)) +          # <2>
   ylab("Age (years)") +                                   # <5>
     annotate("rect", xmin = 5, xmax = 35, ymin = 0.5,     # <6>      
              ymax = 4.8, alpha = .1,fill = "blue") +      # <6>
-    annotate("text", x = 22, y = 0, label = "91% of lions under 5 years have less than 40% nose black", colour = "blue", size = 3) +                 # <6>
+    annotate("text", x = 22, y = 0, label = "91% of lions under 5 years have 40% or less nose black", colour = "blue", size = 3) +                 # <6>
     annotate("rect", xmin = 41, xmax = 80, ymin =5,       # <6>
              ymax = 9, alpha = .1,fill = "green") +
     annotate("text", x = 60, y = 9.6, label = "70% of lions over 5 years have more than 40% nose black", colour = "green", size = 3)              # <6>
@@ -203,7 +205,7 @@ The scatterplot above (from Code 3.3) shows that there is a trend of increased b
 
 add quote on stats being extracting meaning/information from data, but add best possible information, so the meaning is in the model, ble/green box example just a poor model. he non model is usggesting all we need to know is in the data, whilst we know it is imprecise (sampling variability) and the meaning is in a model. Model vs non model.
 
-#### Model formulation and inference
+#### Step 5. Model formulation and inference
 
 Certainly there is, with variability, an increase in nose markings with age. The first model fit, which we may complicate later, is to suggest a straight line fit. As our data have only one predictor this is a **simple linear regression** with nose markings predicting age.
 
@@ -215,7 +217,7 @@ If you remember WASSCE maths, this is the straight line formula `y = mx + c`, wh
 
 Slope and Intercept are **parameters**, for which m1, constrained as a straight line model, will select measures, given the data, which are in some mathematical sense a best fit of the data to the line. 
 
-At this stage, I do not want to complicate things with discussing whether classical or Bayesian inference should be used. We shall dodge the issue for now by running the model with the Bayesian inference package `rstanarm` with flat priors, which is identical to a classical fit. This may mean nothing, but don't worry for now. We will return to this.  Let's run the code (`Code 3.4`) and print the R output (`Code 3.5`). Read carefully the code annotation note in Code 3.4, which describes the R syntax for writing a model. 
+At this stage, I do not want to complicate things with discussing whether classical or Bayesian inference should be used. We shall dodge the issue for now by running the model with the Bayesian inference package `rstanarm` with flat priors, which is identical to a classical fit. This may mean nothing, but don't worry for now. We will return to this.  Let's run the model with (`Code 3.4`) and print the R output (`Code 3.5`). Read carefully the code annotation note in Code 3.4, which describes the R syntax for writing a model. 
 
 ---
 code-annotations: select
@@ -233,7 +235,7 @@ m1 <- stan_glm(age ~ percentage.black, data = lion_noses,                     # 
 
 ```
 
-1. This is our first specification of a model in R, so worth looking at in detail, as most R modelling code is similar. The function `stan_glm` names the inferential method, in this case Bayesian inference from the `rstnarm` package. The tilde `~` separates the left and right sides of the equation. To the left is the outcome (age) and to the right the predictors, in this case just percentage.black. The data is specified, usually from the name of the file loaded into the R Studio environment. There may then be extra ***arguments***, in this example specifying the priors to make the Bayesian model identical to a classical model. The assigment symbol `<-` saves the output of the model as an object `m1` which is visible in the R Studio environment.     
+1. This is our first specification of a model in R, so worth looking at in detail, as most R modelling code is similar. The function `stan_glm` names the inferential method, in this case Bayesian inference from the `rstnarm` package. The tilde `~` separates the left and right sides of the equation. To the left is the outcome (age) and to the right the predictors, in this case just percentage.black. The data to be used is specified, usually from the name of a file loaded into the R Studio environment. There may then be extra ***arguments***, in this example specifying the priors to make the Bayesian model identical to a classical model. The assigment symbol `<-` saves the output of the model as an object `m1` which is visible in the R Studio environment.     
 
 ---
 code-annotations: select
@@ -246,18 +248,18 @@ code-annotations: select
 #| source-line-numbers: "1"
 #| class-output: "highlight numberLines"
 #| output-line-numbers: "7-9,12-13"
-print(m1)
+print(m1, digits = 3)
 ```
 
-When the model m1 is run, a large amount of information is saved into m1, now visible in the R Studio environment. The essentials for interpreting the model are shown above, with the `print(m1)` command, but we could also look at any of the 27 stored objects individually, most of which we will not use, for example the coefficients with `m1$coefficients`, which gives the same information as the Median column in the summary, although to more decimal places. This option to look more carefully at the output, rather than be presented with just a summary, is distinctive to R and other coding softwares.
+When the model m1 is run, a large amount of information is saved into m1, now visible in the R Studio environment. The essentials for interpreting the model are shown above, with the `print(m1)` command, but we could also look at any of the 27 stored objects individually, most of which we will not use, for example the coefficients (lines 8-9 above, hover over the code output) with `m1$coefficients`, which gives the same information as the Median column in the summary, although to more decimal places. This option to look more carefully at the output, rather than be presented with just a summary, is distinctive to R and other coding softwares.
 
-The output is telling us, for now ignoring statistical uncertainty, that the best fit to the proposed model `y = intercept + slope*percentage.black + error` is:
+The output is telling us (lines 7-9 highlighted), for now ignoring statistical uncertainty, that the best fit to the proposed model `y = intercept + slope*percentage.black + error` is:
 
 
 <p style="text-align: center;"><b>age = 0.9 + 0.1*percentage.black</b></p>
 
 
-Let's plot this.
+Let's plot this line and the data.
 
 ---
 code-annotations: select
@@ -286,9 +288,25 @@ p1 + geom_label(data = df, aes(x,y, label = label),
     xlim(0, 80)
 ```
 
+Let's plug some numbers into the equation. Three lions L1, L2 and L3 are photographed in the field and subsequent investigation of the image estimates 42%, 50% and 60% nose markings. Using R as a pocket calculator,  L1's estimated age is given by the R code `0.9 + 0.1*42` = 5.1 years, L2's `0.9 + 0.1*50` = 5.9 years and L3's `0.9 + 0.1*60` = 6.9 years. As our model is a monotonic line (no curves), change in y as determined by the slope is constant and the general result is that;
+
+**A 10% increase in nose markings equates to a 1 year increase in age**.
+
+If our model is correct, which we shall need to check, it is a better method of selecting which lions to hunt for trophies than the ad-hoc model, which assumed a lion with 40% nose markings was under 5 years. L1 met that threshold, but only just. If our measurer had been in a hurry and making small mistakes, whereas the actual measure was 40%, L1's age should have been modelled as `0.9 +0.1*40` = 4.9 years and he could have not been made available to trophy hunters. CHECK THIS    
+
+The standard error for the slope (MAD_SD on line 9 of the model output `Code 3.5`) is 0.015, so the model as a slope of, to two decimal places, 0.11 +/- 0.01 and the 95% interval
 
 ```{r}
-#| code-summary: "Code 3.6 A comparison of classical and Bayesian models"
+#| message: false
+#| code-summary: "Code 3.7 Print the Confidence Intervals for model 1"
+#| code-block-bg: true
+#| highlight-style: github
+round(posterior_interval(m1, prob = 0.95), 2)
+```
+
+
+```{r}
+#| code-summary: "Code 3.9 A comparison of classical and Bayesian models"
 #| code-block-bg: true
 #| output: false
 #| highlight-style: github
@@ -300,19 +318,11 @@ models <- list(
 ```
 
 ```{r}
-#| code-summary: "Code 3.7 A comparison of classical and Bayesian models"
+#| code-summary: "Code 3.10 A comparison of classical and Bayesian models"
 #| code-block-bg: true
 #| highlight-style: github
 #| warning: false
 modelsummary(models, gof_map = NA, statistic = 'conf.int', conf_level = 0.95, stars = TRUE, shape = term ~ model + statistic)
-```
-
-```{r}
-#| message: false
-#| code-summary: "Code 3.9 A plot with CIs"
-#| code-block-bg: true
-#| highlight-style: github
-modelplot(models, coef_omit = "(Intercept)")
 ```
 
 ::: callout-note
@@ -327,15 +337,64 @@ This is an example of a callout with a title.
 
 ```{r}
 #| message: false
-#| code-summary: "Code 3.7 Plot uncertainty"
+#| code-summary: "Code 3.11 Plot mean uncertainty"
 lion_noses %>%
     tidybayes::add_epred_draws(m1) %>%
     ggplot(aes(x = percentage.black, y = age)) +
-    stat_lineribbon(aes(y = .epred), .width = c(0.5, 0.95)) +
+    stat_lineribbon(aes(y = .epred), .width = c(0.5, 0.9), color = "#08519C") +
     geom_point(data = lion_noses) +
-    scale_fill_brewer(palette = "Oranges") +
-    scale_color_brewer(palette = "Set2")
+    scale_fill_brewer()
 ```
+
+```{r}
+#| message: false
+#| code-summary: "Code 3.12 Plot individual uncertainty"
+lion_noses %>%
+    tidybayes::add_predicted_draws(m1) %>%
+    ggplot(aes(x = percentage.black, y = age)) +
+    stat_lineribbon(aes(y = .prediction), .width = c(0.5, 0.9), color = "#08519C") +
+    geom_point(data = lion_noses) +
+    theme_bw() +
+    scale_fill_brewer()
+```
+
+
+```{r}
+#| message: false
+#| warning: false
+#| code-summary: "Code 3.13 Plot mean and individual uncertainty"
+p1 <- lion_noses |> 
+    tidybayes::add_epred_draws(m1) |> 
+    ggplot(aes(x = percentage.black, y = age)) +
+    stat_lineribbon(aes(y = .epred), .width = c(0.5, 0.9), color = "orange") +
+    geom_point(data = lion_noses) +
+    scale_fill_brewer()
+p2 <- lion_noses |>     
+    tidybayes::add_predicted_draws(m1) |> 
+    ggplot(aes(x = percentage.black, y = age)) +
+    stat_lineribbon(aes(y = .prediction), .width = c(0.5, 0.9), color = "#08519C") +
+    geom_point(data = lion_noses) +
+    theme_bw() +
+    scale_fill_brewer()
+
+p3 <- lion_noses |> 
+    tidybayes::add_epred_draws(m1)
+
+p4 <- lion_noses |> 
+    tidybayes::add_predicted_draws(m1)
+
+p3 <- bind_rows(p3, p4)
+
+p3 |> 
+ggplot(aes(x = percentage.black, y = age)) +
+    stat_lineribbon(aes(y = .epred), .width = c(0.95), color = "orange") +
+    stat_lineribbon(aes(y = .prediction), .width = c(0.9), color = "#08519C", alpha = 0.2) +
+    geom_point(data = lion_noses) +
+    theme_bw() +
+    scale_fill_brewer() +
+    guides(fill = FALSE)
+```
+
 
 ### Notes on stuff to add/added 
 
