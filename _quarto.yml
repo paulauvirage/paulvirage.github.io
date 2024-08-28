@@ -35,6 +35,8 @@ format:
     code-summary: "Show the code"
     code-block-border-left: "#900c3f"
     nav-tabs-link-active-border-color: "#900c3f"
+    mermaid:
+      theme: forest
     #css: styles.scss
 
 

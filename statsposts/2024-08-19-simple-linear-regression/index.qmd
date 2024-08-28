@@ -1,8 +1,14 @@
 ---
-title: "3: Simple linear regression"
-description: "An introduction to regression, through modelling with one predictor linearly related to a continuous outcome"
+title: "2: Simple linear regression"
+author: "Paul Robinson"
+description: "An introduction to statistical modelling and inference via regression on one outcome and one predictor"
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
  
-date: 08/21/2024
+date: "8/17/2024"
+date-modified: "8/28/2024"
 categories: [R, regression] # self-defined categories
 citation: 
   url: https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/ 
@@ -31,7 +37,7 @@ As with all posts in this group, the main text is interspersed with two types of
 
 ### Working example - trophy hunting of lions
 
-Trophy hunting of lions, particularly males, is a controversial, but [active](https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!), means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride [@whitman2004], [@loveridge2023]. The amount of black on a lion's nose is the best remote indicator of age . This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package `abd` and has been used for an example of linear regression in the online book [Statistics for ecologists](https://statistics4ecologists-v2.netlify.app/linreg) [@fieberg2024].
+Trophy hunting of lions, particularly males, is a controversial, but [active](https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!), means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride [@whitman2004], [@loveridge2023]. The amount of black on a lion's nose is the best remote indicator of age . This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package `abd` and has been used for an example of linear regression in the online book [Statistics for ecologists](https://statistics4ecologists-v2.netlify.app/linreg) [@fieberg_2024].
 
 ::: {.callout-note collapse="true"}
 ## The advantages of open data
@@ -66,6 +72,18 @@ It is very unlikely that every lion of a certain age will have exactly the same 
 :::
 
 ### Analysis of the lion nose data with R
+
+
+```{mermaid}
+flowchart LR
+  A[Question] --> B(Data)
+  B --> C(Tidy)
+  C --> D(Exploratory analysis)
+  D --> E{Model}
+  E --> F[Interpret]
+  E --> G[Report]
+```
+
 
 ::: {.callout-note collapse="true"}
 ## A recap of the ideal sequence of a statistical investigation
@@ -122,7 +140,7 @@ If you are familiar with software that comes ready packaged with all of its capa
 
 Any analysis usually needs more than the base packages. This course will use an extra 20 or so. You can, with an internet connection, download and install any extra packages onto your computer, where they will be added to your package library (see the packages tab in R Studio's lower right window). As developers work on packages, the changed version needs to be updated on your computer. You will not be prompted to update. In R Studio the packages -\> update tab is available for this. It will, with an internet connection, search for those of your installed packages that have updates and give you the option to install the updated versions. Most packages are less than 1MB in size and few more than 5MB, so I recommend you check and update packages as often as you have a stable internet connection. I have about 100 packages and update (there usually is something to update) daily, but less often is fine.
 
-Once a package is on your computer, it is not yet available to use in your current analysis session. For this you need to import the package from your library, with a line of code using the `library` function; for example `library(marginaleffect)` to import the Marginal Effects package. Repeat this for each package. In writing a script of R code for any work, you usually start with lines to import the necessary packages, as without them the subsequent code depending on them will not run.
+Once a package is on your computer, it is not yet available to use in your current analysis session. For this you need to import the package from your library, with a line of code using the `library` function; for example `library(marginaleffects)` to import the Marginal Effects package. Repeat this for each package. In writing a script of R code for any work, you usually start with lines to import the necessary packages, as without them the subsequent code depending on them will not run.
 :::
 
 ---
@@ -168,13 +186,23 @@ lion_noses <- as.data.frame(LionNoses)                    # <1>
 
 In your R Studio session, two things have changed. In the top right window under the `Environment` tab, the data is now loaded and available for analysis, with a description of the number of observations (measured lions) and variables. Click on the blue button in the left and the variables are listed, with their names and type (numerical). If you click on the white rectangle to the right of the text, the full data set appears as a file in the top right window, in a form known as a dataframe in R. The data is in the correct "tidy" format for analysis; one observation (lion) per row and each variable as a column. Hover over the column title and there is a summary of the variable type and range of values. The data is ready for analysis, which is reassuring. Often if acquiring data from someone else, and especially someone who uses Excel, tidying the data to get it in a format for analysis in R or any other statistical software can be a major piece of work.
 
+```{r}
+#| message: false
+#| code-summary: "Code 3.3 Look at the data"
+#| code-block-bg: true
+#| highlight-style: github
+
+skimr::skim(lion_noses)
+```
+
+
 As our question is whether there is a relation between lion age and nose markings, a suitable exploratory visualisation is a scatterplot of these two variables. By convention, the outcome variable (age) is put on the y axis and the predictor (nose marking) on the x axis. The nose markings are reported as proportions in the original data. Percentages can be more familiar, so lets create a new variable, `percentage.black` by multiplying the proportions by 100 then use this variable in the plot and subsequent analysis (`Code 3.3` below).
 
 ---
 code-annotations: select
 ---
 
-```{r}
+```{r fig.cap='Figure 2.1 Scatterplot of lion nose markings and age, from [@whitman2004].'}
 #| message: false
 #| code-summary: "Code 3.3 Create new variable and plot lion nose data"
 #| code-block-bg: true
@@ -235,7 +263,29 @@ m1 <- stan_glm(age ~ percentage.black, data = lion_noses,                     # 
 
 ```
 
-1. This is our first specification of a model in R, so worth looking at in detail, as most R modelling code is similar. The function `stan_glm` names the inferential method, in this case Bayesian inference from the `rstnarm` package. The tilde `~` separates the left and right sides of the equation. To the left is the outcome (age) and to the right the predictors, in this case just percentage.black. The data to be used is specified, usually from the name of a file loaded into the R Studio environment. There may then be extra ***arguments***, in this example specifying the priors to make the Bayesian model identical to a classical model. The assigment symbol `<-` saves the output of the model as an object `m1` which is visible in the R Studio environment.     
+```{r}
+broom.mixed::tidy(m1, conf.int = TRUE)
+```
+
+
+1. This is our first specification of a model in R, so worth looking at in detail, as most R modelling code is similar. The function `stan_glm` names the inferential method, in this case Bayesian inference from the `rstnarm` package. The tilde `~` separates the left and right sides of the equation. To the left is the outcome (age) and to the right the predictors, in this case just percentage.black. The data to be used is specified, usually from the name of a file loaded into the R Studio environment. There may then be extra ***arguments***, in this example specifying the priors to make the Bayesian model identical to a classical model. The assigment symbol `<-` saves the output of the model as an object `m1` which is visible in the R Studio environment. 
+
+##### Modelling process (following ROS chs 7-9)
+
+::: {.callout-note collapse="false"}
+### ROS Ch 7 summary 
+As discussed in Chapter 1, regression is fundamentally a technology for predicting an outcome y from inputs x 1, x 2, . . . . In this chapter we introduce regression in the simple (but not trivial) case of a linear model predicting a continuous y from a single continuous x, thus fitting the model yi = a + bx i + error to data (x i, yi ), i = 1, . . . , n. We demonstrate with an applied example that includes the steps of fitting the model, displaying the data and fitted line, and interpreting the fit. We then show how to check the fitting procedure using fake-data simulation, and the chapter concludes with an explanation of how linear regression includes simple comparison as a special case.
+:::
+
+Chapter 7 sequence
+
+- read in the data, having tidied first if necessary
+  - made easy on this occasion as the data is in an R package and is tidy (one row per observation, one column per variable)
+- define your model
+  - For the first and simplest model (m1) assume there is a straight line relation between the outcome (age) and the predictor (nose markings), though with uncertainty ("error") due to one or all of sampling error, measurement error and model error. Our model is therefore the straight line equation 'y = a + bx' plus error, where a is the intercept (where the line meets the y axis) and x is the slope. So, `age = a + b*percentage.black + error`    
+- convert the model into R code
+  - There are several inference machines in statistics, all available in R. We'll use Bayesian inference via the user-friendly `rstanarm` package, but regularly cross-reference examples to classical inference implements with the `lm` function of R's base package `stats`. With rstanarm our first line of code is `m1 <- stan_glm(age ~ percentage.black, data = lion_noses)` see `Code 3.4` for more explanation  
+
 
 ---
 code-annotations: select
@@ -362,7 +412,7 @@ lion_noses %>%
 ```{r}
 #| message: false
 #| warning: false
-#| code-summary: "Code 3.13 Plot mean and individual uncertainty"
+#| code-summary: "Code 3.13 Plot mean and individual uncertainty combined"
 p1 <- lion_noses |> 
     tidybayes::add_epred_draws(m1) |> 
     ggplot(aes(x = percentage.black, y = age)) +
@@ -383,9 +433,9 @@ p3 <- lion_noses |>
 p4 <- lion_noses |> 
     tidybayes::add_predicted_draws(m1)
 
-p3 <- bind_rows(p3, p4)
+p5 <- bind_rows(p3, p4)
 
-p3 |> 
+p5 |> 
 ggplot(aes(x = percentage.black, y = age)) +
     stat_lineribbon(aes(y = .epred), .width = c(0.95), color = "orange") +
     stat_lineribbon(aes(y = .prediction), .width = c(0.9), color = "#08519C", alpha = 0.2) +
@@ -396,9 +446,26 @@ ggplot(aes(x = percentage.black, y = age)) +
 ```
 
 
+```{r}
+#| message: false
+#| warning: false
+#| code-summary: "Code 3.14 Plot mean and individual uncertainty side by side"
+grid.arrange(p1, p2, ncol = 2)
+```
+
+#### Present conclusions
+
+yaba yaba
+
+#### Interpret in subject matter terms 
+
+##### Shiny app
+
+It is often useful in communicating your results to have an interactive app that can, in this case, allow someone to enter a nose marking measure and get output on the lion's age with the model hidden. This has become increasingly easy in R with [Shiny](https://shiny.posit.co/). We'll follow the official Shiny website and also a nice example on spatio-temporal data from [@Morega_2020] which is [free online](https://www.paulamoraga.com/book-geospatial/) 
+
 ### Notes on stuff to add/added 
 
-added quarto [line-highlight](https://github.com/shafayetShafee/line-highlight#line-highlight-extension-for-quarto) extension for highlighting code, including output code
+added quarto [line-highlight](https://github.com/shafayetShafee/line-highlight#line-highlight-extension-for-quarto) extension for highlighting code, including output code and [fontawesome](https://github.com/quarto-ext/fontawesome) for icons
 
 final section shiny app??
 
@@ -410,6 +477,7 @@ add [targets](https://books.ropensci.org/targets/literate-programming.html)
 
 [sam csik's blog](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/) article has instructions and code, how to add footnotes and a bibliography and citations and how to populate margins. Use these. also recommends [W3 schools for css/scss/html](https://www.w3schools.com/cssref/pr_font_weight.php)
 
-### refs to add
+### refs and open books to add
 
-Loveridge, A.J., Wijers, M., Mandisodza-Chikerema, R. et al. Anthropogenic edge effects and aging errors by hunters can affect the sustainability of lion trophy hunting. Sci Rep 13, 95 (2023). https://doi.org/10.1038/s41598-022-25020-9 Whitman, K., Starfield, A. M., Quadling, H. S., & Packer, C. (2004). Sustainable trophy hunting of african lions. Nature, 428(6979), 175.
+[R for Data Science 2e](https://r4ds.hadley.nz/) and [source code on GitHub](https://github.com/hadley/r4ds)
+[Tidy Modeling with R](https://www.tmwr.org/)
