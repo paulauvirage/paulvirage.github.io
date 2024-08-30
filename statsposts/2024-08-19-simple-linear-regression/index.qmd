@@ -168,6 +168,8 @@ library(rstantools)                                                           # 
 library(tidybayes)                                                            # <1>
 library(patchwork)                                                            # <1>
 library(Hmisc)                                                                # <1>
+library(broom.mixed)                                                          # <1>
+library(janitor)                                                              # <1>
 ```
 
 1.  The first lines of any `R` script usually add packages from your library into your current work session with the `library` function. If you do not have one or more of these packages installed you will need to first run `install.packages(abd)` etc or alternatively, if the package is on`CRAN` (Comprehensive R Archive Network's 21,000 packages) use the package -\> install button in R Studio's lower right window and follow the instructions.
@@ -265,14 +267,22 @@ m1 <- stan_glm(age ~ percentage.black, data = lion_noses,                     # 
 
 ```
 
+1. This is our first specification of a model in R, so worth looking at in detail, as most R modelling code is similar. The function `stan_glm` names the inferential method, in this case Bayesian inference from the `rstnarm` package. The tilde `~` separates the left and right sides of the equation. To the left is the outcome (age) and to the right the predictors, in this case just percentage.black. The data to be used is specified, usually from the name of a file loaded into the R Studio environment. There may then be extra ***arguments***, in this example specifying the priors to make the Bayesian model identical to a classical model. The assigment symbol `<-` saves the output of the model as an object `m1` which is visible in the R Studio environment. 
+
+some text
 
 ```{r}
 #| code-summary: "Output from broom.mixed"
-broom.mixed::tidy(m1, conf.int = TRUE)
+broom.mixed::tidy(m1, effects = c("fixed", "aux"), 
+                  conf.int = TRUE, conf.level = 0.90) |> 
+    gt() |>
+    fmt_number(decimals = 3) |> 
+     tab_header(
+    title = "Model 1 parameter estimates and confidence intervals",
+    subtitle = "Extracted from the rstanarm object"
+  )
 ```
 
-
-1. This is our first specification of a model in R, so worth looking at in detail, as most R modelling code is similar. The function `stan_glm` names the inferential method, in this case Bayesian inference from the `rstnarm` package. The tilde `~` separates the left and right sides of the equation. To the left is the outcome (age) and to the right the predictors, in this case just percentage.black. The data to be used is specified, usually from the name of a file loaded into the R Studio environment. There may then be extra ***arguments***, in this example specifying the priors to make the Bayesian model identical to a classical model. The assigment symbol `<-` saves the output of the model as an object `m1` which is visible in the R Studio environment. 
 
 ##### Modelling process (following ROS chs 6-9)
 
@@ -287,6 +297,7 @@ As discussed in Chapter 1, regression is fundamentally a technology for predicti
 :::
 
 ::: {.callout-note collapse="false"}
+### Ros Ch8 summary
 Most of this book is devoted to examples and tools for the practical use and understanding of regression models, starting with linear regression with a single predictor and moving to multiple predictors, nonlinear models, and applications in prediction and causal inference. In this chapter we lay out some of the mathematical structure of inference for regression models and some algebra to help understand estimation for linear regression. We also explain the rationale for the use of the Bayesian fitting routine `stan_glm` and its connection to classical linear regression. This chapter thus provides background and motivation for the mathematical and computational tools used in the rest of the book.
 :::
 
@@ -305,7 +316,7 @@ Chapter 7 sequence
   
 ```{r}
 #| warning: false
-modelsummary(m1, gof_map = NA, statistic = 'conf.int', conf_level = 0.95, shape = term ~ model + statistic)
+modelsummary(m1, gof_map = NA, statistic = 'conf.int', conf_level = 0.9, shape = term ~ model + statistic)
 ```
   
 | parameter  | estimate  | uncertainty  |
@@ -336,19 +347,6 @@ printL(
 )
 ```
 
-```{r}
-#| column: margin
-#| fig-height: 1
-#| fig-width: 3
-par(mar=c(2, 2, 0, 0), mgp=c(2, .5, 0))
-set.seed(1)
-x <- rnorm(1000)
-hist(x, nclass=40, main='')
-x[1:3] # ordinary output stays put
-knitr::kable(x[1:3]) # html output put in margin
-hist(x, main='')
-```
-
 So the result for $\sigma$ the residual standard deviation means that age will be within +/- 2*1.7 = +/-3.4 years 95% of the time.
 
 The R<sup>2</sup> is given by `R2 <- 1 - sigma(m1)^2 / sd(lion_noses$age)^2`
@@ -374,7 +372,7 @@ print(m1, digits = 3)
 ```
 
 ```{r class.output = "numberLines lineAnchors"}
-#| code-summary: "Code 3.5 model 1 summary"
+#| code-summary: "Code 3.6 model 1 summary"
 #| code-block-bg: true
 #| highlight-style: github
 #| source-line-numbers: "1"
@@ -436,7 +434,7 @@ The standard error for the slope (MAD_SD on line 9 of the model output `Code 3.5
 #| code-summary: "Code 3.7 Print the Confidence Intervals for model 1"
 #| code-block-bg: true
 #| highlight-style: github
-round(posterior_interval(m1, prob = 0.95), 2)
+round(posterior_interval(m1, prob = 0.9), 2)
 ```
 
 ::: {.callout-note collapse="false}
@@ -454,6 +452,8 @@ MAD_SD <- round(apply(sims, 2, mad),3)
 print(cbind(Median, MAD_SD))
        
 ```
+
+
 
 
 ```{r}

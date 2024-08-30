@@ -276,7 +276,7 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
@@ -354,7 +354,7 @@ The objectives of regression
 </div>
 </div>
 </section>
-<section id="analysis-of-the-lion-nose-data-with-r" class="level3 page-columns page-full">
+<section id="analysis-of-the-lion-nose-data-with-r" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-of-the-lion-nose-data-with-r">Analysis of the lion nose data with R</h3>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -481,13 +481,15 @@ Package management in R
 <span id="annotated-cell-1-13"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstantools)</span>
 <span id="annotated-cell-1-14"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidybayes)</span>
 <span id="annotated-cell-1-15"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
+<span id="annotated-cell-1-17"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom.mixed)</span>
+<span id="annotated-cell-1-18"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-annotation">
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16" data-code-annotation="1">The first lines of any <code>R</code> script usually add packages from your library into your current work session with the <code>library</code> function. If you do not have one or more of these packages installed you will need to first run <code>install.packages(abd)</code> etc or alternatively, if the package is on<code>CRAN</code> (Comprehensive R Archive Network’s 21,000 packages) use the package -&gt; install button in R Studio’s lower right window and follow the instructions.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" data-code-annotation="1">The first lines of any <code>R</code> script usually add packages from your library into your current work session with the <code>library</code> function. If you do not have one or more of these packages installed you will need to first run <code>install.packages(abd)</code> etc or alternatively, if the package is on<code>CRAN</code> (Comprehensive R Archive Network’s 21,000 packages) use the package -&gt; install button in R Studio’s lower right window and follow the instructions.</span>
 </dd>
 </dl>
 </div>
@@ -670,7 +672,7 @@ Package management in R
 <p>The scatterplot above (from Code 3.3) shows that there is a trend of increased black on the nose with age, but with variability and with fewer samples for older lions.</p>
 <p>add quote on stats being extracting meaning/information from data, but add best possible information, so the meaning is in the model, ble/green box example just a poor model. he non model is usggesting all we need to know is in the data, whilst we know it is imprecise (sampling variability) and the meaning is in a model. Model vs non model.</p>
 </section>
-<section id="step-5.-model-formulation-and-inference" class="level4 page-columns page-full">
+<section id="step-5.-model-formulation-and-inference" class="level4">
 <h4 class="anchored" data-anchor-id="step-5.-model-formulation-and-inference">Step 5. Model formulation and inference</h4>
 <p>Certainly there is, with variability, an increase in nose markings with age. The first model fit, which we may complicate later, is to suggest a straight line fit. As our data have only one predictor this is a <strong>simple linear regression</strong> with nose markings predicting age.</p>
 <p>The model, let’s call it <strong><em>m1</em></strong>, is:</p>
@@ -678,19 +680,6 @@ Package management in R
 <p>If you remember WASSCE maths, this is the straight line formula <code>y = mx + c</code>, where m is the slope of the straight line and c is the intercept where the line meets the y axis with the addition of what statisticians call, unfortunately, error. In fact error is anything that may account for uncertainty and so an imperfect fit. This could be measurement error on the nose markings, but also other variables, not measured and so not in this model, that may influence nose markings, for example the lifetime health of a lion. It is unlikely can nose marking will perfectly predict age, like tree rings.</p>
 <p>Slope and Intercept are <strong>parameters</strong>, for which m1, constrained as a straight line model, will select measures, given the data, which are in some mathematical sense a best fit of the data to the line.</p>
 <p>At this stage, I do not want to complicate things with discussing whether classical or Bayesian inference should be used. We shall dodge the issue for now by running the model with the Bayesian inference package <code>rstanarm</code> with flat priors, which is identical to a classical fit. This may mean nothing, but don’t worry for now. We will return to this. Let’s run the model with (<code>Code 3.4</code>) and print the R output (<code>Code 3.5</code>). Read carefully the code annotation note in Code 3.4, which describes the R syntax for writing a model.</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Output from broom.mixed</summary>
-<div class="sourceCode cell-code" id="cb2" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>broom.mixed<span class="sc">::</span><span class="fu">tidy</span>(m1, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code># A tibble: 2 × 5
-  term             estimate std.error conf.low conf.high
-  &lt;chr&gt;               &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-1 (Intercept)         0.888    0.602   -0.117      1.89 
-2 percentage.black    0.106    0.0160   0.0801     0.133</code></pre>
-</div>
-</div>
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
 <summary>Code 3.4 Simple linear model</summary>
@@ -706,7 +695,522 @@ Package management in R
 </dl>
 </div>
 </div>
-<section id="modelling-process-following-ros-chs-6-9" class="level5 page-columns page-full">
+<p>some text</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Output from broom.mixed</summary>
+<div class="sourceCode cell-code" id="cb2" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>broom.mixed<span class="sc">::</span><span class="fu">tidy</span>(m1, <span class="at">effects =</span> <span class="fu">c</span>(<span class="st">"fixed"</span>, <span class="st">"aux"</span>), </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.90</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">tab_header</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Model 1 parameter estimates and confidence intervals"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Extracted from the rstanarm object"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="xmkduuvoia" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xmkduuvoia table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xmkduuvoia thead, #xmkduuvoia tbody, #xmkduuvoia tfoot, #xmkduuvoia tr, #xmkduuvoia td, #xmkduuvoia th {
+  border-style: none;
+}
+
+#xmkduuvoia p {
+  margin: 0;
+  padding: 0;
+}
+
+#xmkduuvoia .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xmkduuvoia .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xmkduuvoia .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xmkduuvoia .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xmkduuvoia .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xmkduuvoia .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xmkduuvoia .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xmkduuvoia .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xmkduuvoia .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xmkduuvoia .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xmkduuvoia .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xmkduuvoia .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xmkduuvoia .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xmkduuvoia .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xmkduuvoia .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xmkduuvoia .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xmkduuvoia .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xmkduuvoia .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xmkduuvoia .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xmkduuvoia .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xmkduuvoia .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xmkduuvoia .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xmkduuvoia .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xmkduuvoia .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xmkduuvoia .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xmkduuvoia .gt_left {
+  text-align: left;
+}
+
+#xmkduuvoia .gt_center {
+  text-align: center;
+}
+
+#xmkduuvoia .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xmkduuvoia .gt_font_normal {
+  font-weight: normal;
+}
+
+#xmkduuvoia .gt_font_bold {
+  font-weight: bold;
+}
+
+#xmkduuvoia .gt_font_italic {
+  font-style: italic;
+}
+
+#xmkduuvoia .gt_super {
+  font-size: 65%;
+}
+
+#xmkduuvoia .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xmkduuvoia .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xmkduuvoia .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xmkduuvoia .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xmkduuvoia .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xmkduuvoia .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xmkduuvoia .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xmkduuvoia .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xmkduuvoia div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="5" class="gt_heading gt_title gt_font_normal">Model 1 parameter estimates and confidence intervals</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Extracted from the rstanarm object</th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std.error</th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.low</th>
+<th id="conf.high" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.high</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">(Intercept)</td>
+<td class="gt_row gt_right" headers="estimate">0.890</td>
+<td class="gt_row gt_right" headers="std.error">0.569</td>
+<td class="gt_row gt_right" headers="conf.low">−0.084</td>
+<td class="gt_row gt_right" headers="conf.high">1.862</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">percentage.black</td>
+<td class="gt_row gt_right" headers="estimate">0.106</td>
+<td class="gt_row gt_right" headers="std.error">0.015</td>
+<td class="gt_row gt_right" headers="conf.low">0.081</td>
+<td class="gt_row gt_right" headers="conf.high">0.132</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">sigma</td>
+<td class="gt_row gt_right" headers="estimate">1.718</td>
+<td class="gt_row gt_right" headers="std.error">0.239</td>
+<td class="gt_row gt_right" headers="conf.low">1.402</td>
+<td class="gt_row gt_right" headers="conf.high">2.168</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">mean_PPD</td>
+<td class="gt_row gt_right" headers="estimate">4.308</td>
+<td class="gt_row gt_right" headers="std.error">0.446</td>
+<td class="gt_row gt_right" headers="conf.low">3.573</td>
+<td class="gt_row gt_right" headers="conf.high">5.055</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="modelling-process-following-ros-chs-6-9" class="level5">
 <h5 class="anchored" data-anchor-id="modelling-process-following-ros-chs-6-9">Modelling process (following ROS chs 6-9)</h5>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
@@ -746,7 +1250,7 @@ ROS Ch 7 summary
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Ros Ch8 summary
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -779,18 +1283,18 @@ Note
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb4" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(m1, <span class="at">gof_map =</span> <span class="cn">NA</span>, <span class="at">statistic =</span> <span class="st">'conf.int'</span>, <span class="at">conf_level =</span> <span class="fl">0.95</span>, <span class="at">shape =</span> term <span class="sc">~</span> model <span class="sc">+</span> statistic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(m1, <span class="at">gof_map =</span> <span class="cn">NA</span>, <span class="at">statistic =</span> <span class="st">'conf.int'</span>, <span class="at">conf_level =</span> <span class="fl">0.9</span>, <span class="at">shape =</span> term <span class="sc">~</span> model <span class="sc">+</span> statistic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <!-- preamble start -->
 
     <script>
-      function styleCell_i2v6qjcbp5g3y6m6cboe(i, j, css_id) {
-        var table = document.getElementById("tinytable_i2v6qjcbp5g3y6m6cboe");
+      function styleCell_okl6slkq3ouuydzbl61i(i, j, css_id) {
+        var table = document.getElementById("tinytable_okl6slkq3ouuydzbl61i");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_i2v6qjcbp5g3y6m6cboe');
+        var table = document.getElementById('tinytable_okl6slkq3ouuydzbl61i');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -798,8 +1302,8 @@ Note
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_i2v6qjcbp5g3y6m6cboe(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_i2v6qjcbp5g3y6m6cboe");
+      function spanCell_okl6slkq3ouuydzbl61i(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_okl6slkq3ouuydzbl61i");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -825,34 +1329,34 @@ Note
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(0, 0, 'tinytable_css_idxd4uy0qnp4ieskvuiiap') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(0, 1, 'tinytable_css_idti9dwfp4xfupvqwypd5u') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(0, 2, 'tinytable_css_idoulf2rhizx0ivsrus87v') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(0, 3, 'tinytable_css_idoulf2rhizx0ivsrus87v') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(1, 0, 'tinytable_css_idrd3ulw9alaavft1dgpfc') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(1, 1, 'tinytable_css_idnribd3p77qq14n0fx835') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(1, 2, 'tinytable_css_idnribd3p77qq14n0fx835') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(1, 3, 'tinytable_css_idnribd3p77qq14n0fx835') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(2, 0, 'tinytable_css_id1dtkre9lax7qzsqsem5d') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(2, 1, 'tinytable_css_idoulf2rhizx0ivsrus87v') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(2, 2, 'tinytable_css_idoulf2rhizx0ivsrus87v') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(2, 3, 'tinytable_css_idoulf2rhizx0ivsrus87v') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(3, 0, 'tinytable_css_id1dtkre9lax7qzsqsem5d') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(3, 1, 'tinytable_css_idoulf2rhizx0ivsrus87v') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(3, 2, 'tinytable_css_idoulf2rhizx0ivsrus87v') })
-window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(3, 3, 'tinytable_css_idoulf2rhizx0ivsrus87v') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(0, 0, 'tinytable_css_id7crwgpiex73cpeanadln') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(0, 1, 'tinytable_css_idk2273atcfs3jvjnebtk8') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(0, 2, 'tinytable_css_idd8dackh64xt0j6a96hgc') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(0, 3, 'tinytable_css_idd8dackh64xt0j6a96hgc') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(1, 0, 'tinytable_css_id0ptmz7s1c7fw2nf4462q') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(1, 1, 'tinytable_css_idqa0udqv3j457dounz8ty') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(1, 2, 'tinytable_css_idqa0udqv3j457dounz8ty') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(1, 3, 'tinytable_css_idqa0udqv3j457dounz8ty') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(2, 0, 'tinytable_css_idv1t31czbwtu96vyhustw') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(2, 1, 'tinytable_css_idd8dackh64xt0j6a96hgc') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(2, 2, 'tinytable_css_idd8dackh64xt0j6a96hgc') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(2, 3, 'tinytable_css_idd8dackh64xt0j6a96hgc') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(3, 0, 'tinytable_css_idv1t31czbwtu96vyhustw') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(3, 1, 'tinytable_css_idd8dackh64xt0j6a96hgc') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(3, 2, 'tinytable_css_idd8dackh64xt0j6a96hgc') })
+window.addEventListener('load', function () { styleCell_okl6slkq3ouuydzbl61i(3, 3, 'tinytable_css_idd8dackh64xt0j6a96hgc') })
     </script>
 
     <style>
-    .table td.tinytable_css_idxd4uy0qnp4ieskvuiiap, .table th.tinytable_css_idxd4uy0qnp4ieskvuiiap {  text-align: center;  text-align: left; }
-    .table td.tinytable_css_idti9dwfp4xfupvqwypd5u, .table th.tinytable_css_idti9dwfp4xfupvqwypd5u {  text-align: center;  border-bottom: solid 0.05em #d3d8dc; }
-    .table td.tinytable_css_idoulf2rhizx0ivsrus87v, .table th.tinytable_css_idoulf2rhizx0ivsrus87v {  text-align: center; }
-    .table td.tinytable_css_idrd3ulw9alaavft1dgpfc, .table th.tinytable_css_idrd3ulw9alaavft1dgpfc {  text-align: left;  border-bottom: solid 0.1em #d3d8dc; }
-    .table td.tinytable_css_idnribd3p77qq14n0fx835, .table th.tinytable_css_idnribd3p77qq14n0fx835 {  text-align: center;  border-bottom: solid 0.1em #d3d8dc; }
-    .table td.tinytable_css_id1dtkre9lax7qzsqsem5d, .table th.tinytable_css_id1dtkre9lax7qzsqsem5d {  text-align: left; }
+    .table td.tinytable_css_id7crwgpiex73cpeanadln, .table th.tinytable_css_id7crwgpiex73cpeanadln {  text-align: center;  text-align: left; }
+    .table td.tinytable_css_idk2273atcfs3jvjnebtk8, .table th.tinytable_css_idk2273atcfs3jvjnebtk8 {  text-align: center;  border-bottom: solid 0.05em #d3d8dc; }
+    .table td.tinytable_css_idd8dackh64xt0j6a96hgc, .table th.tinytable_css_idd8dackh64xt0j6a96hgc {  text-align: center; }
+    .table td.tinytable_css_id0ptmz7s1c7fw2nf4462q, .table th.tinytable_css_id0ptmz7s1c7fw2nf4462q {  text-align: left;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idqa0udqv3j457dounz8ty, .table th.tinytable_css_idqa0udqv3j457dounz8ty {  text-align: center;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idv1t31czbwtu96vyhustw, .table th.tinytable_css_idv1t31czbwtu96vyhustw {  text-align: left; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_i2v6qjcbp5g3y6m6cboe" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_okl6slkq3ouuydzbl61i" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
@@ -862,23 +1366,23 @@ window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(3, 
               <tr>
                 <th scope="col"> </th>
                 <th scope="col">Est.</th>
-                <th scope="col">2.5 %</th>
-                <th scope="col">97.5 %</th>
+                <th scope="col">5.0 %</th>
+                <th scope="col">95.0 %</th>
               </tr>
         </thead>
         
         <tbody>
                 <tr>
                   <td>(Intercept)     </td>
-                  <td>0.888</td>
-                  <td>-0.320</td>
-                  <td>2.089</td>
+                  <td>0.890</td>
+                  <td>-0.084</td>
+                  <td>1.862</td>
                 </tr>
                 <tr>
                   <td>percentage.black</td>
                   <td>0.106</td>
-                  <td>0.075 </td>
-                  <td>0.139</td>
+                  <td>0.081 </td>
+                  <td>0.132</td>
                 </tr>
         </tbody>
       </table>
@@ -917,27 +1421,27 @@ window.addEventListener('load', function () { styleCell_i2v6qjcbp5g3y6m6cboe(3, 
 <div class="cell">
 <details class="code-fold">
 <summary>parameters and uncertainty from model matrix (use array?) of posterior simulations</summary>
-<div class="sourceCode cell-code" id="cb5" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(m1)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>estimate_a <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">median</span>(sims[,<span class="dv">1</span>]),<span class="dv">3</span>) </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>estimate_b <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">median</span>(sims[,<span class="dv">2</span>]),<span class="dv">3</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>estimate_c <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">median</span>(sims[,<span class="dv">3</span>]),<span class="dv">3</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ci_a <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">quantile</span>(sims[,<span class="dv">1</span>], <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>),<span class="dv">3</span>))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ci_b <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">quantile</span>(sims[,<span class="dv">2</span>], <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>),<span class="dv">3</span>))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">printL</span>(</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">"the estimated intercept is"</span> <span class="ot">=</span> estimate_a,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">"the estimated slope is"</span><span class="ot">=</span>estimate_b,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="st">"the estimated residual standard deviation is"</span><span class="ot">=</span>estimate_c,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="st">"the intercept cis are"</span><span class="ot">=</span>ci_a,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="st">"the slope cis are"</span><span class="ot">=</span>ci_b</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(m1)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>estimate_a <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">median</span>(sims[,<span class="dv">1</span>]),<span class="dv">3</span>) </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>estimate_b <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">median</span>(sims[,<span class="dv">2</span>]),<span class="dv">3</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>estimate_c <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">median</span>(sims[,<span class="dv">3</span>]),<span class="dv">3</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ci_a <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">quantile</span>(sims[,<span class="dv">1</span>], <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>),<span class="dv">3</span>))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ci_b <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">quantile</span>(sims[,<span class="dv">2</span>], <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>),<span class="dv">3</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">printL</span>(</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">"the estimated intercept is"</span> <span class="ot">=</span> estimate_a,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">"the estimated slope is"</span><span class="ot">=</span>estimate_b,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">"the estimated residual standard deviation is"</span><span class="ot">=</span>estimate_c,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">"the intercept cis are"</span><span class="ot">=</span>ci_a,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">"the slope cis are"</span><span class="ot">=</span>ci_b</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>the estimated intercept is: 0.888
+<pre data-code-line-numbers=""><code>the estimated intercept is: 0.89
 
 the estimated slope is: 0.106
 
-the estimated residual standard deviation is: 1.728
+the estimated residual standard deviation is: 1.718
 
 the intercept cis are:
  2.5% 97.5% 
@@ -948,140 +1452,82 @@ the slope cis are:
     0     0 </code></pre>
 </div>
 </div>
-<div class="cell page-columns page-full">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb7" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">mgp=</span><span class="fu">c</span>(<span class="dv">2</span>, .<span class="dv">5</span>, <span class="dv">0</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">nclass=</span><span class="dv">40</span>, <span class="at">main=</span><span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-<div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="288"></p>
-</figure>
-</div>
-</div></div><details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb8" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="co"># ordinary output stays put</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>[1] -0.6264538  0.1836433 -0.8356286</code></pre>
-</div>
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb10" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(x[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]) <span class="co"># html output put in margin</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-<div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">x</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">-0.6264538</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.1836433</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">-0.8356286</td>
-</tr>
-</tbody>
-</table>
-</div></div><details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb11" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">main=</span><span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-<div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="288"></p>
-</figure>
-</div>
-</div></div></div>
 <p>So the result for <span class="math inline">\(\sigma\)</span> the residual standard deviation means that age will be within +/- 2*1.7 = +/-3.4 years 95% of the time.</p>
 <p>The R<sup>2</sup> is given by <code>R2 &lt;- 1 - sigma(m1)^2 / sd(lion_noses$age)^2</code></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb12" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span> <span class="fu">sigma</span>(m1)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="fu">sd</span>(lion_noses<span class="sc">$</span>age)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(r2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span> <span class="fu">sigma</span>(m1)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="fu">sd</span>(lion_noses<span class="sc">$</span>age)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(r2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>[1] 0.5830417</code></pre>
+<pre data-code-line-numbers=""><code>[1] 0.58786</code></pre>
 </div>
 </div>
 <p>So almost 60% of the variance in age can be explained by nose markings. Where is the other 40%? Probably in other variables (lion health?) the model did not include.</p>
 <div class="cell" data-code-block-bg="true" data-highlight-style="github" data-source-line-numbers="1" data-output-line-numbers="7-9,12-13">
 <details class="code-fold">
 <summary>Code 3.5 model 1 output</summary>
-<div class="sourceCode cell-code" id="cb14" data-source-line-numbers="1" data-code-line-numbers="1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m1, <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8" data-source-line-numbers="1" data-code-line-numbers="1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m1, <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb15" data-output-line-numbers="7-9,12-13" data-code-line-numbers="7-9,12-13"><pre class="sourceCode numberSource highlight numberLines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href="#cb15-1"></a>stan_glm</span>
-<span id="cb15-2"><a href="#cb15-2"></a> family:       gaussian [identity]</span>
-<span id="cb15-3"><a href="#cb15-3"></a> formula:      age ~ percentage.black</span>
-<span id="cb15-4"><a href="#cb15-4"></a> observations: 32</span>
-<span id="cb15-5"><a href="#cb15-5"></a> predictors:   2</span>
-<span id="cb15-6"><a href="#cb15-6"></a>------</span>
-<span id="cb15-7"><a href="#cb15-7"></a>                 Median MAD_SD</span>
-<span id="cb15-8"><a href="#cb15-8"></a>(Intercept)      0.888  0.602 </span>
-<span id="cb15-9"><a href="#cb15-9"></a>percentage.black 0.106  0.016 </span>
-<span id="cb15-10"><a href="#cb15-10"></a></span>
-<span id="cb15-11"><a href="#cb15-11"></a>Auxiliary parameter(s):</span>
-<span id="cb15-12"><a href="#cb15-12"></a>      Median MAD_SD</span>
-<span id="cb15-13"><a href="#cb15-13"></a>sigma 1.728  0.233 </span>
-<span id="cb15-14"><a href="#cb15-14"></a></span>
-<span id="cb15-15"><a href="#cb15-15"></a>------</span>
-<span id="cb15-16"><a href="#cb15-16"></a>* For help interpreting the printed output see ?print.stanreg</span>
-<span id="cb15-17"><a href="#cb15-17"></a>* For info on the priors used see ?prior_summary.stanreg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9" data-output-line-numbers="7-9,12-13" data-code-line-numbers="7-9,12-13"><pre class="sourceCode numberSource highlight numberLines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>stan_glm</span>
+<span id="cb9-2"><a href="#cb9-2"></a> family:       gaussian [identity]</span>
+<span id="cb9-3"><a href="#cb9-3"></a> formula:      age ~ percentage.black</span>
+<span id="cb9-4"><a href="#cb9-4"></a> observations: 32</span>
+<span id="cb9-5"><a href="#cb9-5"></a> predictors:   2</span>
+<span id="cb9-6"><a href="#cb9-6"></a>------</span>
+<span id="cb9-7"><a href="#cb9-7"></a>                 Median MAD_SD</span>
+<span id="cb9-8"><a href="#cb9-8"></a>(Intercept)      0.890  0.569 </span>
+<span id="cb9-9"><a href="#cb9-9"></a>percentage.black 0.106  0.015 </span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a>Auxiliary parameter(s):</span>
+<span id="cb9-12"><a href="#cb9-12"></a>      Median MAD_SD</span>
+<span id="cb9-13"><a href="#cb9-13"></a>sigma 1.718  0.224 </span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a>------</span>
+<span id="cb9-16"><a href="#cb9-16"></a>* For help interpreting the printed output see ?print.stanreg</span>
+<span id="cb9-17"><a href="#cb9-17"></a>* For info on the priors used see ?prior_summary.stanreg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell" data-code-block-bg="true" data-highlight-style="github" data-source-line-numbers="1" data-output-line-numbers="13-16">
 <details class="code-fold">
-<summary>Code 3.5 model 1 summary</summary>
-<div class="sourceCode cell-code" id="cb16" data-source-line-numbers="1" data-code-line-numbers="1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1, <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Code 3.6 model 1 summary</summary>
+<div class="sourceCode cell-code" id="cb10" data-source-line-numbers="1" data-code-line-numbers="1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1, <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb17" data-output-line-numbers="13-16" data-code-line-numbers="13-16"><pre class="sourceCode numberSource highlight numberLines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a href="#cb17-1"></a></span>
-<span id="cb17-2"><a href="#cb17-2"></a>Model Info:</span>
-<span id="cb17-3"><a href="#cb17-3"></a> function:     stan_glm</span>
-<span id="cb17-4"><a href="#cb17-4"></a> family:       gaussian [identity]</span>
-<span id="cb17-5"><a href="#cb17-5"></a> formula:      age ~ percentage.black</span>
-<span id="cb17-6"><a href="#cb17-6"></a> algorithm:    sampling</span>
-<span id="cb17-7"><a href="#cb17-7"></a> sample:       4000 (posterior sample size)</span>
-<span id="cb17-8"><a href="#cb17-8"></a> priors:       see help('prior_summary')</span>
-<span id="cb17-9"><a href="#cb17-9"></a> observations: 32</span>
-<span id="cb17-10"><a href="#cb17-10"></a> predictors:   2</span>
-<span id="cb17-11"><a href="#cb17-11"></a></span>
-<span id="cb17-12"><a href="#cb17-12"></a>Estimates:</span>
-<span id="cb17-13"><a href="#cb17-13"></a>                   mean   sd    10%   50%   90%</span>
-<span id="cb17-14"><a href="#cb17-14"></a>(Intercept)      0.891  0.607 0.132 0.888 1.661</span>
-<span id="cb17-15"><a href="#cb17-15"></a>percentage.black 0.106  0.016 0.086 0.106 0.127</span>
-<span id="cb17-16"><a href="#cb17-16"></a>sigma            1.751  0.242 1.461 1.728 2.072</span>
-<span id="cb17-17"><a href="#cb17-17"></a></span>
-<span id="cb17-18"><a href="#cb17-18"></a>Fit Diagnostics:</span>
-<span id="cb17-19"><a href="#cb17-19"></a>           mean   sd    10%   50%   90%</span>
-<span id="cb17-20"><a href="#cb17-20"></a>mean_PPD 4.322  0.436 3.770 4.322 4.873</span>
-<span id="cb17-21"><a href="#cb17-21"></a></span>
-<span id="cb17-22"><a href="#cb17-22"></a>The mean_ppd is the sample average posterior predictive distribution of the outcome variable (for details see help('summary.stanreg')).</span>
-<span id="cb17-23"><a href="#cb17-23"></a></span>
-<span id="cb17-24"><a href="#cb17-24"></a>MCMC diagnostics</span>
-<span id="cb17-25"><a href="#cb17-25"></a>                 mcse  Rhat  n_eff</span>
-<span id="cb17-26"><a href="#cb17-26"></a>(Intercept)      0.011 1.001 3307 </span>
-<span id="cb17-27"><a href="#cb17-27"></a>percentage.black 0.000 1.000 3358 </span>
-<span id="cb17-28"><a href="#cb17-28"></a>sigma            0.004 1.000 3299 </span>
-<span id="cb17-29"><a href="#cb17-29"></a>mean_PPD         0.007 1.001 3515 </span>
-<span id="cb17-30"><a href="#cb17-30"></a>log-posterior    0.032 1.000 1589 </span>
-<span id="cb17-31"><a href="#cb17-31"></a></span>
-<span id="cb17-32"><a href="#cb17-32"></a>For each parameter, mcse is Monte Carlo standard error, n_eff is a crude measure of effective sample size, and Rhat is the potential scale reduction factor on split chains (at convergence Rhat=1).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11" data-output-line-numbers="13-16" data-code-line-numbers="13-16"><pre class="sourceCode numberSource highlight numberLines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2"></a>Model Info:</span>
+<span id="cb11-3"><a href="#cb11-3"></a> function:     stan_glm</span>
+<span id="cb11-4"><a href="#cb11-4"></a> family:       gaussian [identity]</span>
+<span id="cb11-5"><a href="#cb11-5"></a> formula:      age ~ percentage.black</span>
+<span id="cb11-6"><a href="#cb11-6"></a> algorithm:    sampling</span>
+<span id="cb11-7"><a href="#cb11-7"></a> sample:       4000 (posterior sample size)</span>
+<span id="cb11-8"><a href="#cb11-8"></a> priors:       see help('prior_summary')</span>
+<span id="cb11-9"><a href="#cb11-9"></a> observations: 32</span>
+<span id="cb11-10"><a href="#cb11-10"></a> predictors:   2</span>
+<span id="cb11-11"><a href="#cb11-11"></a></span>
+<span id="cb11-12"><a href="#cb11-12"></a>Estimates:</span>
+<span id="cb11-13"><a href="#cb11-13"></a>                   mean   sd    10%   50%   90%</span>
+<span id="cb11-14"><a href="#cb11-14"></a>(Intercept)      0.888  0.597 0.123 0.890 1.632</span>
+<span id="cb11-15"><a href="#cb11-15"></a>percentage.black 0.106  0.016 0.087 0.106 0.126</span>
+<span id="cb11-16"><a href="#cb11-16"></a>sigma            1.745  0.239 1.464 1.718 2.060</span>
+<span id="cb11-17"><a href="#cb11-17"></a></span>
+<span id="cb11-18"><a href="#cb11-18"></a>Fit Diagnostics:</span>
+<span id="cb11-19"><a href="#cb11-19"></a>           mean   sd    10%   50%   90%</span>
+<span id="cb11-20"><a href="#cb11-20"></a>mean_PPD 4.316  0.446 3.753 4.308 4.883</span>
+<span id="cb11-21"><a href="#cb11-21"></a></span>
+<span id="cb11-22"><a href="#cb11-22"></a>The mean_ppd is the sample average posterior predictive distribution of the outcome variable (for details see help('summary.stanreg')).</span>
+<span id="cb11-23"><a href="#cb11-23"></a></span>
+<span id="cb11-24"><a href="#cb11-24"></a>MCMC diagnostics</span>
+<span id="cb11-25"><a href="#cb11-25"></a>                 mcse  Rhat  n_eff</span>
+<span id="cb11-26"><a href="#cb11-26"></a>(Intercept)      0.011 1.000 2993 </span>
+<span id="cb11-27"><a href="#cb11-27"></a>percentage.black 0.000 1.000 3245 </span>
+<span id="cb11-28"><a href="#cb11-28"></a>sigma            0.005 1.001 2706 </span>
+<span id="cb11-29"><a href="#cb11-29"></a>mean_PPD         0.007 1.001 3867 </span>
+<span id="cb11-30"><a href="#cb11-30"></a>log-posterior    0.034 1.001 1458 </span>
+<span id="cb11-31"><a href="#cb11-31"></a></span>
+<span id="cb11-32"><a href="#cb11-32"></a>For each parameter, mcse is Monte Carlo standard error, n_eff is a crude measure of effective sample size, and Rhat is the potential scale reduction factor on split chains (at convergence Rhat=1).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>When the model m1 is run, a large amount of information is saved into m1, now visible in the R Studio environment. The essentials for interpreting the model are shown above, with the <code>print(m1)</code> command, but we could also look at any of the 27 stored objects individually, most of which we will not use, for example the coefficients (lines 8-9 above, hover over the code output) with <code>m1$coefficients</code>, which gives the same information as the Median column in the summary, although to more decimal places. This option to look more carefully at the output, rather than be presented with just a summary, is distinctive to R and other coding softwares.</p>
@@ -1093,27 +1539,27 @@ the slope cis are:
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
 <summary>Code 3.6 A plot of the simple linear regression for model 1</summary>
-<div class="sourceCode cell-code" id="cb18" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(lion_noses, <span class="fu">aes</span>(percentage.black, age)) <span class="sc">+</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fl">0.9</span>, <span class="at">slope =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"percentage black on nose"</span>) <span class="sc">+</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"age (years)"</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">26</span>,</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">5</span>,</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="st">"y = 0.9 + 0.1x"</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">geom_label</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(x,y, <span class="at">label =</span> label),</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(lion_noses, <span class="fu">aes</span>(percentage.black, age)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fl">0.9</span>, <span class="at">slope =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"percentage black on nose"</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"age (years)"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">26</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">5</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="st">"y = 0.9 + 0.1x"</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">geom_label</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(x,y, <span class="at">label =</span> label),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1127,13 +1573,13 @@ the slope cis are:
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
 <summary>Code 3.7 Print the Confidence Intervals for model 1</summary>
-<div class="sourceCode cell-code" id="cb19" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">posterior_interval</span>(m1, <span class="at">prob =</span> <span class="fl">0.95</span>), <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">posterior_interval</span>(m1, <span class="at">prob =</span> <span class="fl">0.9</span>), <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>                  2.5% 97.5%
-(Intercept)      -0.32  2.09
-percentage.black  0.07  0.14
-sigma             1.35  2.28</code></pre>
+<pre data-code-line-numbers=""><code>                    5%  95%
+(Intercept)      -0.08 1.86
+percentage.black  0.08 0.13
+sigma             1.40 2.17</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1156,43 +1602,43 @@ ROS Ch 9
 <div class="cell">
 <details class="code-fold">
 <summary>estimates from simulation matrix</summary>
-<div class="sourceCode cell-code" id="cb21" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(m1)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Median <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">apply</span>(sims, <span class="dv">2</span>, median),<span class="dv">3</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>MAD_SD <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">apply</span>(sims, <span class="dv">2</span>, mad),<span class="dv">3</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">cbind</span>(Median, MAD_SD))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(m1)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>Median <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">apply</span>(sims, <span class="dv">2</span>, median),<span class="dv">3</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>MAD_SD <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">apply</span>(sims, <span class="dv">2</span>, mad),<span class="dv">3</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">cbind</span>(Median, MAD_SD))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>                 Median MAD_SD
-(Intercept)       0.888  0.602
-percentage.black  0.106  0.016
-sigma             1.728  0.233</code></pre>
+(Intercept)       0.890  0.569
+percentage.black  0.106  0.015
+sigma             1.718  0.224</code></pre>
 </div>
 </div>
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
 <summary>Code 3.9 A comparison of classical and Bayesian models</summary>
-<div class="sourceCode cell-code" id="cb23" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"OLS classical"</span> <span class="ot">=</span> <span class="fu">lm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses),</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"OLS rstanarm default priors"</span> <span class="ot">=</span> <span class="fu">stan_glm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses),</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"OLS rstnarm flat priors"</span> <span class="ot">=</span> <span class="fu">stan_glm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses, <span class="at">prior_intercept =</span> <span class="cn">NULL</span>, <span class="at">prior =</span> <span class="cn">NULL</span>, <span class="at">prior_aux =</span> <span class="cn">NULL</span>)</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"OLS classical"</span> <span class="ot">=</span> <span class="fu">lm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses),</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"OLS rstanarm default priors"</span> <span class="ot">=</span> <span class="fu">stan_glm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"OLS rstnarm flat priors"</span> <span class="ot">=</span> <span class="fu">stan_glm</span>(age <span class="sc">~</span> percentage.black, <span class="at">data =</span> lion_noses, <span class="at">prior_intercept =</span> <span class="cn">NULL</span>, <span class="at">prior =</span> <span class="cn">NULL</span>, <span class="at">prior_aux =</span> <span class="cn">NULL</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
 <summary>Code 3.10 A comparison of classical and Bayesian models</summary>
-<div class="sourceCode cell-code" id="cb24" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models, <span class="at">gof_map =</span> <span class="cn">NA</span>, <span class="at">statistic =</span> <span class="st">'conf.int'</span>, <span class="at">conf_level =</span> <span class="fl">0.95</span>, <span class="at">stars =</span> <span class="cn">TRUE</span>, <span class="at">shape =</span> term <span class="sc">~</span> model <span class="sc">+</span> statistic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models, <span class="at">gof_map =</span> <span class="cn">NA</span>, <span class="at">statistic =</span> <span class="st">'conf.int'</span>, <span class="at">conf_level =</span> <span class="fl">0.95</span>, <span class="at">stars =</span> <span class="cn">TRUE</span>, <span class="at">shape =</span> term <span class="sc">~</span> model <span class="sc">+</span> statistic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <!-- preamble start -->
 
     <script>
-      function styleCell_r4fhi4j07wnfwfgl2nl4(i, j, css_id) {
-        var table = document.getElementById("tinytable_r4fhi4j07wnfwfgl2nl4");
+      function styleCell_n5jk9g51ls5swmjkmh6n(i, j, css_id) {
+        var table = document.getElementById("tinytable_n5jk9g51ls5swmjkmh6n");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_r4fhi4j07wnfwfgl2nl4');
+        var table = document.getElementById('tinytable_n5jk9g51ls5swmjkmh6n');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1200,8 +1646,8 @@ sigma             1.728  0.233</code></pre>
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_r4fhi4j07wnfwfgl2nl4(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_r4fhi4j07wnfwfgl2nl4");
+      function spanCell_n5jk9g51ls5swmjkmh6n(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_n5jk9g51ls5swmjkmh6n");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1227,68 +1673,68 @@ sigma             1.728  0.233</code></pre>
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(0, 0, 'tinytable_css_idogsb1e00rimlr4p6bqvy') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(0, 1, 'tinytable_css_idlfhize2pjp4bf9zgr38x') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(0, 2, 'tinytable_css_idlfhize2pjp4bf9zgr38x') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(0, 3, 'tinytable_css_idlfhize2pjp4bf9zgr38x') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(0, 4, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(0, 5, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(0, 6, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(0, 7, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(0, 8, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(0, 9, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(1, 0, 'tinytable_css_idi5c3jimgylhgohr01emk') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(1, 1, 'tinytable_css_ide70zaorausur96fp5fih') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(1, 2, 'tinytable_css_ide70zaorausur96fp5fih') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(1, 3, 'tinytable_css_ide70zaorausur96fp5fih') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(1, 4, 'tinytable_css_ide70zaorausur96fp5fih') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(1, 5, 'tinytable_css_ide70zaorausur96fp5fih') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(1, 6, 'tinytable_css_ide70zaorausur96fp5fih') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(1, 7, 'tinytable_css_ide70zaorausur96fp5fih') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(1, 8, 'tinytable_css_ide70zaorausur96fp5fih') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(1, 9, 'tinytable_css_ide70zaorausur96fp5fih') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(2, 0, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(2, 1, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(2, 2, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(2, 3, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(2, 4, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(2, 5, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(2, 6, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(2, 7, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(2, 8, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(2, 9, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(3, 0, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(3, 1, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(3, 2, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(3, 3, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(3, 4, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(3, 5, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(3, 6, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(3, 7, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(3, 8, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(3, 9, 'tinytable_css_idj69ml0nj7wxzy6l6k5dh') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 0, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 1, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 2, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 3, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 4, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 5, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 6, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 7, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 8, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
-window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 9, 'tinytable_css_idqmwxv8o6fz3kntcwqhax') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(0, 0, 'tinytable_css_idm0th7b1iudlivyivl3ed') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(0, 1, 'tinytable_css_idxjxtle59xofyi5yplti0') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(0, 2, 'tinytable_css_idxjxtle59xofyi5yplti0') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(0, 3, 'tinytable_css_idxjxtle59xofyi5yplti0') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(0, 4, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(0, 5, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(0, 6, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(0, 7, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(0, 8, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(0, 9, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(1, 0, 'tinytable_css_idt96ti3z6tmpc4n0pn9c7') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(1, 1, 'tinytable_css_idwrlc4zywwtw0crtdlt2d') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(1, 2, 'tinytable_css_idwrlc4zywwtw0crtdlt2d') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(1, 3, 'tinytable_css_idwrlc4zywwtw0crtdlt2d') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(1, 4, 'tinytable_css_idwrlc4zywwtw0crtdlt2d') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(1, 5, 'tinytable_css_idwrlc4zywwtw0crtdlt2d') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(1, 6, 'tinytable_css_idwrlc4zywwtw0crtdlt2d') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(1, 7, 'tinytable_css_idwrlc4zywwtw0crtdlt2d') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(1, 8, 'tinytable_css_idwrlc4zywwtw0crtdlt2d') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(1, 9, 'tinytable_css_idwrlc4zywwtw0crtdlt2d') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(2, 0, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(2, 1, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(2, 2, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(2, 3, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(2, 4, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(2, 5, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(2, 6, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(2, 7, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(2, 8, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(2, 9, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(3, 0, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(3, 1, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(3, 2, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(3, 3, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(3, 4, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(3, 5, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(3, 6, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(3, 7, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(3, 8, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(3, 9, 'tinytable_css_idbmkxy3s2wvzpyf6vvmhz') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(4, 0, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(4, 1, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(4, 2, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(4, 3, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(4, 4, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(4, 5, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(4, 6, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(4, 7, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(4, 8, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
+window.addEventListener('load', function () { styleCell_n5jk9g51ls5swmjkmh6n(4, 9, 'tinytable_css_ide1z9ab5th7m8cwivo9u5') })
     </script>
 
     <style>
-    .table td.tinytable_css_idogsb1e00rimlr4p6bqvy, .table th.tinytable_css_idogsb1e00rimlr4p6bqvy {  text-align: center;  text-align: left; }
-    .table td.tinytable_css_idlfhize2pjp4bf9zgr38x, .table th.tinytable_css_idlfhize2pjp4bf9zgr38x {  text-align: center;  border-bottom: solid 0.05em #d3d8dc; }
-    .table td.tinytable_css_idj69ml0nj7wxzy6l6k5dh, .table th.tinytable_css_idj69ml0nj7wxzy6l6k5dh {  text-align: center; }
-    .table td.tinytable_css_idi5c3jimgylhgohr01emk, .table th.tinytable_css_idi5c3jimgylhgohr01emk {  text-align: left;  border-bottom: solid 0.1em #d3d8dc; }
-    .table td.tinytable_css_ide70zaorausur96fp5fih, .table th.tinytable_css_ide70zaorausur96fp5fih {  text-align: center;  border-bottom: solid 0.1em #d3d8dc; }
-    .table td.tinytable_css_idqmwxv8o6fz3kntcwqhax, .table th.tinytable_css_idqmwxv8o6fz3kntcwqhax {  text-align: left; }
+    .table td.tinytable_css_idm0th7b1iudlivyivl3ed, .table th.tinytable_css_idm0th7b1iudlivyivl3ed {  text-align: center;  text-align: left; }
+    .table td.tinytable_css_idxjxtle59xofyi5yplti0, .table th.tinytable_css_idxjxtle59xofyi5yplti0 {  text-align: center;  border-bottom: solid 0.05em #d3d8dc; }
+    .table td.tinytable_css_idbmkxy3s2wvzpyf6vvmhz, .table th.tinytable_css_idbmkxy3s2wvzpyf6vvmhz {  text-align: center; }
+    .table td.tinytable_css_idt96ti3z6tmpc4n0pn9c7, .table th.tinytable_css_idt96ti3z6tmpc4n0pn9c7 {  text-align: left;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idwrlc4zywwtw0crtdlt2d, .table th.tinytable_css_idwrlc4zywwtw0crtdlt2d {  text-align: center;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_ide1z9ab5th7m8cwivo9u5, .table th.tinytable_css_ide1z9ab5th7m8cwivo9u5 {  text-align: left; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_r4fhi4j07wnfwfgl2nl4" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_n5jk9g51ls5swmjkmh6n" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
@@ -1317,24 +1763,24 @@ window.addEventListener('load', function () { styleCell_r4fhi4j07wnfwfgl2nl4(4, 
                   <td>0.879   </td>
                   <td>-0.283</td>
                   <td>2.041</td>
-                  <td>0.892</td>
-                  <td>-0.272</td>
-                  <td>2.068</td>
-                  <td>0.869</td>
-                  <td>-0.281</td>
-                  <td>2.054</td>
+                  <td>0.882</td>
+                  <td>-0.278</td>
+                  <td>2.039</td>
+                  <td>0.861</td>
+                  <td>-0.377</td>
+                  <td>2.041</td>
                 </tr>
                 <tr>
                   <td>percentage.black</td>
                   <td>0.106***</td>
                   <td>0.076 </td>
                   <td>0.137</td>
-                  <td>0.106</td>
-                  <td>0.074 </td>
+                  <td>0.107</td>
+                  <td>0.077 </td>
                   <td>0.136</td>
                   <td>0.107</td>
-                  <td>0.076 </td>
-                  <td>0.138</td>
+                  <td>0.075 </td>
+                  <td>0.139</td>
                 </tr>
         </tbody>
       </table>
@@ -1371,12 +1817,31 @@ Tip with Title
 <div class="cell">
 <details class="code-fold">
 <summary>Code 3.11 Plot mean uncertainty</summary>
-<div class="sourceCode cell-code" id="cb25" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="sc">%&gt;%</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_epred_draws</span>(m1) <span class="sc">%&gt;%</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .epred), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>) <span class="sc">+</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_epred_draws</span>(m1) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .epred), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code 3.12 Plot individual uncertainty</summary>
+<div class="sourceCode cell-code" id="cb20" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_predicted_draws</span>(m1) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .prediction), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1388,14 +1853,37 @@ Tip with Title
 </div>
 <div class="cell">
 <details class="code-fold">
-<summary>Code 3.12 Plot individual uncertainty</summary>
-<div class="sourceCode cell-code" id="cb26" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_predicted_draws</span>(m1) <span class="sc">%&gt;%</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .prediction), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>) <span class="sc">+</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Code 3.13 Plot mean and individual uncertainty combined</summary>
+<div class="sourceCode cell-code" id="cb21" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> lion_noses <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_epred_draws</span>(m1) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .epred), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>()</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> lion_noses <span class="sc">|&gt;</span>     </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_predicted_draws</span>(m1) <span class="sc">|&gt;</span> </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .prediction), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>) <span class="sc">+</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>()</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> lion_noses <span class="sc">|&gt;</span> </span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_epred_draws</span>(m1)</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> lion_noses <span class="sc">|&gt;</span> </span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_predicted_draws</span>(m1)</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(p3, p4)</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>p5 <span class="sc">|&gt;</span> </span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .epred), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.95</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>) <span class="sc">+</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .prediction), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>() <span class="sc">+</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">fill =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1407,55 +1895,13 @@ Tip with Title
 </div>
 <div class="cell">
 <details class="code-fold">
-<summary>Code 3.13 Plot mean and individual uncertainty combined</summary>
-<div class="sourceCode cell-code" id="cb27" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> lion_noses <span class="sc">|&gt;</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_epred_draws</span>(m1) <span class="sc">|&gt;</span> </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .epred), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>) <span class="sc">+</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>()</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> lion_noses <span class="sc">|&gt;</span>     </span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_predicted_draws</span>(m1) <span class="sc">|&gt;</span> </span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .prediction), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>) <span class="sc">+</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>()</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> lion_noses <span class="sc">|&gt;</span> </span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_epred_draws</span>(m1)</span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> lion_noses <span class="sc">|&gt;</span> </span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    tidybayes<span class="sc">::</span><span class="fu">add_predicted_draws</span>(m1)</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(p3, p4)</span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>p5 <span class="sc">|&gt;</span> </span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .epred), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.95</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>) <span class="sc">+</span></span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_lineribbon</span>(<span class="fu">aes</span>(<span class="at">y =</span> .prediction), <span class="at">.width =</span> <span class="fu">c</span>(<span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"#08519C"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses) <span class="sc">+</span></span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>() <span class="sc">+</span></span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">fill =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Code 3.14 Plot mean and individual uncertainty side by side</summary>
+<div class="sourceCode cell-code" id="cb22" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code 3.14 Plot mean and individual uncertainty side by side</summary>
-<div class="sourceCode cell-code" id="cb28" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
