@@ -5,6 +5,7 @@ description: "An introduction to statistical modelling and inference via regress
 output:
   html_document:
     toc: true
+    toc_expand: true
     toc_depth: 5
  
 date: "8/17/2024"
@@ -170,6 +171,7 @@ library(patchwork)                                                            # 
 library(Hmisc)                                                                # <1>
 library(broom.mixed)                                                          # <1>
 library(janitor)                                                              # <1>
+library(huxtable)                                                             # <1>
 ```
 
 1.  The first lines of any `R` script usually add packages from your library into your current work session with the `library` function. If you do not have one or more of these packages installed you will need to first run `install.packages(abd)` etc or alternatively, if the package is on`CRAN` (Comprehensive R Archive Network's 21,000 packages) use the package -\> install button in R Studio's lower right window and follow the instructions.
@@ -272,15 +274,33 @@ m1 <- stan_glm(age ~ percentage.black, data = lion_noses,                     # 
 some text
 
 ```{r}
-#| code-summary: "Output from broom.mixed"
-broom.mixed::tidy(m1, effects = c("fixed", "aux"), 
-                  conf.int = TRUE, conf.level = 0.90) |> 
-    gt() |>
-    fmt_number(decimals = 3) |> 
-     tab_header(
-    title = "Model 1 parameter estimates and confidence intervals",
-    subtitle = "Extracted from the rstanarm object"
-  )
+#| code-summary: "Output from r packages broom.mixed and gt"
+m1_table <- broom.mixed::tidy(m1, effects = c("fixed", "aux"), 
+                  conf.int = TRUE, conf.level = 0.90)
+
+m1_table <- m1_table |> 
+    slice(1:3)
+
+gt_tbl <- gt(m1_table)
+
+gt_tbl <- gt_tbl |> 
+    tab_header(
+        title = "Model 1 parameter and uncertainty interval estimates",
+        subtitle = "Using R with rstnarm"
+) |> 
+    cols_label(
+        term = md("**parameter**"),
+        estimate = md("**estimate**"),
+        conf.low = md("**5% CI**"),
+        conf.high = md("**95% CI**"),
+        std.error = md("**std.error**")
+    ) |> 
+    fmt_number(
+        decimals = 2
+    )
+
+
+gt_tbl
 ```
 
 
@@ -442,7 +462,76 @@ round(posterior_interval(m1, prob = 0.9), 2)
 Bayesian inference involves three steps that go beyond classical estimation. First, the data and model are combined to form a posterior distribution, which we typically summarize by a set of simulations of the parameters in the model. Second, we can propagate uncertainty in this distribution—that is, we can get simulation-based predictions for unobserved or future outcomes that accounts for uncertainty in the model parameters. Third, we can include additional information into the model using a prior distribution. The present chapter describes all three of these steps in the context of examples capturing challenges of prediction and inference.
 :::
 
-For now we'll not worry about priors, complicated and we have no prior information to feed into the model, but concentrate on the posterior simulations.
+For now we'll not worry about priors and use defaults as per *Bayes Rules!*, complicated and we have no prior information to feed into the model, but concentrate on the posterior simulations to get estimates.
+
+After fitting a regression, y = a + bx + error, we can use it to predict a new data point, or a set of new data points, with predictors x new . We can make three sorts of predictions, corresponding to increasing levels of uncertainty:
+
+1. The ***point prediction***, $\hat{a}$ + $\hat{b}$x new : Based on the fitted model, this is the best point estimate of the average value of y for new data points with this new value of x. We use $\hat{a}$ and $\hat{b}$ here because the point prediction ignores uncertainty.
+
+2. The ***linear predictor*** with uncertainty, a + bx new , propagating the inferential uncertainty in (a, b). This represents the distribution of uncertainty about the expected or average value of y for new data points with predictors x new .
+
+3. The ***predictive distribution for a new observation***, a + bx new + error: This represents uncertainty about a new observation y with predictors x new .
+
+Consider our study, with y (age) predicted from x (nose markings). 
+
+1. For any given x new , the point prediction is the best estimate of the lion's age in the population, conditional on mose markings x new. 
+
+2. The linear predictor is the modeled average age of lions with nose marking x new in the population, with uncertainty corresponding to inferential uncertainty in the coefficients a and b.
+
+3. The predictive distribution represents the age of a single lion drawn at random from this population, under the model conditional on the specified value of x new .
+
+As sample size approaches infinity, the coefficients a and b are estimated more and more precisely, and the uncertainty in the linear predictor approaches zero, but the uncertainty in the predictive distribution for a new observation does not approach zero; it approaches the residual standard deviation $\sigma$ (sigma in Table 1).
+
+Consider a lion on territory, so it can be re-found for trophy hunting, which is photographed and the nose markings measured as 45%. Let's calculate the three measures for this individual.
+
+##### Point estimate
+
+The point estimate where the best fit regression line can be approximately read off the graph `Code 3.6` as the value of y where x = 45. It is calculated with the base r function `predict`
+
+```{r}
+new <- data.frame(percentage.black=45)
+y_point_pred <- round(predict(m1, newdata=new), 1)
+cat("The point prediction of the average age in years of a lion with \n45% nose markings is", y_point_pred)
+```
+
+##### Linear predictor
+
+To put uncertainty intervals around the point estimate, the rstanarm function `posterior_linpred` is used
+
+```{r}
+y_linpred <- round(posterior_linpred(m1, newdata=new), 2)
+ci_b <- quantile(y_linpred, c(0.05, 0.95))
+cat("The linear predictor of the average age in years \nof a lion with 45% nose markings are given by the \n90% uncertainty intervals", ci_b)
+```
+
+##### Predictive uncertainty
+
+This uses the rstanarm function `posterior_predict`
+
+```{r}
+y_pred <- posterior_predict(m1, newdata=new)
+Median <- median(y_pred)
+MAD_SD <- mad(y_pred)
+young <- mean(y_pred < 5)
+uncertainty_90 <- quantile(y_pred, c(0.05, 0.95))
+printL("The predicted age of a lion with 45% nose markings is"=round(Median,1),
+  "with uncertainty intervals"=round(uncertainty_90, 1),
+  "The probability that a lion with 45% nose marking is under \n5 years' age is" =round(young, 2)
+  )
+```
+
+It is also possible to calculate any of these three over a range of values. Let's do that for the range of nose markings for which we have data (a rule of thumb to not predict outside of the data range) so between 10-80% and at 5% intervals
+
+```{r}
+new_grid <- data.frame(percentage.black=seq(10, 80, 5))
+y_point_pred_grid <- predict(m1, newdata=new_grid) # 15 values
+y_linpred_grid <- posterior_linpred(m1, newdata=new_grid) # 4000 sims for eahc of 15 values
+y_pred_grid <- posterior_predict(m1, newdata=new_grid) # 4000 sims for each of 15 values
+
+# to complete
+```
+
+
 
 ```{r}
 #| code-summary: "estimates from simulation matrix"
@@ -581,10 +670,23 @@ add [targets](https://books.ropensci.org/targets/literate-programming.html)
 ### refs and open books to add
 
 [R for Data Science 2e](https://r4ds.hadley.nz/) and [source code on GitHub](https://github.com/hadley/r4ds)
+
 [Tidy Modeling with R](https://www.tmwr.org/)
+
+[R Markdown Cookbook online](https://bookdown.org/yihui/rmarkdown-cookbook/table-other.html)
+
+[ggplot2 3e online](https://ggplot2-book.org/)
+
+[R Graphics Cookbook online](https://r-graphics.org/) ggplot2 based
+
 [Byes Rules! An Introduction to Applied Bayesian Modelling](https://www.bayesrulesbook.com/) uses rstanarm
+
 [Frank Harrell's R workflow, inlcuding Quarto](https://www.bayesrulesbook.com/)
 
 [Harrell's associated course](https://hbiostat.org/rmsc/)
 
+[huxtable for regression tables, Andrew Heiss' blog](https://www.andrewheiss.com/blog/2018/03/08/amelia-broom-huxtable/)
 
+[Huxtable R table package](https://hughjonesd.github.io/huxtable/huxtable.html) recommended for regression tables
+
+[patchwork r package](https://patchwork.data-imaginist.com/articles/patchwork.html) to reorganise image layout

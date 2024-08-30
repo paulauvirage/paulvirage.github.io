@@ -29,6 +29,7 @@ format:
       dark: [solar]
     mainfont: "Red Hat"
     toc: true
+    toc-expand: true
     page-layout: full
     code-copy: true
     code-fold: true
