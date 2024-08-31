@@ -525,7 +525,8 @@ It is also possible to calculate any of these three over a range of values. Let'
 ```{r}
 new_grid <- data.frame(percentage.black=seq(10, 80, 5))
 y_point_pred_grid <- predict(m1, newdata=new_grid) # 15 values
-y_linpred_grid <- posterior_linpred(m1, newdata=new_grid) # 4000 sims for eahc of 15 values
+y_linpred_grid <- posterior_linpred(m1, newdata=new_grid) # 4000 sims for each of 15 values
+y_linpred_cis <- as.data.frame(y_linpred_grid) 
 y_pred_grid <- posterior_predict(m1, newdata=new_grid) # 4000 sims for each of 15 values
 
 # to complete
