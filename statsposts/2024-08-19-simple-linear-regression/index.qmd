@@ -733,3 +733,5 @@ add [targets](https://books.ropensci.org/targets/literate-programming.html)
 [Huxtable R table package](https://hughjonesd.github.io/huxtable/huxtable.html) recommended for regression tables
 
 [patchwork r package](https://patchwork.data-imaginist.com/articles/patchwork.html) to reorganise image layout
+
+[html validator](https://validator.w3.org/)

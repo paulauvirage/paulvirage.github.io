@@ -31,12 +31,13 @@ $light-gray: #c2c8d1;
 $quarto-bg: #FFC994;
 $quarto-codeblock: #F1C08E;
 $quarto-grey: #E8EFF8;
+$clik-blue: #003660;
 
 // Base document colors
 $navbar-bg: $metallic-seaweed;
 $navbar-fg: $champagne-pink; 
-$navbar-hl: $old-lace; 
-$body-bg: $champagne-pink;
+$navbar-hl: $quarto-codeblock; 
+$body-bg: $old-lace;
 $body-color: $medium-gray;
 $footer-bg: $metallic-seaweed; 
 $link-color: $darkred;
@@ -69,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $redhat; 
   letter-spacing: 1px;
   font-weight: 700;
-  color: $darkred;
+  color: $clik-blue;
 }
 
 body {
