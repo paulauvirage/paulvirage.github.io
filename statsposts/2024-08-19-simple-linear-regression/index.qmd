@@ -139,7 +139,7 @@ A first task, and so usually the first lines of `R` code, is to import into the 
 
 If you are familiar with software that comes ready packaged with all of its capabilities, R may seem strange. It follows a different philosophy of bundling up one or a few related tasks into a package. When R is first downloaded onto your computer, it comes with 15 "base" packages, of the c21,000 packages available in the cloud on the [Comprehensive R Archive network](https://cran.r-project.org/web/packages/) and others available from other cloud storage locations.
 
-Any analysis usually needs more than the base packages. This course will use an extra 20 or so. You can, with an internet connection, download and install any extra packages onto your computer, where they will be added to your package library (see the packages tab in R Studio's lower right window). As developers work on packages, the changed version needs to be updated on your computer. You will not be prompted to update. In R Studio the packages -\> update tab is available for this. It will, with an internet connection, search for those of your installed packages that have updates and give you the option to install the updated versions. Most packages are less than 1MB in size and few more than 5MB, so I recommend you check and update packages as often as you have a stable internet connection. I have about 100 packages and update (there usually is something to update) daily, but less often is fine.
+Any analysis usually needs more than the base packages. This course will use an extra 20 or so. You can, with an internet connection, download and install any extra packages onto your computer, where they will be added to your package library (see the packages tab in R Studio's lower right window). As developers work on packages, the changed version needs to be updated on your computer. You will not be prompted to update. In R Studio the 'packages' then 'update' tab (bottom right window) is available for this. It will, with an internet connection, search for those of your installed packages that have updates and give you the option to install the updated versions. Most packages are less than 1MB in size and few more than 5MB, so I recommend you check and update packages as often as you have a stable internet connection. I have about 100 packages and update (there usually is something to update) daily, but less often is fine.
 
 Once a package is on your computer, it is not yet available to use in your current analysis session. For this you need to import the package from your library, with a line of code using the `library` function; for example `library(marginaleffects)` to import the Marginal Effects package. Repeat this for each package. In writing a script of R code for any work, you usually start with lines to import the necessary packages, as without them the subsequent code depending on them will not run.
 :::
@@ -447,7 +447,7 @@ To summarize: regression is a mathematical tool for making predictions. Regressi
 
 If our model is correct, which we shall need to check, it is a better method of selecting which lions to hunt for trophies than the ad-hoc model, which assumed a lion with 40% nose markings was under 5 years. L1 met that threshold, but only just. If our measurer had been in a hurry and making small mistakes, whereas the actual measure was 40%, L1's age should have been modelled as `0.9 +0.1*40` = 4.9 years and he could have not been made available to trophy hunters. CHECK THIS    
 
-The standard error for the slope (MAD_SD on line 9 of the model output `Code 3.5`) is 0.015, so the model as a slope of, to two decimal places, 0.11 +/- 0.01 and the 95% interval
+The standard error for the slope (MAD_SD on line 9 of the model output `Code 3.5`) is 0.015, so the model has a slope of, to two decimal places, 0.11 +/- 0.01 and the 95% interval
 
 ```{r}
 #| message: false
@@ -474,7 +474,7 @@ After fitting a regression, y = a + bx + error, we can use it to predict a new d
 
 Consider our study, with y (age) predicted from x (nose markings). 
 
-1. For any given x new , the point prediction is the best estimate of the lion's age in the population, conditional on mose markings x new. 
+<!-- 1. For any given x new , the point prediction is the best estimate of the lion's age in the population, conditional on mose markings x new.  -->
 
 2. The linear predictor is the modeled average age of lions with nose marking x new in the population, with uncertainty corresponding to inferential uncertainty in the coefficients a and b.
 
@@ -524,12 +524,54 @@ It is also possible to calculate any of these three over a range of values. Let'
 
 ```{r}
 new_grid <- data.frame(percentage.black=seq(10, 80, 5))
-y_point_pred_grid <- predict(m1, newdata=new_grid) # 15 values
+y_point_pred_grid <- predict(m1, newdata=new_grid)# 15 values
+y_point_pred_df <- as.data.frame(y_point_pred_grid)
 y_linpred_grid <- posterior_linpred(m1, newdata=new_grid) # 4000 sims for each of 15 values
 y_linpred_cis <- as.data.frame(y_linpred_grid) 
 y_pred_grid <- posterior_predict(m1, newdata=new_grid) # 4000 sims for each of 15 values
+y_pred_cis <- as.data.frame(y_pred_grid)
 
+quants <- c(0.05,0.95)
+linear_uncertainty <- apply( y_linpred_cis[1:15] , 2 , quantile , probs = quants , na.rm = TRUE )
+prediction_uncertainty <- apply( y_pred_cis[1:15] , 2 , quantile , probs = quants , na.rm = TRUE )
+
+linear_uncertainty_t <- t(linear_uncertainty)
+prediction_uncertainty_t <- t(prediction_uncertainty)
+
+intervals <- as.data.frame(seq(10, 80, 5))
+
+m1_estimates <- bind_cols( intervals, y_point_pred_df, linear_uncertainty_t, prediction_uncertainty_t)
 # to complete
+
+gt_tbl <- gt(m1_estimates)
+gt_tbl |>
+    tab_header(
+        title = "Estimates of point, point uncertainty and prediction uncertainty for lion age from nose markings",
+        subtitle = "Estimates at 5% intervals for nose markings over the range of the sample data"
+    ) |> 
+    fmt_number(
+        decimals = 1
+    ) |> 
+    cols_label(
+    "seq(10, 80, 5)" = "Nose markings (percent)",
+    y_point_pred_grid = "point prediction of mean age (years)",
+    "5%...3" = "5%",
+    "95%...4" = "95%",
+    "5%...5" = "5%",
+    "95%...6" = "95%"
+  ) |> 
+    tab_spanner(
+    label = "uncertainty intervals for mean age",
+    columns = c(3:4)
+  ) |> 
+    tab_spanner(
+    label = "uncertainty intervals for individual age prediction",
+    columns = c(5:6)
+  ) |> 
+    cols_align(
+    align = "center",
+    columns = c(1:6)
+  )
 ```
 
 
