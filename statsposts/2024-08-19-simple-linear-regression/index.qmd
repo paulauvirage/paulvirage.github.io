@@ -38,6 +38,8 @@ As with all posts in this group, the main text is interspersed with two types of
 
 ### Working example - trophy hunting of lions
 
+[This is a span that has the class `aside` which places it in the margin without a footnote number.]{.aside}
+
 Trophy hunting of lions, particularly males, is a controversial, but [active](https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!), means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride [@whitman2004], [@loveridge2023]. The amount of black on a lion's nose is the best remote indicator of age . This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package `abd` and has been used for an example of linear regression in the online book [Statistics for ecologists](https://statistics4ecologists-v2.netlify.app/linreg) [@fieberg_2024].
 
 ::: {.callout-note collapse="true"}
@@ -209,6 +211,9 @@ code-annotations: select
 ---
 
 ```{r fig.cap='Figure 2.1 Scatterplot of lion nose markings and age, from [@whitman2004].'}
+#| label: fig-cap-margin
+#| fig-cap: "Scatterplot of lion nose markings and age"
+#| cap-location: margin
 #| message: false
 #| code-summary: "Code 3.3 Create new variable and plot lion nose data"
 #| code-block-bg: true
@@ -680,6 +685,7 @@ ggplot(aes(x = percentage.black, y = age)) +
 
 
 ```{r}
+#| column: screen-inset-shaded
 #| message: false
 #| warning: false
 #| code-summary: "Code 3.14 Plot mean and individual uncertainty side by side"
