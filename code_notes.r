@@ -36,3 +36,5 @@ gt_tbl |>
         subtitle = "Estiates at 5% intervals for nose markings over the range of the sample data"
     )
 gt_tbl
+
+#adding a testing note
