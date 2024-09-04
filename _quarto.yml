@@ -32,7 +32,7 @@ format:
     toc-depth: 3
     toc-expand: 2
     number-sections: true
-    number-depth: 2
+    number-depth: 3
     page-layout: full
     code-copy: true
     code-fold: true

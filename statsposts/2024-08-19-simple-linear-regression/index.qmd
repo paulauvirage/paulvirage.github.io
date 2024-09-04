@@ -729,11 +729,11 @@ bayesplot::mcmc_dens_overlay(m1)
 ```
 
 ```{r}
-#lion_noses %>%
-#  add_fitted_draws(m1, n = 100) %>% 
-#  ggplot(aes(x = percentage.black, y = age)) +
-#    geom_line(aes(y = .linpred, group = .draw), alpha = 0.15) + 
-#    geom_point(data = lion_noses, size = 0.05)
+lion_noses %>%
+  add_fitted_draws(m1, n = 100) %>% 
+  ggplot(aes(x = percentage.black, y = age)) +
+    geom_line(aes(y = .value, group = .draw), alpha = 0.15) + 
+    geom_point(data = lion_noses, size = 0.05)
 ```
 
 
@@ -774,9 +774,9 @@ add [targets](https://books.ropensci.org/targets/literate-programming.html)
 
 [R Graphics Cookbook online](https://r-graphics.org/) ggplot2 based
 
-[Byes Rules! An Introduction to Applied Bayesian Modelling](https://www.bayesrulesbook.com/) uses rstanarm
+[Bayes Rules! An Introduction to Applied Bayesian Modelling](https://www.bayesrulesbook.com/) uses rstanarm
 
-[Frank Harrell's R workflow, inlcuding Quarto](https://www.bayesrulesbook.com/)
+[Frank Harrell's R workflow, inlcuding Quarto](https://hbiostat.org/rflow/)
 
 [Harrell's associated course](https://hbiostat.org/rmsc/)
 
@@ -789,3 +789,7 @@ add [targets](https://books.ropensci.org/targets/literate-programming.html)
 [html validator](https://validator.w3.org/)
 
 [LaTex symbols](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
+
+[efficient R programming](https://csgillespie.github.io/efficientR/)
+
+[modern dive](https://moderndive.com/index.html)
