@@ -16,4 +16,16 @@ m2 <- stan_glm(age ~ percentage.black, data = lion_noses)
 broom.mixed::tidy(m2, effects = c("fixed", "aux"), 
                   conf.int = TRUE, conf.level = 0.90)
 
-ci90 <- posterior_interval(m2, prob = 90, pars = c("percentage.black", "(Intercept)"))
+ci90 <- posterior_interval(m2, prob = .90, pars = c("percentage.black", "(Intercept)", "sigma"))
+round(ci90, 2)
+
+launch_shinystan(m2, ppd = FALSE)
+
+y_rep <- posterior_predict(m2)
+dim(y_rep)
+
+markings_seq <- seq(0,100,10)
+
+boxplot(y_rep, axes = FALSE, outline = FALSE, ylim = c(0,20),
+        xlab = "percentage blakc nose marking", ylab = "Age")
+axis(1, at = 1:ncol(y_rep), labels = lion_noses$percentage.black)

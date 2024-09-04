@@ -187,7 +187,7 @@ code-annotations: select
 
 ```{r}
 #| message: false
-#| code-summary: "R code 2.2"
+#| code-summary: "R Code 2.2"
 #| code-block-bg: true
 #| highlight-style: github
 lion_noses <- as.data.frame(LionNoses)                     # <1>
