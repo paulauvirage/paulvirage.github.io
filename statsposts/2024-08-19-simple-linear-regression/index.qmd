@@ -23,7 +23,7 @@ filters:
 To start, click on the arrow in the "Document structure" box, below.
 
 ::: {.callout-note collapse="true"}
-### Document structure
+## Document structure
 
 This tutorial assumes that you are working in R Studio.
 
@@ -36,9 +36,8 @@ As with all posts in this group, the main text is interspersed with two types of
 **Code blocks** are folded away with an arrow to the left of the numbered code block, for example `Code 2.1 Import packages to session`. They allow you to implement all of the analysis in the post on your computer. Each code block has numbered notes to the right, referring to particular lines. Click on the number and a box will pop up with a brief explanation of the code. Click again and the pop up closes. I am assuming you read the posts in sequence, so the earlier posts will have pop up explanations that are not repeated in the later code blocks. You can cut and paste the code in each code block into your own R scripting window in R Studio, by clicking on the clipboard in the right end of the block, but I recommend your typing it in, to get practice in how R code works in R Studio.
 :::
 
-### Working example - trophy hunting of lions
+## Working example - trophy hunting of lions
 
-[This is a span that has the class `aside` which places it in the margin without a footnote number.]{.aside}
 
 Trophy hunting of lions, particularly males, is a controversial, but [active](https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!), means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride [@whitman2004], [@loveridge2023]. The amount of black on a lion's nose is the best remote indicator of age . This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package `abd` and has been used for an example of linear regression in the online book [Statistics for ecologists](https://statistics4ecologists-v2.netlify.app/linreg) [@fieberg_2024].
 
@@ -48,7 +47,7 @@ Trophy hunting of lions, particularly males, is a controversial, but [active](ht
 This worked example is possible because the data has been made easily, publicly accessible. It is not essential, though it is helpful, that it is accessible through an `R` package. In a later post an optimal workflow for scientists will be discussed in which open data is a component.
 :::
 
-### The objectives of regression
+## The objectives of regression
 
 Let's review what regression aims to do, applied to the lion nose data, in the call-out box below.
 
@@ -74,7 +73,7 @@ This course will not concern itself much with hypothesis testing, but rather the
 It is very unlikely that every lion of a certain age will have exactly the same amount of nose markings. If this was true, you would not need to use statistics, but rather simple algebra. Variability, arising from whatever processes cause nose markings and/or measurement error, are likely to give a range of values for lions of the same age. A regression model uses this variability and the size of the sample data (number of individuals with both nose marking and age measured) to estimate and report on the uncertainty in any prediction. Depending on the method of inference used - Frequentist or Bayesian - the uncertainty is reported as **confidence intervals** or **credible intervals** which have subtly different meanings. This will be discussed more later. What is important to remember is that statistical modelling, as opposed to deterministic modelling, is: necessary when there is variability in the data; and is reported with measures of uncertainty. *add important uses of regression from Gelman p5?*
 :::
 
-### Analysis of the lion nose data with R
+## Analysis of the lion nose data with R
 
 
 ```{mermaid}
@@ -122,7 +121,7 @@ We will follow [@Cox_Donnelly_2011] in defining seven steps for an applied stati
 -   fff
 :::
 
-#### Step 1. Subject matter questions
+### Step 1. Subject matter questions
 
 When possible choose an important question that is likely to be soluble from the data. The Lion is classified as globally [Vulnerable](https://www.iucnredlist.org/species/15951/259030422). Trophy hunting is economically valuable. Therefore an investigation of how selective trophy hunting could minimise the impact on the lion population size is of importance. There is evidence that trophy hunting older lions could cause less impact on the population and that lion age can be measured unobtrusively from the amount of black marking on the nose. The broad questions are:
 
@@ -130,7 +129,7 @@ a.  Is there a difference in nose marking with age (hypothesis test)?
 b.  Can the difference be modelled to provide a measure of how nose markings change with age (regression model); and
 c.  Can the model be applied, for example to regulate permits for trophy hunting?
 
-#### Step 4. Exploratory data analysis (EDA), jumping Steps 2 (Study Design) and 3 (Measurement validity) as existing data is being used.
+### Step 4. Exploratory data analysis (EDA), jumping Steps 2 (Study Design) and 3 (Measurement validity) as existing data is being used.
 
 Let's start with question b. The data is already collected, so the usual **Step 2** of designing a study to collect data and **Step 3** of measurement validity are not necessary. However, you should read the papers that have been produced using the data, as how the data was gathered (both design and measurement) could affect how it can be interpreted. Maybe contact the authors if you have a query.
 
@@ -146,13 +145,14 @@ Any analysis usually needs more than the base packages. This course will use an 
 Once a package is on your computer, it is not yet available to use in your current analysis session. For this you need to import the package from your library, with a line of code using the `library` function; for example `library(marginaleffects)` to import the Marginal Effects package. Repeat this for each package. In writing a script of R code for any work, you usually start with lines to import the necessary packages, as without them the subsequent code depending on them will not run.
 :::
 
+[**R Code 2.1** Import packages from your library into the current analysis session.]{.aside}
 ---
 code-annotations: select
 ---
 
 ```{r}
 #| message: false
-#| code-summary: "Code 3.1 Import packages to session"
+#| code-summary: "R Code 2.1"
 #| code-block-bg: true
 #| highlight-style: github
 library(abd) # a biological data package that includes the lion nose data     # <1>
@@ -178,16 +178,19 @@ library(huxtable)                                                             # 
 
 1.  The first lines of any `R` script usually add packages from your library into your current work session with the `library` function. If you do not have one or more of these packages installed you will need to first run `install.packages(abd)` etc or alternatively, if the package is on`CRAN` (Comprehensive R Archive Network's 21,000 packages) use the package -\> install button in R Studio's lower right window and follow the instructions.
 
+The data added.
+
+[**R Code 2.2** Import the data]{.aside}
 ---
 code-annotations: select
 ---
 
 ```{r}
 #| message: false
-#| code-summary: "Code 3.2 Import lion nose data"
+#| code-summary: "R code 2.2"
 #| code-block-bg: true
 #| highlight-style: github
-lion_noses <- as.data.frame(LionNoses)                    # <1>
+lion_noses <- as.data.frame(LionNoses)                     # <1>
 ```
 
 1.  Load `LionNoses` from the `abd` package into a data.frame
@@ -244,7 +247,7 @@ The scatterplot above (from Code 3.3) shows that there is a trend of increased b
 
 add quote on stats being extracting meaning/information from data, but add best possible information, so the meaning is in the model, ble/green box example just a poor model. he non model is usggesting all we need to know is in the data, whilst we know it is imprecise (sampling variability) and the meaning is in a model. Model vs non model.
 
-#### Step 5. Model formulation and inference
+### Step 5. Model formulation and inference
 
 Certainly there is, with variability, an increase in nose markings with age. The first model fit, which we may complicate later, is to suggest a straight line fit. As our data have only one predictor this is a **simple linear regression** with nose markings predicting age.
 
@@ -309,7 +312,7 @@ gt_tbl
 ```
 
 
-##### Modelling process (following ROS chs 6-9)
+## Modelling process (following ROS chs 6-9)
 
 ::: {.callout-note collapse="false"}
 ### ROS Ch 6 summary 
@@ -489,7 +492,7 @@ As sample size approaches infinity, the coefficients a and b are estimated more 
 
 Consider a lion on territory, so it can be re-found for trophy hunting, which is photographed and the nose markings measured as 45%. Let's calculate the three measures for this individual.
 
-##### Point estimate
+#### Point estimate
 
 The point estimate where the best fit regression line can be approximately read off the graph `Code 3.6` as the value of y where x = 45. It is calculated with the base r function `predict`
 
@@ -499,7 +502,7 @@ y_point_pred <- round(predict(m1, newdata=new), 1)
 cat("The point prediction of the average age in years of a lion with \n45% nose markings is", y_point_pred)
 ```
 
-##### Linear predictor
+#### Linear predictor
 
 To put uncertainty intervals around the point estimate, the rstanarm function `posterior_linpred` is used
 
@@ -509,7 +512,7 @@ ci_b <- quantile(y_linpred, c(0.05, 0.95))
 cat("The linear predictor of the average age in years \nof a lion with 45% nose markings are given by the \n90% uncertainty intervals", ci_b)
 ```
 
-##### Predictive uncertainty
+#### Predictive uncertainty
 
 This uses the rstanarm function `posterior_predict`
 
@@ -692,13 +695,56 @@ ggplot(aes(x = percentage.black, y = age)) +
 p1 / p2
 ```
 
-#### Present conclusions
+## Bayes Rules modelling sequence; from Chapter 9
+
+### specify the data model
+
+equation. Maths is shorthand, translate into english
+
+$Y_i|\beta_0,\beta_1,\sigma$ $\simeq$ $N(\mu_1, \sigma^2)$ with $\mu_1 = \beta_0 +\beta_1X_1$
+
+- coefficients and parameters alternative names. 
+- add fig 9.2 (simulate) to show how same parameters for slope and intercept ca arise with different sigmas. 
+
+### Specify the priors
+
+Explain why defaults in rstnarm are ok 
+
+### Posterior simulation
+
+```{r}
+bayesplot::neff_ratio(m1)
+```
+
+```{r}
+bayesplot::rhat(m1)
+```
+
+```{r}
+bayesplot::mcmc_trace(m1, size = 0.1)
+```
+
+```{r}
+bayesplot::mcmc_dens_overlay(m1)
+```
+
+```{r}
+#lion_noses %>%
+#  add_fitted_draws(m1, n = 100) %>% 
+#  ggplot(aes(x = percentage.black, y = age)) +
+#    geom_line(aes(y = .linpred, group = .draw), alpha = 0.15) + 
+#    geom_point(data = lion_noses, size = 0.05)
+```
+
+
+
+## Present conclusions
 
 yaba yaba
 
-#### Interpret in subject matter terms 
+## Interpret in subject matter terms 
 
-##### Shiny app
+#### Shiny app
 
 It is often useful in communicating your results to have an interactive app that can, in this case, allow someone to enter a nose marking measure and get output on the lion's age with the model hidden. This has become increasingly easy in R with [Shiny](https://shiny.posit.co/). We'll follow the official Shiny website and also a nice example on spatio-temporal data from [@Morega_2020] which is [free online](https://www.paulamoraga.com/book-geospatial/) 
 
@@ -741,3 +787,5 @@ add [targets](https://books.ropensci.org/targets/literate-programming.html)
 [patchwork r package](https://patchwork.data-imaginist.com/articles/patchwork.html) to reorganise image layout
 
 [html validator](https://validator.w3.org/)
+
+[LaTex symbols](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)

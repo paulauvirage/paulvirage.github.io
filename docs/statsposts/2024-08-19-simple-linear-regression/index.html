@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,11 +92,11 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-79bb3942e891885f9f7af119cd221462.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-37bb72f48501692975d9c066fdeb097b.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8ecc99448d51f5033ffc6a68c51fb2fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
@@ -263,15 +263,31 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#working-example---trophy-hunting-of-lions" id="toc-working-example---trophy-hunting-of-lions" class="nav-link active" data-scroll-target="#working-example---trophy-hunting-of-lions">Working example - trophy hunting of lions</a></li>
-  <li><a href="#the-objectives-of-regression" id="toc-the-objectives-of-regression" class="nav-link" data-scroll-target="#the-objectives-of-regression">The objectives of regression</a></li>
-  <li><a href="#analysis-of-the-lion-nose-data-with-r" id="toc-analysis-of-the-lion-nose-data-with-r" class="nav-link" data-scroll-target="#analysis-of-the-lion-nose-data-with-r">Analysis of the lion nose data with R</a></li>
+  <li><a href="#working-example---trophy-hunting-of-lions" id="toc-working-example---trophy-hunting-of-lions" class="nav-link active" data-scroll-target="#working-example---trophy-hunting-of-lions"><span class="header-section-number">1</span> Working example - trophy hunting of lions</a></li>
+  <li><a href="#the-objectives-of-regression" id="toc-the-objectives-of-regression" class="nav-link" data-scroll-target="#the-objectives-of-regression"><span class="header-section-number">2</span> The objectives of regression</a></li>
+  <li><a href="#analysis-of-the-lion-nose-data-with-r" id="toc-analysis-of-the-lion-nose-data-with-r" class="nav-link" data-scroll-target="#analysis-of-the-lion-nose-data-with-r"><span class="header-section-number">3</span> Analysis of the lion nose data with R</a>
+  <ul class="collapse">
+  <li><a href="#step-1.-subject-matter-questions" id="toc-step-1.-subject-matter-questions" class="nav-link" data-scroll-target="#step-1.-subject-matter-questions">Step 1. Subject matter questions</a></li>
+  <li><a href="#step-4.-exploratory-data-analysis-eda-jumping-steps-2-study-design-and-3-measurement-validity-as-existing-data-is-being-used." id="toc-step-4.-exploratory-data-analysis-eda-jumping-steps-2-study-design-and-3-measurement-validity-as-existing-data-is-being-used." class="nav-link" data-scroll-target="#step-4.-exploratory-data-analysis-eda-jumping-steps-2-study-design-and-3-measurement-validity-as-existing-data-is-being-used.">Step 4. Exploratory data analysis (EDA), jumping Steps 2 (Study Design) and 3 (Measurement validity) as existing data is being used.</a></li>
+  <li><a href="#step-5.-model-formulation-and-inference" id="toc-step-5.-model-formulation-and-inference" class="nav-link" data-scroll-target="#step-5.-model-formulation-and-inference">Step 5. Model formulation and inference</a></li>
+  </ul></li>
+  <li><a href="#modelling-process-following-ros-chs-6-9" id="toc-modelling-process-following-ros-chs-6-9" class="nav-link" data-scroll-target="#modelling-process-following-ros-chs-6-9"><span class="header-section-number">4</span> Modelling process (following ROS chs 6-9)</a></li>
+  <li><a href="#bayes-rules-modelling-sequence-from-chapter-9" id="toc-bayes-rules-modelling-sequence-from-chapter-9" class="nav-link" data-scroll-target="#bayes-rules-modelling-sequence-from-chapter-9"><span class="header-section-number">5</span> Bayes Rules modelling sequence; from Chapter 9</a>
+  <ul class="collapse">
+  <li><a href="#specify-the-data-model" id="toc-specify-the-data-model" class="nav-link" data-scroll-target="#specify-the-data-model">specify the data model</a></li>
+  <li><a href="#specify-the-priors" id="toc-specify-the-priors" class="nav-link" data-scroll-target="#specify-the-priors">Specify the priors</a></li>
+  <li><a href="#posterior-simulation" id="toc-posterior-simulation" class="nav-link" data-scroll-target="#posterior-simulation">Posterior simulation</a></li>
+  </ul></li>
+  <li><a href="#present-conclusions" id="toc-present-conclusions" class="nav-link" data-scroll-target="#present-conclusions"><span class="header-section-number">6</span> Present conclusions</a></li>
+  <li><a href="#interpret-in-subject-matter-terms" id="toc-interpret-in-subject-matter-terms" class="nav-link" data-scroll-target="#interpret-in-subject-matter-terms"><span class="header-section-number">7</span> Interpret in subject matter terms</a>
+  <ul class="collapse">
   <li><a href="#notes-on-stuff-to-addadded" id="toc-notes-on-stuff-to-addadded" class="nav-link" data-scroll-target="#notes-on-stuff-to-addadded">Notes on stuff to add/added</a></li>
   <li><a href="#refs-and-open-books-to-add" id="toc-refs-and-open-books-to-add" class="nav-link" data-scroll-target="#refs-and-open-books-to-add">refs and open books to add</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -303,9 +319,8 @@ Document structure
 </div>
 </div>
 </div>
-<section id="working-example---trophy-hunting-of-lions" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="working-example---trophy-hunting-of-lions">Working example - trophy hunting of lions</h3>
-<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside">This is a span that has the class <code>aside</code> which places it in the margin without a footnote number.</span></div></div>
+<section id="working-example---trophy-hunting-of-lions" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="working-example---trophy-hunting-of-lions"><span class="header-section-number">1</span> Working example - trophy hunting of lions</h2>
 <p>Trophy hunting of lions, particularly males, is a controversial, but <a href="https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&amp;text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!">active</a>, means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride <span class="citation" data-cites="whitman2004">(<a href="#ref-whitman2004" role="doc-biblioref">Whitman et al. 2004</a>)</span>, <span class="citation" data-cites="loveridge2023">(<a href="#ref-loveridge2023" role="doc-biblioref">Loveridge et al. 2023</a>)</span>. The amount of black on a lion’s nose is the best remote indicator of age . This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package <code>abd</code> and has been used for an example of linear regression in the online book <a href="https://statistics4ecologists-v2.netlify.app/linreg">Statistics for ecologists</a> <span class="citation" data-cites="fieberg_2024">(<a href="#ref-fieberg_2024" role="doc-biblioref">Fieberg 2024</a>)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -324,8 +339,8 @@ The advantages of open data
 </div>
 </div>
 </section>
-<section id="the-objectives-of-regression" class="level3">
-<h3 class="anchored" data-anchor-id="the-objectives-of-regression">The objectives of regression</h3>
+<section id="the-objectives-of-regression" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="the-objectives-of-regression"><span class="header-section-number">2</span> The objectives of regression</h2>
 <p>Let’s review what regression aims to do, applied to the lion nose data, in the call-out box below.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -355,8 +370,8 @@ The objectives of regression
 </div>
 </div>
 </section>
-<section id="analysis-of-the-lion-nose-data-with-r" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="analysis-of-the-lion-nose-data-with-r">Analysis of the lion nose data with R</h3>
+<section id="analysis-of-the-lion-nose-data-with-r" class="level2 page-columns page-full" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="analysis-of-the-lion-nose-data-with-r"><span class="header-section-number">3</span> Analysis of the lion nose data with R</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -433,8 +448,8 @@ A recap of the ideal sequence of a statistical investigation
 </div>
 </div>
 </div>
-<section id="step-1.-subject-matter-questions" class="level4">
-<h4 class="anchored" data-anchor-id="step-1.-subject-matter-questions">Step 1. Subject matter questions</h4>
+<section id="step-1.-subject-matter-questions" class="level3">
+<h3 class="anchored" data-anchor-id="step-1.-subject-matter-questions">Step 1. Subject matter questions</h3>
 <p>When possible choose an important question that is likely to be soluble from the data. The Lion is classified as globally <a href="https://www.iucnredlist.org/species/15951/259030422">Vulnerable</a>. Trophy hunting is economically valuable. Therefore an investigation of how selective trophy hunting could minimise the impact on the lion population size is of importance. There is evidence that trophy hunting older lions could cause less impact on the population and that lion age can be measured unobtrusively from the amount of black marking on the nose. The broad questions are:</p>
 <ol type="a">
 <li>Is there a difference in nose marking with age (hypothesis test)?</li>
@@ -442,8 +457,8 @@ A recap of the ideal sequence of a statistical investigation
 <li>Can the model be applied, for example to regulate permits for trophy hunting?</li>
 </ol>
 </section>
-<section id="step-4.-exploratory-data-analysis-eda-jumping-steps-2-study-design-and-3-measurement-validity-as-existing-data-is-being-used." class="level4 page-columns page-full">
-<h4 class="anchored" data-anchor-id="step-4.-exploratory-data-analysis-eda-jumping-steps-2-study-design-and-3-measurement-validity-as-existing-data-is-being-used.">Step 4. Exploratory data analysis (EDA), jumping Steps 2 (Study Design) and 3 (Measurement validity) as existing data is being used.</h4>
+<section id="step-4.-exploratory-data-analysis-eda-jumping-steps-2-study-design-and-3-measurement-validity-as-existing-data-is-being-used." class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="step-4.-exploratory-data-analysis-eda-jumping-steps-2-study-design-and-3-measurement-validity-as-existing-data-is-being-used.">Step 4. Exploratory data analysis (EDA), jumping Steps 2 (Study Design) and 3 (Measurement validity) as existing data is being used.</h3>
 <p>Let’s start with question b. The data is already collected, so the usual <strong>Step 2</strong> of designing a study to collect data and <strong>Step 3</strong> of measurement validity are not necessary. However, you should read the papers that have been produced using the data, as how the data was gathered (both design and measurement) could affect how it can be interpreted. Maybe contact the authors if you have a query.</p>
 <p>A first task, and so usually the first lines of <code>R</code> code, is to import into the analysis session, from your local library on your computer, the necessary R packages for the data handling, manipulation and analysis (<code>Code 3.1</code>) Next, import the data into your session (<code>Code 3.2</code>).</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -464,9 +479,10 @@ Package management in R
 </div>
 </div>
 </div>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><strong>R Code 2.1</strong> Import packages from your library into the current analysis session.</span></div></div>
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
-<summary>Code 3.1 Import packages to session</summary>
+<summary>R Code 2.1</summary>
 <div class="sourceCode cell-code" id="annotated-cell-1" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(abd) <span class="co"># a biological data package that includes the lion nose data</span></span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># eight packages including ggplot2 for data visualisation</span></span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
@@ -496,9 +512,11 @@ Package management in R
 </dl>
 </div>
 </div>
+<p>The data added.</p>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><strong>R Code 2.2</strong> Import the data</span></div></div>
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
 <details class="code-fold">
-<summary>Code 3.2 Import lion nose data</summary>
+<summary>R code 2.2</summary>
 <div class="sourceCode cell-code" id="annotated-cell-2" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(LionNoses)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-annotation">
@@ -678,8 +696,8 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
 <p>The scatterplot above (from Code 3.3) shows that there is a trend of increased black on the nose with age, but with variability and with fewer samples for older lions.</p>
 <p>add quote on stats being extracting meaning/information from data, but add best possible information, so the meaning is in the model, ble/green box example just a poor model. he non model is usggesting all we need to know is in the data, whilst we know it is imprecise (sampling variability) and the meaning is in a model. Model vs non model.</p>
 </section>
-<section id="step-5.-model-formulation-and-inference" class="level4 page-columns page-full">
-<h4 class="anchored" data-anchor-id="step-5.-model-formulation-and-inference">Step 5. Model formulation and inference</h4>
+<section id="step-5.-model-formulation-and-inference" class="level3">
+<h3 class="anchored" data-anchor-id="step-5.-model-formulation-and-inference">Step 5. Model formulation and inference</h3>
 <p>Certainly there is, with variability, an increase in nose markings with age. The first model fit, which we may complicate later, is to suggest a straight line fit. As our data have only one predictor this is a <strong>simple linear regression</strong> with nose markings predicting age.</p>
 <p>The model, let’s call it <strong><em>m1</em></strong>, is:</p>
 <p>y = intercept + slope*percentage.black + error</p>
@@ -733,23 +751,23 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>gt_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="wrdlwgslve" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wrdlwgslve table {
+<div id="rzjpfrkbih" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rzjpfrkbih table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wrdlwgslve thead, #wrdlwgslve tbody, #wrdlwgslve tfoot, #wrdlwgslve tr, #wrdlwgslve td, #wrdlwgslve th {
+#rzjpfrkbih thead, #rzjpfrkbih tbody, #rzjpfrkbih tfoot, #rzjpfrkbih tr, #rzjpfrkbih td, #rzjpfrkbih th {
   border-style: none;
 }
 
-#wrdlwgslve p {
+#rzjpfrkbih p {
   margin: 0;
   padding: 0;
 }
 
-#wrdlwgslve .gt_table {
+#rzjpfrkbih .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -775,12 +793,12 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-left-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_caption {
+#rzjpfrkbih .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wrdlwgslve .gt_title {
+#rzjpfrkbih .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -792,7 +810,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-bottom-width: 0;
 }
 
-#wrdlwgslve .gt_subtitle {
+#rzjpfrkbih .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -804,7 +822,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-top-width: 0;
 }
 
-#wrdlwgslve .gt_heading {
+#rzjpfrkbih .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -816,13 +834,13 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-right-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_bottom_border {
+#rzjpfrkbih .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_col_headings {
+#rzjpfrkbih .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -837,7 +855,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-right-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_col_heading {
+#rzjpfrkbih .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -857,7 +875,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   overflow-x: hidden;
 }
 
-#wrdlwgslve .gt_column_spanner_outer {
+#rzjpfrkbih .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -869,15 +887,15 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   padding-right: 4px;
 }
 
-#wrdlwgslve .gt_column_spanner_outer:first-child {
+#rzjpfrkbih .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wrdlwgslve .gt_column_spanner_outer:last-child {
+#rzjpfrkbih .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wrdlwgslve .gt_column_spanner {
+#rzjpfrkbih .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -889,11 +907,11 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   width: 100%;
 }
 
-#wrdlwgslve .gt_spanner_row {
+#rzjpfrkbih .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wrdlwgslve .gt_group_heading {
+#rzjpfrkbih .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -919,7 +937,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   text-align: left;
 }
 
-#wrdlwgslve .gt_empty_group_heading {
+#rzjpfrkbih .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -934,15 +952,15 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   vertical-align: middle;
 }
 
-#wrdlwgslve .gt_from_md > :first-child {
+#rzjpfrkbih .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wrdlwgslve .gt_from_md > :last-child {
+#rzjpfrkbih .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wrdlwgslve .gt_row {
+#rzjpfrkbih .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -961,7 +979,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   overflow-x: hidden;
 }
 
-#wrdlwgslve .gt_stub {
+#rzjpfrkbih .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -974,7 +992,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   padding-right: 5px;
 }
 
-#wrdlwgslve .gt_stub_row_group {
+#rzjpfrkbih .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -988,15 +1006,15 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   vertical-align: top;
 }
 
-#wrdlwgslve .gt_row_group_first td {
+#rzjpfrkbih .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wrdlwgslve .gt_row_group_first th {
+#rzjpfrkbih .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wrdlwgslve .gt_summary_row {
+#rzjpfrkbih .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1006,16 +1024,16 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   padding-right: 5px;
 }
 
-#wrdlwgslve .gt_first_summary_row {
+#rzjpfrkbih .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_first_summary_row.thick {
+#rzjpfrkbih .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wrdlwgslve .gt_last_summary_row {
+#rzjpfrkbih .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1025,7 +1043,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-bottom-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_grand_summary_row {
+#rzjpfrkbih .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1035,7 +1053,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   padding-right: 5px;
 }
 
-#wrdlwgslve .gt_first_grand_summary_row {
+#rzjpfrkbih .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1045,7 +1063,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-top-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_last_grand_summary_row_top {
+#rzjpfrkbih .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1055,11 +1073,11 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-bottom-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_striped {
+#rzjpfrkbih .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wrdlwgslve .gt_table_body {
+#rzjpfrkbih .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1068,7 +1086,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-bottom-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_footnotes {
+#rzjpfrkbih .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1082,7 +1100,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-right-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_footnote {
+#rzjpfrkbih .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1091,7 +1109,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   padding-right: 5px;
 }
 
-#wrdlwgslve .gt_sourcenotes {
+#rzjpfrkbih .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1105,7 +1123,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   border-right-color: #D3D3D3;
 }
 
-#wrdlwgslve .gt_sourcenote {
+#rzjpfrkbih .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1113,72 +1131,72 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
   padding-right: 5px;
 }
 
-#wrdlwgslve .gt_left {
+#rzjpfrkbih .gt_left {
   text-align: left;
 }
 
-#wrdlwgslve .gt_center {
+#rzjpfrkbih .gt_center {
   text-align: center;
 }
 
-#wrdlwgslve .gt_right {
+#rzjpfrkbih .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wrdlwgslve .gt_font_normal {
+#rzjpfrkbih .gt_font_normal {
   font-weight: normal;
 }
 
-#wrdlwgslve .gt_font_bold {
+#rzjpfrkbih .gt_font_bold {
   font-weight: bold;
 }
 
-#wrdlwgslve .gt_font_italic {
+#rzjpfrkbih .gt_font_italic {
   font-style: italic;
 }
 
-#wrdlwgslve .gt_super {
+#rzjpfrkbih .gt_super {
   font-size: 65%;
 }
 
-#wrdlwgslve .gt_footnote_marks {
+#rzjpfrkbih .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wrdlwgslve .gt_asterisk {
+#rzjpfrkbih .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wrdlwgslve .gt_indent_1 {
+#rzjpfrkbih .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wrdlwgslve .gt_indent_2 {
+#rzjpfrkbih .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wrdlwgslve .gt_indent_3 {
+#rzjpfrkbih .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wrdlwgslve .gt_indent_4 {
+#rzjpfrkbih .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wrdlwgslve .gt_indent_5 {
+#rzjpfrkbih .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wrdlwgslve .katex-display {
+#rzjpfrkbih .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wrdlwgslve div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rzjpfrkbih div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1214,10 +1232,10 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="term">(Intercept)</td>
-<td class="gt_row gt_right" headers="estimate">0.88</td>
-<td class="gt_row gt_right" headers="std.error">0.59</td>
-<td class="gt_row gt_right" headers="conf.low">−0.12</td>
-<td class="gt_row gt_right" headers="conf.high">1.81</td>
+<td class="gt_row gt_right" headers="estimate">0.87</td>
+<td class="gt_row gt_right" headers="std.error">0.58</td>
+<td class="gt_row gt_right" headers="conf.low">−0.13</td>
+<td class="gt_row gt_right" headers="conf.high">1.91</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="term">percentage.black</td>
@@ -1228,7 +1246,7 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="term">sigma</td>
-<td class="gt_row gt_right" headers="estimate">1.71</td>
+<td class="gt_row gt_right" headers="estimate">1.72</td>
 <td class="gt_row gt_right" headers="std.error">0.24</td>
 <td class="gt_row gt_right" headers="conf.low">1.40</td>
 <td class="gt_row gt_right" headers="conf.high">2.16</td>
@@ -1239,8 +1257,10 @@ Figure&nbsp;1: Scatterplot of lion nose markings and age
 </div>
 </div>
 </div>
-<section id="modelling-process-following-ros-chs-6-9" class="level5">
-<h5 class="anchored" data-anchor-id="modelling-process-following-ros-chs-6-9">Modelling process (following ROS chs 6-9)</h5>
+</section>
+</section>
+<section id="modelling-process-following-ros-chs-6-9" class="level2 page-columns page-full" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="modelling-process-following-ros-chs-6-9"><span class="header-section-number">4</span> Modelling process (following ROS chs 6-9)</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1318,12 +1338,12 @@ Ros Ch8 summary
 <!-- preamble start -->
 
     <script>
-      function styleCell_07ag933mjz3f4zuprj62(i, j, css_id) {
-        var table = document.getElementById("tinytable_07ag933mjz3f4zuprj62");
+      function styleCell_mckr5fecta6o1kybsjd5(i, j, css_id) {
+        var table = document.getElementById("tinytable_mckr5fecta6o1kybsjd5");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_07ag933mjz3f4zuprj62');
+        var table = document.getElementById('tinytable_mckr5fecta6o1kybsjd5');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1331,8 +1351,8 @@ Ros Ch8 summary
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_07ag933mjz3f4zuprj62(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_07ag933mjz3f4zuprj62");
+      function spanCell_mckr5fecta6o1kybsjd5(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_mckr5fecta6o1kybsjd5");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1358,34 +1378,34 @@ Ros Ch8 summary
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(0, 0, 'tinytable_css_id04wyj59n6ntqfsu8dj3l') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(0, 1, 'tinytable_css_idfbrs82tq9wobzrdli1wn') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(0, 2, 'tinytable_css_id102o2tyq0rljr4ipiy81') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(0, 3, 'tinytable_css_id102o2tyq0rljr4ipiy81') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(1, 0, 'tinytable_css_id4x17w1rjx23bc4mzgfhk') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(1, 1, 'tinytable_css_idb7scl8t3jt6mi85ek4ds') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(1, 2, 'tinytable_css_idb7scl8t3jt6mi85ek4ds') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(1, 3, 'tinytable_css_idb7scl8t3jt6mi85ek4ds') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(2, 0, 'tinytable_css_id4hvxhhmvvngunwyan8f2') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(2, 1, 'tinytable_css_id102o2tyq0rljr4ipiy81') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(2, 2, 'tinytable_css_id102o2tyq0rljr4ipiy81') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(2, 3, 'tinytable_css_id102o2tyq0rljr4ipiy81') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(3, 0, 'tinytable_css_id4hvxhhmvvngunwyan8f2') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(3, 1, 'tinytable_css_id102o2tyq0rljr4ipiy81') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(3, 2, 'tinytable_css_id102o2tyq0rljr4ipiy81') })
-window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(3, 3, 'tinytable_css_id102o2tyq0rljr4ipiy81') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(0, 0, 'tinytable_css_idzouumg06nhbjqmszl3go') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(0, 1, 'tinytable_css_idntqmb55p0flioz3ji2b5') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(0, 2, 'tinytable_css_idmezqfw72sozc4s199r8o') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(0, 3, 'tinytable_css_idmezqfw72sozc4s199r8o') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(1, 0, 'tinytable_css_idw5t9gx58ps01xwemhto6') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(1, 1, 'tinytable_css_idiw3gu0pba2cko79hp8r7') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(1, 2, 'tinytable_css_idiw3gu0pba2cko79hp8r7') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(1, 3, 'tinytable_css_idiw3gu0pba2cko79hp8r7') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(2, 0, 'tinytable_css_idqbolon64w49aizmknxo2') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(2, 1, 'tinytable_css_idmezqfw72sozc4s199r8o') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(2, 2, 'tinytable_css_idmezqfw72sozc4s199r8o') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(2, 3, 'tinytable_css_idmezqfw72sozc4s199r8o') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(3, 0, 'tinytable_css_idqbolon64w49aizmknxo2') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(3, 1, 'tinytable_css_idmezqfw72sozc4s199r8o') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(3, 2, 'tinytable_css_idmezqfw72sozc4s199r8o') })
+window.addEventListener('load', function () { styleCell_mckr5fecta6o1kybsjd5(3, 3, 'tinytable_css_idmezqfw72sozc4s199r8o') })
     </script>
 
     <style>
-    .table td.tinytable_css_id04wyj59n6ntqfsu8dj3l, .table th.tinytable_css_id04wyj59n6ntqfsu8dj3l {  text-align: center;  text-align: left; }
-    .table td.tinytable_css_idfbrs82tq9wobzrdli1wn, .table th.tinytable_css_idfbrs82tq9wobzrdli1wn {  text-align: center;  border-bottom: solid 0.05em #d3d8dc; }
-    .table td.tinytable_css_id102o2tyq0rljr4ipiy81, .table th.tinytable_css_id102o2tyq0rljr4ipiy81 {  text-align: center; }
-    .table td.tinytable_css_id4x17w1rjx23bc4mzgfhk, .table th.tinytable_css_id4x17w1rjx23bc4mzgfhk {  text-align: left;  border-bottom: solid 0.1em #d3d8dc; }
-    .table td.tinytable_css_idb7scl8t3jt6mi85ek4ds, .table th.tinytable_css_idb7scl8t3jt6mi85ek4ds {  text-align: center;  border-bottom: solid 0.1em #d3d8dc; }
-    .table td.tinytable_css_id4hvxhhmvvngunwyan8f2, .table th.tinytable_css_id4hvxhhmvvngunwyan8f2 {  text-align: left; }
+    .table td.tinytable_css_idzouumg06nhbjqmszl3go, .table th.tinytable_css_idzouumg06nhbjqmszl3go {  text-align: center;  text-align: left; }
+    .table td.tinytable_css_idntqmb55p0flioz3ji2b5, .table th.tinytable_css_idntqmb55p0flioz3ji2b5 {  text-align: center;  border-bottom: solid 0.05em #d3d8dc; }
+    .table td.tinytable_css_idmezqfw72sozc4s199r8o, .table th.tinytable_css_idmezqfw72sozc4s199r8o {  text-align: center; }
+    .table td.tinytable_css_idw5t9gx58ps01xwemhto6, .table th.tinytable_css_idw5t9gx58ps01xwemhto6 {  text-align: left;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idiw3gu0pba2cko79hp8r7, .table th.tinytable_css_idiw3gu0pba2cko79hp8r7 {  text-align: center;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idqbolon64w49aizmknxo2, .table th.tinytable_css_idqbolon64w49aizmknxo2 {  text-align: left; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_07ag933mjz3f4zuprj62" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_mckr5fecta6o1kybsjd5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
@@ -1403,14 +1423,14 @@ window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(3, 
         <tbody>
                 <tr>
                   <td>(Intercept)     </td>
-                  <td>0.882</td>
-                  <td>-0.120</td>
-                  <td>1.812</td>
+                  <td>0.868</td>
+                  <td>-0.129</td>
+                  <td>1.906</td>
                 </tr>
                 <tr>
                   <td>percentage.black</td>
                   <td>0.107</td>
-                  <td>0.081 </td>
+                  <td>0.080 </td>
                   <td>0.133</td>
                 </tr>
         </tbody>
@@ -1466,11 +1486,11 @@ window.addEventListener('load', function () { styleCell_07ag933mjz3f4zuprj62(3, 
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>the estimated intercept is: 0.882
+<pre data-code-line-numbers=""><code>the estimated intercept is: 0.868
 
 the estimated slope is: 0.107
 
-the estimated residual standard deviation is: 1.715
+the estimated residual standard deviation is: 1.72
 
 the intercept cis are:
  2.5% 97.5% 
@@ -1490,7 +1510,7 @@ the slope cis are:
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(r2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>[1] 0.5894906</code></pre>
+<pre data-code-line-numbers=""><code>[1] 0.5871222</code></pre>
 </div>
 </div>
 <p>So almost 60% of the variance in age can be explained by nose markings. Where is the other 40%? Probably in other variables (lion health?) the model did not include.</p>
@@ -1507,12 +1527,12 @@ the slope cis are:
 <span id="cb9-5"><a href="#cb9-5"></a> predictors:   2</span>
 <span id="cb9-6"><a href="#cb9-6"></a>------</span>
 <span id="cb9-7"><a href="#cb9-7"></a>                 Median MAD_SD</span>
-<span id="cb9-8"><a href="#cb9-8"></a>(Intercept)      0.882  0.587 </span>
-<span id="cb9-9"><a href="#cb9-9"></a>percentage.black 0.107  0.016 </span>
+<span id="cb9-8"><a href="#cb9-8"></a>(Intercept)      0.868  0.583 </span>
+<span id="cb9-9"><a href="#cb9-9"></a>percentage.black 0.107  0.015 </span>
 <span id="cb9-10"><a href="#cb9-10"></a></span>
 <span id="cb9-11"><a href="#cb9-11"></a>Auxiliary parameter(s):</span>
 <span id="cb9-12"><a href="#cb9-12"></a>      Median MAD_SD</span>
-<span id="cb9-13"><a href="#cb9-13"></a>sigma 1.715  0.223 </span>
+<span id="cb9-13"><a href="#cb9-13"></a>sigma 1.720  0.224 </span>
 <span id="cb9-14"><a href="#cb9-14"></a></span>
 <span id="cb9-15"><a href="#cb9-15"></a>------</span>
 <span id="cb9-16"><a href="#cb9-16"></a>* For help interpreting the printed output see ?print.stanreg</span>
@@ -1538,23 +1558,23 @@ the slope cis are:
 <span id="cb11-11"><a href="#cb11-11"></a></span>
 <span id="cb11-12"><a href="#cb11-12"></a>Estimates:</span>
 <span id="cb11-13"><a href="#cb11-13"></a>                   mean   sd    10%   50%   90%</span>
-<span id="cb11-14"><a href="#cb11-14"></a>(Intercept)      0.874  0.593 0.119 0.882 1.607</span>
-<span id="cb11-15"><a href="#cb11-15"></a>percentage.black 0.107  0.016 0.087 0.107 0.127</span>
-<span id="cb11-16"><a href="#cb11-16"></a>sigma            1.739  0.237 1.456 1.715 2.051</span>
+<span id="cb11-14"><a href="#cb11-14"></a>(Intercept)      0.877  0.611 0.106 0.868 1.652</span>
+<span id="cb11-15"><a href="#cb11-15"></a>percentage.black 0.106  0.016 0.086 0.107 0.127</span>
+<span id="cb11-16"><a href="#cb11-16"></a>sigma            1.741  0.237 1.462 1.720 2.046</span>
 <span id="cb11-17"><a href="#cb11-17"></a></span>
 <span id="cb11-18"><a href="#cb11-18"></a>Fit Diagnostics:</span>
 <span id="cb11-19"><a href="#cb11-19"></a>           mean   sd    10%   50%   90%</span>
-<span id="cb11-20"><a href="#cb11-20"></a>mean_PPD 4.309  0.436 3.762 4.306 4.850</span>
+<span id="cb11-20"><a href="#cb11-20"></a>mean_PPD 4.314  0.441 3.754 4.313 4.863</span>
 <span id="cb11-21"><a href="#cb11-21"></a></span>
 <span id="cb11-22"><a href="#cb11-22"></a>The mean_ppd is the sample average posterior predictive distribution of the outcome variable (for details see help('summary.stanreg')).</span>
 <span id="cb11-23"><a href="#cb11-23"></a></span>
 <span id="cb11-24"><a href="#cb11-24"></a>MCMC diagnostics</span>
 <span id="cb11-25"><a href="#cb11-25"></a>                 mcse  Rhat  n_eff</span>
-<span id="cb11-26"><a href="#cb11-26"></a>(Intercept)      0.010 1.001 3535 </span>
-<span id="cb11-27"><a href="#cb11-27"></a>percentage.black 0.000 1.000 3536 </span>
-<span id="cb11-28"><a href="#cb11-28"></a>sigma            0.004 1.000 3114 </span>
-<span id="cb11-29"><a href="#cb11-29"></a>mean_PPD         0.007 1.000 3954 </span>
-<span id="cb11-30"><a href="#cb11-30"></a>log-posterior    0.031 1.000 1768 </span>
+<span id="cb11-26"><a href="#cb11-26"></a>(Intercept)      0.010 1.000 3756 </span>
+<span id="cb11-27"><a href="#cb11-27"></a>percentage.black 0.000 1.000 3867 </span>
+<span id="cb11-28"><a href="#cb11-28"></a>sigma            0.004 1.000 3186 </span>
+<span id="cb11-29"><a href="#cb11-29"></a>mean_PPD         0.007 0.999 3879 </span>
+<span id="cb11-30"><a href="#cb11-30"></a>log-posterior    0.034 1.001 1468 </span>
 <span id="cb11-31"><a href="#cb11-31"></a></span>
 <span id="cb11-32"><a href="#cb11-32"></a>For each parameter, mcse is Monte Carlo standard error, n_eff is a crude measure of effective sample size, and Rhat is the potential scale reduction factor on split chains (at convergence Rhat=1).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1606,7 +1626,7 @@ the slope cis are:
 </details>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>                    5%  95%
-(Intercept)      -0.12 1.81
+(Intercept)      -0.13 1.91
 percentage.black  0.08 0.13
 sigma             1.40 2.16</code></pre>
 </div>
@@ -1642,9 +1662,8 @@ ROS Ch 9
 </ol>
 <p>As sample size approaches infinity, the coefficients a and b are estimated more and more precisely, and the uncertainty in the linear predictor approaches zero, but the uncertainty in the predictive distribution for a new observation does not approach zero; it approaches the residual standard deviation <span class="math inline">\(\sigma\)</span> (sigma in Table 1).</p>
 <p>Consider a lion on territory, so it can be re-found for trophy hunting, which is photographed and the nose markings measured as 45%. Let’s calculate the three measures for this individual.</p>
-</section>
-<section id="point-estimate" class="level5">
-<h5 class="anchored" data-anchor-id="point-estimate">Point estimate</h5>
+<section id="point-estimate" class="level4">
+<h4 class="anchored" data-anchor-id="point-estimate">Point estimate</h4>
 <p>The point estimate where the best fit regression line can be approximately read off the graph <code>Code 3.6</code> as the value of y where x = 45. It is calculated with the base r function <code>predict</code></p>
 <div class="cell">
 <details class="code-fold">
@@ -1659,8 +1678,8 @@ ROS Ch 9
 </div>
 </div>
 </section>
-<section id="linear-predictor" class="level5">
-<h5 class="anchored" data-anchor-id="linear-predictor">Linear predictor</h5>
+<section id="linear-predictor" class="level4">
+<h4 class="anchored" data-anchor-id="linear-predictor">Linear predictor</h4>
 <p>To put uncertainty intervals around the point estimate, the rstanarm function <code>posterior_linpred</code> is used</p>
 <div class="cell">
 <details class="code-fold">
@@ -1672,12 +1691,12 @@ ROS Ch 9
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>The linear predictor of the average age in years 
 of a lion with 45% nose markings are given by the 
-90% uncertainty intervals 5.0695 6.2905</code></pre>
+90% uncertainty intervals 5.04 6.3</code></pre>
 </div>
 </div>
 </section>
-<section id="predictive-uncertainty" class="level5 page-columns page-full">
-<h5 class="anchored" data-anchor-id="predictive-uncertainty">Predictive uncertainty</h5>
+<section id="predictive-uncertainty" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="predictive-uncertainty">Predictive uncertainty</h4>
 <p>This uses the rstanarm function <code>posterior_predict</code></p>
 <div class="cell">
 <details class="code-fold">
@@ -1697,7 +1716,7 @@ of a lion with 45% nose markings are given by the
 
 with uncertainty intervals:
  5% 95% 
-2.7 8.7 
+2.8 8.5 
 
 The probability that a lion with 45% nose marking is under 
 5 years' age is: 0.34</code></pre>
@@ -1768,23 +1787,23 @@ The probability that a lion with 45% nose marking is under
 <span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="jdcbquvlse" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jdcbquvlse table {
+<div id="wxxmiyshiw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wxxmiyshiw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jdcbquvlse thead, #jdcbquvlse tbody, #jdcbquvlse tfoot, #jdcbquvlse tr, #jdcbquvlse td, #jdcbquvlse th {
+#wxxmiyshiw thead, #wxxmiyshiw tbody, #wxxmiyshiw tfoot, #wxxmiyshiw tr, #wxxmiyshiw td, #wxxmiyshiw th {
   border-style: none;
 }
 
-#jdcbquvlse p {
+#wxxmiyshiw p {
   margin: 0;
   padding: 0;
 }
 
-#jdcbquvlse .gt_table {
+#wxxmiyshiw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1810,12 +1829,12 @@ The probability that a lion with 45% nose marking is under
   border-left-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_caption {
+#wxxmiyshiw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jdcbquvlse .gt_title {
+#wxxmiyshiw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1827,7 +1846,7 @@ The probability that a lion with 45% nose marking is under
   border-bottom-width: 0;
 }
 
-#jdcbquvlse .gt_subtitle {
+#wxxmiyshiw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1839,7 +1858,7 @@ The probability that a lion with 45% nose marking is under
   border-top-width: 0;
 }
 
-#jdcbquvlse .gt_heading {
+#wxxmiyshiw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1851,13 +1870,13 @@ The probability that a lion with 45% nose marking is under
   border-right-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_bottom_border {
+#wxxmiyshiw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_col_headings {
+#wxxmiyshiw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1872,7 +1891,7 @@ The probability that a lion with 45% nose marking is under
   border-right-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_col_heading {
+#wxxmiyshiw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1892,7 +1911,7 @@ The probability that a lion with 45% nose marking is under
   overflow-x: hidden;
 }
 
-#jdcbquvlse .gt_column_spanner_outer {
+#wxxmiyshiw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1904,15 +1923,15 @@ The probability that a lion with 45% nose marking is under
   padding-right: 4px;
 }
 
-#jdcbquvlse .gt_column_spanner_outer:first-child {
+#wxxmiyshiw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jdcbquvlse .gt_column_spanner_outer:last-child {
+#wxxmiyshiw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jdcbquvlse .gt_column_spanner {
+#wxxmiyshiw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1924,11 +1943,11 @@ The probability that a lion with 45% nose marking is under
   width: 100%;
 }
 
-#jdcbquvlse .gt_spanner_row {
+#wxxmiyshiw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jdcbquvlse .gt_group_heading {
+#wxxmiyshiw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1954,7 +1973,7 @@ The probability that a lion with 45% nose marking is under
   text-align: left;
 }
 
-#jdcbquvlse .gt_empty_group_heading {
+#wxxmiyshiw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1969,15 +1988,15 @@ The probability that a lion with 45% nose marking is under
   vertical-align: middle;
 }
 
-#jdcbquvlse .gt_from_md > :first-child {
+#wxxmiyshiw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jdcbquvlse .gt_from_md > :last-child {
+#wxxmiyshiw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jdcbquvlse .gt_row {
+#wxxmiyshiw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1996,7 +2015,7 @@ The probability that a lion with 45% nose marking is under
   overflow-x: hidden;
 }
 
-#jdcbquvlse .gt_stub {
+#wxxmiyshiw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2009,7 +2028,7 @@ The probability that a lion with 45% nose marking is under
   padding-right: 5px;
 }
 
-#jdcbquvlse .gt_stub_row_group {
+#wxxmiyshiw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2023,15 +2042,15 @@ The probability that a lion with 45% nose marking is under
   vertical-align: top;
 }
 
-#jdcbquvlse .gt_row_group_first td {
+#wxxmiyshiw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jdcbquvlse .gt_row_group_first th {
+#wxxmiyshiw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jdcbquvlse .gt_summary_row {
+#wxxmiyshiw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2041,16 +2060,16 @@ The probability that a lion with 45% nose marking is under
   padding-right: 5px;
 }
 
-#jdcbquvlse .gt_first_summary_row {
+#wxxmiyshiw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_first_summary_row.thick {
+#wxxmiyshiw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jdcbquvlse .gt_last_summary_row {
+#wxxmiyshiw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2060,7 +2079,7 @@ The probability that a lion with 45% nose marking is under
   border-bottom-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_grand_summary_row {
+#wxxmiyshiw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2070,7 +2089,7 @@ The probability that a lion with 45% nose marking is under
   padding-right: 5px;
 }
 
-#jdcbquvlse .gt_first_grand_summary_row {
+#wxxmiyshiw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2080,7 +2099,7 @@ The probability that a lion with 45% nose marking is under
   border-top-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_last_grand_summary_row_top {
+#wxxmiyshiw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2090,11 +2109,11 @@ The probability that a lion with 45% nose marking is under
   border-bottom-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_striped {
+#wxxmiyshiw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jdcbquvlse .gt_table_body {
+#wxxmiyshiw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2103,7 +2122,7 @@ The probability that a lion with 45% nose marking is under
   border-bottom-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_footnotes {
+#wxxmiyshiw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2117,7 +2136,7 @@ The probability that a lion with 45% nose marking is under
   border-right-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_footnote {
+#wxxmiyshiw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2126,7 +2145,7 @@ The probability that a lion with 45% nose marking is under
   padding-right: 5px;
 }
 
-#jdcbquvlse .gt_sourcenotes {
+#wxxmiyshiw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2140,7 +2159,7 @@ The probability that a lion with 45% nose marking is under
   border-right-color: #D3D3D3;
 }
 
-#jdcbquvlse .gt_sourcenote {
+#wxxmiyshiw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2148,72 +2167,72 @@ The probability that a lion with 45% nose marking is under
   padding-right: 5px;
 }
 
-#jdcbquvlse .gt_left {
+#wxxmiyshiw .gt_left {
   text-align: left;
 }
 
-#jdcbquvlse .gt_center {
+#wxxmiyshiw .gt_center {
   text-align: center;
 }
 
-#jdcbquvlse .gt_right {
+#wxxmiyshiw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jdcbquvlse .gt_font_normal {
+#wxxmiyshiw .gt_font_normal {
   font-weight: normal;
 }
 
-#jdcbquvlse .gt_font_bold {
+#wxxmiyshiw .gt_font_bold {
   font-weight: bold;
 }
 
-#jdcbquvlse .gt_font_italic {
+#wxxmiyshiw .gt_font_italic {
   font-style: italic;
 }
 
-#jdcbquvlse .gt_super {
+#wxxmiyshiw .gt_super {
   font-size: 65%;
 }
 
-#jdcbquvlse .gt_footnote_marks {
+#wxxmiyshiw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jdcbquvlse .gt_asterisk {
+#wxxmiyshiw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jdcbquvlse .gt_indent_1 {
+#wxxmiyshiw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jdcbquvlse .gt_indent_2 {
+#wxxmiyshiw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jdcbquvlse .gt_indent_3 {
+#wxxmiyshiw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jdcbquvlse .gt_indent_4 {
+#wxxmiyshiw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jdcbquvlse .gt_indent_5 {
+#wxxmiyshiw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jdcbquvlse .katex-display {
+#wxxmiyshiw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jdcbquvlse div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wxxmiyshiw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2243,17 +2262,17 @@ The probability that a lion with 45% nose marking is under
 <tr class="odd">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">10.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">1.9</td>
-<td class="gt_row gt_center" headers="5%...3">1.2</td>
+<td class="gt_row gt_center" headers="5%...3">1.1</td>
 <td class="gt_row gt_center" headers="95%...4">2.7</td>
 <td class="gt_row gt_center" headers="5%...5">−1.1</td>
-<td class="gt_row gt_center" headers="95%...6">5.0</td>
+<td class="gt_row gt_center" headers="95%...6">4.9</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">15.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">2.5</td>
 <td class="gt_row gt_center" headers="5%...3">1.8</td>
-<td class="gt_row gt_center" headers="95%...4">3.1</td>
-<td class="gt_row gt_center" headers="5%...5">−0.4</td>
+<td class="gt_row gt_center" headers="95%...4">3.2</td>
+<td class="gt_row gt_center" headers="5%...5">−0.5</td>
 <td class="gt_row gt_center" headers="95%...6">5.5</td>
 </tr>
 <tr class="odd">
@@ -2262,44 +2281,44 @@ The probability that a lion with 45% nose marking is under
 <td class="gt_row gt_center" headers="5%...3">2.4</td>
 <td class="gt_row gt_center" headers="95%...4">3.6</td>
 <td class="gt_row gt_center" headers="5%...5">0.1</td>
-<td class="gt_row gt_center" headers="95%...6">5.8</td>
+<td class="gt_row gt_center" headers="95%...6">5.9</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">25.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">3.5</td>
 <td class="gt_row gt_center" headers="5%...3">3.0</td>
 <td class="gt_row gt_center" headers="95%...4">4.1</td>
-<td class="gt_row gt_center" headers="5%...5">0.7</td>
-<td class="gt_row gt_center" headers="95%...6">6.5</td>
+<td class="gt_row gt_center" headers="5%...5">0.5</td>
+<td class="gt_row gt_center" headers="95%...6">6.6</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">30.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">4.1</td>
 <td class="gt_row gt_center" headers="5%...3">3.6</td>
 <td class="gt_row gt_center" headers="95%...4">4.6</td>
-<td class="gt_row gt_center" headers="5%...5">1.1</td>
-<td class="gt_row gt_center" headers="95%...6">7.0</td>
+<td class="gt_row gt_center" headers="5%...5">1.2</td>
+<td class="gt_row gt_center" headers="95%...6">7.1</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">35.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">4.6</td>
 <td class="gt_row gt_center" headers="5%...3">4.1</td>
 <td class="gt_row gt_center" headers="95%...4">5.1</td>
-<td class="gt_row gt_center" headers="5%...5">1.6</td>
-<td class="gt_row gt_center" headers="95%...6">7.6</td>
+<td class="gt_row gt_center" headers="5%...5">1.8</td>
+<td class="gt_row gt_center" headers="95%...6">7.5</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">40.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">5.1</td>
 <td class="gt_row gt_center" headers="5%...3">4.6</td>
 <td class="gt_row gt_center" headers="95%...4">5.7</td>
-<td class="gt_row gt_center" headers="5%...5">2.2</td>
+<td class="gt_row gt_center" headers="5%...5">2.1</td>
 <td class="gt_row gt_center" headers="95%...6">8.1</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">45.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">5.7</td>
-<td class="gt_row gt_center" headers="5%...3">5.1</td>
+<td class="gt_row gt_center" headers="5%...3">5.0</td>
 <td class="gt_row gt_center" headers="95%...4">6.3</td>
 <td class="gt_row gt_center" headers="5%...5">2.8</td>
 <td class="gt_row gt_center" headers="95%...6">8.7</td>
@@ -2309,54 +2328,54 @@ The probability that a lion with 45% nose marking is under
 <td class="gt_row gt_center" headers="y_point_pred_grid">6.2</td>
 <td class="gt_row gt_center" headers="5%...3">5.5</td>
 <td class="gt_row gt_center" headers="95%...4">6.9</td>
-<td class="gt_row gt_center" headers="5%...5">3.3</td>
-<td class="gt_row gt_center" headers="95%...6">9.1</td>
+<td class="gt_row gt_center" headers="5%...5">3.1</td>
+<td class="gt_row gt_center" headers="95%...6">9.2</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">55.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">6.7</td>
-<td class="gt_row gt_center" headers="5%...3">6.0</td>
+<td class="gt_row gt_center" headers="5%...3">5.9</td>
 <td class="gt_row gt_center" headers="95%...4">7.5</td>
 <td class="gt_row gt_center" headers="5%...5">3.8</td>
-<td class="gt_row gt_center" headers="95%...6">9.8</td>
+<td class="gt_row gt_center" headers="95%...6">9.7</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">60.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">7.3</td>
 <td class="gt_row gt_center" headers="5%...3">6.4</td>
-<td class="gt_row gt_center" headers="95%...4">8.2</td>
-<td class="gt_row gt_center" headers="5%...5">4.3</td>
-<td class="gt_row gt_center" headers="95%...6">10.3</td>
+<td class="gt_row gt_center" headers="95%...4">8.1</td>
+<td class="gt_row gt_center" headers="5%...5">4.2</td>
+<td class="gt_row gt_center" headers="95%...6">10.4</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">65.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">7.8</td>
 <td class="gt_row gt_center" headers="5%...3">6.8</td>
 <td class="gt_row gt_center" headers="95%...4">8.8</td>
-<td class="gt_row gt_center" headers="5%...5">4.8</td>
-<td class="gt_row gt_center" headers="95%...6">10.9</td>
+<td class="gt_row gt_center" headers="5%...5">4.7</td>
+<td class="gt_row gt_center" headers="95%...6">10.8</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">70.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">8.3</td>
 <td class="gt_row gt_center" headers="5%...3">7.2</td>
-<td class="gt_row gt_center" headers="95%...4">9.5</td>
+<td class="gt_row gt_center" headers="95%...4">9.4</td>
 <td class="gt_row gt_center" headers="5%...5">5.3</td>
-<td class="gt_row gt_center" headers="95%...6">11.6</td>
+<td class="gt_row gt_center" headers="95%...6">11.5</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">75.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">8.9</td>
-<td class="gt_row gt_center" headers="5%...3">7.7</td>
+<td class="gt_row gt_center" headers="5%...3">7.6</td>
 <td class="gt_row gt_center" headers="95%...4">10.1</td>
-<td class="gt_row gt_center" headers="5%...5">5.8</td>
-<td class="gt_row gt_center" headers="95%...6">12.0</td>
+<td class="gt_row gt_center" headers="5%...5">5.7</td>
+<td class="gt_row gt_center" headers="95%...6">11.9</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="seq(10, 80, 5)">80.0</td>
 <td class="gt_row gt_center" headers="y_point_pred_grid">9.4</td>
 <td class="gt_row gt_center" headers="5%...3">8.1</td>
-<td class="gt_row gt_center" headers="95%...4">10.8</td>
+<td class="gt_row gt_center" headers="95%...4">10.7</td>
 <td class="gt_row gt_center" headers="5%...5">6.3</td>
 <td class="gt_row gt_center" headers="95%...6">12.7</td>
 </tr>
@@ -2376,9 +2395,9 @@ The probability that a lion with 45% nose marking is under
 </details>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>                 Median MAD_SD
-(Intercept)       0.882  0.587
-percentage.black  0.107  0.016
-sigma             1.715  0.223</code></pre>
+(Intercept)       0.868  0.583
+percentage.black  0.107  0.015
+sigma             1.720  0.224</code></pre>
 </div>
 </div>
 <div class="cell" data-code-block-bg="true" data-highlight-style="github">
@@ -2400,12 +2419,12 @@ sigma             1.715  0.223</code></pre>
 <!-- preamble start -->
 
     <script>
-      function styleCell_j7tlivp5l08zwkrlp6br(i, j, css_id) {
-        var table = document.getElementById("tinytable_j7tlivp5l08zwkrlp6br");
+      function styleCell_1l8vz78ut390b9amed9x(i, j, css_id) {
+        var table = document.getElementById("tinytable_1l8vz78ut390b9amed9x");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_j7tlivp5l08zwkrlp6br');
+        var table = document.getElementById('tinytable_1l8vz78ut390b9amed9x');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -2413,8 +2432,8 @@ sigma             1.715  0.223</code></pre>
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_j7tlivp5l08zwkrlp6br(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_j7tlivp5l08zwkrlp6br");
+      function spanCell_1l8vz78ut390b9amed9x(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_1l8vz78ut390b9amed9x");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -2440,68 +2459,68 @@ sigma             1.715  0.223</code></pre>
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(0, 0, 'tinytable_css_id4asxvaisvl4ph8ljlb38') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(0, 1, 'tinytable_css_idrnxxwr0etplflv8izf1b') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(0, 2, 'tinytable_css_idrnxxwr0etplflv8izf1b') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(0, 3, 'tinytable_css_idrnxxwr0etplflv8izf1b') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(0, 4, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(0, 5, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(0, 6, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(0, 7, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(0, 8, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(0, 9, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(1, 0, 'tinytable_css_id5r84ei8l7i8aa9w5ahwy') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(1, 1, 'tinytable_css_id3wx31scd41i2b7pfw1dr') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(1, 2, 'tinytable_css_id3wx31scd41i2b7pfw1dr') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(1, 3, 'tinytable_css_id3wx31scd41i2b7pfw1dr') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(1, 4, 'tinytable_css_id3wx31scd41i2b7pfw1dr') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(1, 5, 'tinytable_css_id3wx31scd41i2b7pfw1dr') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(1, 6, 'tinytable_css_id3wx31scd41i2b7pfw1dr') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(1, 7, 'tinytable_css_id3wx31scd41i2b7pfw1dr') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(1, 8, 'tinytable_css_id3wx31scd41i2b7pfw1dr') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(1, 9, 'tinytable_css_id3wx31scd41i2b7pfw1dr') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(2, 0, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(2, 1, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(2, 2, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(2, 3, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(2, 4, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(2, 5, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(2, 6, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(2, 7, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(2, 8, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(2, 9, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(3, 0, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(3, 1, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(3, 2, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(3, 3, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(3, 4, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(3, 5, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(3, 6, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(3, 7, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(3, 8, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(3, 9, 'tinytable_css_ids5hi4dg9um9r3x42dkp9') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 0, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 1, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 2, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 3, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 4, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 5, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 6, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 7, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 8, 'tinytable_css_idqj8aby8txkpblj2djv16') })
-window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 9, 'tinytable_css_idqj8aby8txkpblj2djv16') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(0, 0, 'tinytable_css_idvot1jqinwl91s3tzio8o') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(0, 1, 'tinytable_css_idde44p2k999ch2sfwegs7') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(0, 2, 'tinytable_css_idde44p2k999ch2sfwegs7') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(0, 3, 'tinytable_css_idde44p2k999ch2sfwegs7') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(0, 4, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(0, 5, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(0, 6, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(0, 7, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(0, 8, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(0, 9, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(1, 0, 'tinytable_css_id2p3s2jai1a9w26c1n0oj') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(1, 1, 'tinytable_css_id5srf1q3dmtkt0y3l5cku') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(1, 2, 'tinytable_css_id5srf1q3dmtkt0y3l5cku') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(1, 3, 'tinytable_css_id5srf1q3dmtkt0y3l5cku') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(1, 4, 'tinytable_css_id5srf1q3dmtkt0y3l5cku') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(1, 5, 'tinytable_css_id5srf1q3dmtkt0y3l5cku') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(1, 6, 'tinytable_css_id5srf1q3dmtkt0y3l5cku') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(1, 7, 'tinytable_css_id5srf1q3dmtkt0y3l5cku') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(1, 8, 'tinytable_css_id5srf1q3dmtkt0y3l5cku') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(1, 9, 'tinytable_css_id5srf1q3dmtkt0y3l5cku') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(2, 0, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(2, 1, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(2, 2, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(2, 3, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(2, 4, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(2, 5, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(2, 6, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(2, 7, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(2, 8, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(2, 9, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(3, 0, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(3, 1, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(3, 2, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(3, 3, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(3, 4, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(3, 5, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(3, 6, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(3, 7, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(3, 8, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(3, 9, 'tinytable_css_id6un5dfwafmlc0q9iw1fa') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(4, 0, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(4, 1, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(4, 2, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(4, 3, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(4, 4, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(4, 5, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(4, 6, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(4, 7, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(4, 8, 'tinytable_css_idcy65t5jisr7jim530oro') })
+window.addEventListener('load', function () { styleCell_1l8vz78ut390b9amed9x(4, 9, 'tinytable_css_idcy65t5jisr7jim530oro') })
     </script>
 
     <style>
-    .table td.tinytable_css_id4asxvaisvl4ph8ljlb38, .table th.tinytable_css_id4asxvaisvl4ph8ljlb38 {  text-align: center;  text-align: left; }
-    .table td.tinytable_css_idrnxxwr0etplflv8izf1b, .table th.tinytable_css_idrnxxwr0etplflv8izf1b {  text-align: center;  border-bottom: solid 0.05em #d3d8dc; }
-    .table td.tinytable_css_ids5hi4dg9um9r3x42dkp9, .table th.tinytable_css_ids5hi4dg9um9r3x42dkp9 {  text-align: center; }
-    .table td.tinytable_css_id5r84ei8l7i8aa9w5ahwy, .table th.tinytable_css_id5r84ei8l7i8aa9w5ahwy {  text-align: left;  border-bottom: solid 0.1em #d3d8dc; }
-    .table td.tinytable_css_id3wx31scd41i2b7pfw1dr, .table th.tinytable_css_id3wx31scd41i2b7pfw1dr {  text-align: center;  border-bottom: solid 0.1em #d3d8dc; }
-    .table td.tinytable_css_idqj8aby8txkpblj2djv16, .table th.tinytable_css_idqj8aby8txkpblj2djv16 {  text-align: left; }
+    .table td.tinytable_css_idvot1jqinwl91s3tzio8o, .table th.tinytable_css_idvot1jqinwl91s3tzio8o {  text-align: center;  text-align: left; }
+    .table td.tinytable_css_idde44p2k999ch2sfwegs7, .table th.tinytable_css_idde44p2k999ch2sfwegs7 {  text-align: center;  border-bottom: solid 0.05em #d3d8dc; }
+    .table td.tinytable_css_id6un5dfwafmlc0q9iw1fa, .table th.tinytable_css_id6un5dfwafmlc0q9iw1fa {  text-align: center; }
+    .table td.tinytable_css_id2p3s2jai1a9w26c1n0oj, .table th.tinytable_css_id2p3s2jai1a9w26c1n0oj {  text-align: left;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_id5srf1q3dmtkt0y3l5cku, .table th.tinytable_css_id5srf1q3dmtkt0y3l5cku {  text-align: center;  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idcy65t5jisr7jim530oro, .table th.tinytable_css_idcy65t5jisr7jim530oro {  text-align: left; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_j7tlivp5l08zwkrlp6br" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_1l8vz78ut390b9amed9x" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
@@ -2530,12 +2549,12 @@ window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 
                   <td>0.879   </td>
                   <td>-0.283</td>
                   <td>2.041</td>
-                  <td>0.892</td>
-                  <td>-0.270</td>
-                  <td>2.025</td>
-                  <td>0.883</td>
-                  <td>-0.316</td>
-                  <td>2.057</td>
+                  <td>0.903</td>
+                  <td>-0.269</td>
+                  <td>2.103</td>
+                  <td>0.891</td>
+                  <td>-0.293</td>
+                  <td>2.056</td>
                 </tr>
                 <tr>
                   <td>percentage.black</td>
@@ -2543,11 +2562,11 @@ window.addEventListener('load', function () { styleCell_j7tlivp5l08zwkrlp6br(4, 
                   <td>0.076 </td>
                   <td>0.137</td>
                   <td>0.106</td>
-                  <td>0.076 </td>
+                  <td>0.073 </td>
                   <td>0.137</td>
-                  <td>0.107</td>
+                  <td>0.106</td>
                   <td>0.074 </td>
-                  <td>0.139</td>
+                  <td>0.140</td>
                 </tr>
         </tbody>
       </table>
@@ -2675,17 +2694,106 @@ Tip with Title
 </div>
 </section>
 </section>
-<section id="present-conclusions" class="level4">
-<h4 class="anchored" data-anchor-id="present-conclusions">Present conclusions</h4>
+<section id="bayes-rules-modelling-sequence-from-chapter-9" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="bayes-rules-modelling-sequence-from-chapter-9"><span class="header-section-number">5</span> Bayes Rules modelling sequence; from Chapter 9</h2>
+<section id="specify-the-data-model" class="level3">
+<h3 class="anchored" data-anchor-id="specify-the-data-model">specify the data model</h3>
+<p>equation. Maths is shorthand, translate into english</p>
+<p><span class="math inline">\(Y_i|\beta_0,\beta_1,\sigma\)</span> <span class="math inline">\(\simeq\)</span> <span class="math inline">\(N(\mu_1, \sigma^2)\)</span> with <span class="math inline">\(\mu_1 = \beta_0 +\beta_1X_1\)</span></p>
+<ul>
+<li>coefficients and parameters alternative names.</li>
+<li>add fig 9.2 (simulate) to show how same parameters for slope and intercept ca arise with different sigmas.</li>
+</ul>
+</section>
+<section id="specify-the-priors" class="level3">
+<h3 class="anchored" data-anchor-id="specify-the-priors">Specify the priors</h3>
+<p>Explain why defaults in rstnarm are ok</p>
+</section>
+<section id="posterior-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="posterior-simulation">Posterior simulation</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb32" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>bayesplot<span class="sc">::</span><span class="fu">neff_ratio</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre data-code-line-numbers=""><code>     (Intercept) percentage.black            sigma 
+         0.93900          0.96675          0.79650 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb34" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>bayesplot<span class="sc">::</span><span class="fu">rhat</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre data-code-line-numbers=""><code>     (Intercept) percentage.black            sigma 
+       0.9995525        0.9999151        0.9996664 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb36" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>bayesplot<span class="sc">::</span><span class="fu">mcmc_trace</span>(m1, <span class="at">size =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb37" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>bayesplot<span class="sc">::</span><span class="fu">mcmc_dens_overlay</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb38" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>lion_noses <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_fitted_draws</span>(m1, <span class="at">n =</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percentage.black, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> .value, <span class="at">group =</span> .draw), <span class="at">alpha =</span> <span class="fl">0.15</span>) <span class="sc">+</span> </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> lion_noses, <span class="at">size =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre data-code-line-numbers=""><code>Warning in fitted_draws.default(model = model, newdata = newdata, ..., n = n): `fitted_draws` and `add_fitted_draws` are deprecated as their names were confusing.
+- Use [add_]epred_draws() to get the expectation of the posterior predictive.
+- Use [add_]linpred_draws() to get the distribution of the linear predictor.
+- For example, you used [add_]fitted_draws(..., scale = "response"), which
+  means you most likely want [add_]epred_draws(...).
+NOTE: When updating to the new functions, note that the `model` parameter is now
+  named `object` and the `n` parameter is now named `ndraws`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="present-conclusions" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="present-conclusions"><span class="header-section-number">6</span> Present conclusions</h2>
 <p>yaba yaba</p>
 </section>
-<section id="interpret-in-subject-matter-terms" class="level4">
-<h4 class="anchored" data-anchor-id="interpret-in-subject-matter-terms">Interpret in subject matter terms</h4>
-<section id="shiny-app" class="level5">
-<h5 class="anchored" data-anchor-id="shiny-app">Shiny app</h5>
+<section id="interpret-in-subject-matter-terms" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="interpret-in-subject-matter-terms"><span class="header-section-number">7</span> Interpret in subject matter terms</h2>
+<section id="shiny-app" class="level4">
+<h4 class="anchored" data-anchor-id="shiny-app">Shiny app</h4>
 <p>It is often useful in communicating your results to have an interactive app that can, in this case, allow someone to enter a nose marking measure and get output on the lion’s age with the model hidden. This has become increasingly easy in R with <a href="https://shiny.posit.co/">Shiny</a>. We’ll follow the official Shiny website and also a nice example on spatio-temporal data from <span class="citation" data-cites="Morega_2020">(<a href="#ref-Morega_2020" role="doc-biblioref">Morega 2020</a>)</span> which is <a href="https://www.paulamoraga.com/book-geospatial/">free online</a></p>
-</section>
-</section>
 </section>
 <section id="notes-on-stuff-to-addadded" class="level3">
 <h3 class="anchored" data-anchor-id="notes-on-stuff-to-addadded">Notes on stuff to add/added</h3>
@@ -2710,9 +2818,11 @@ Tip with Title
 <p><a href="https://hughjonesd.github.io/huxtable/huxtable.html">Huxtable R table package</a> recommended for regression tables</p>
 <p><a href="https://patchwork.data-imaginist.com/articles/patchwork.html">patchwork r package</a> to reorganise image layout</p>
 <p><a href="https://validator.w3.org/">html validator</a></p>
+<p><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">LaTex symbols</a></p>
 
 
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -3366,7 +3476,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>This website is built with <a href="https://github.com/samanthacsik/samanthacsik.github.io" target="_blank"><i class="fa-brands fa-github" title="GitHub octocat logo" aria-label="github"></i></a>, <a href="https://www.r-project.org/about.html" target="_blank"><i class="fa-brands fa-r-project" title="R Project" aria-label="r-project"></i></a> and <a href="https://quarto.org/" target="_blank">Quarto</a></p>
+<p>This website is built with <a href="https://github.com/paulauvirage/paulauvirage.github.io" target="_blank"><i class="fa-brands fa-github" title="GitHub octocat logo" aria-label="github"></i></a>, <a href="https://www.r-project.org/about.html" target="_blank"><i class="fa-brands fa-r-project" title="R Project" aria-label="r-project"></i></a> and <a href="https://quarto.org/" target="_blank">Quarto</a></p>
 </div>
   </div>
 </footer>
