@@ -19,3 +19,5 @@ names(m5)
 round(confint(m5, level = 0.9), 3)
 
 round(predict (m5, data.frame(percentage.black = (seq(10,80,10))), interval = "confidence", level = 0.9), 3)
+
+# repeat predict as for main rstanarm and same for brms 
