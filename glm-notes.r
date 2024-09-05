@@ -10,7 +10,7 @@ round(confint(m4, level = 0.9), 3)
 
 m5 <- lm(age ~ percentage.black, data = lion_noses)
 
-m5
+m5 # bare bones output of parameters 
 
 summary(m5) # more info than the m5 print
 
