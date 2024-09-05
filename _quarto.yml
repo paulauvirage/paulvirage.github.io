@@ -18,7 +18,7 @@ website:
         target: _blank
   page-footer: 
     background: "#0d7680"
-    left: Copyright 2024, Paul Robinson
+    left: Written and designed by Paul Robinson, licenced under [CC BY-NC_SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
     right: This website is built with [{{< fa brands github title="GitHub octocat logo" >}}](https://github.com/paulauvirage/paulauvirage.github.io){target=_blank}, [{{< fa brands r-project title="R Project" >}}](https://www.r-project.org/about.html){target=_blank} and [Quarto](https://quarto.org/){target=_blank}
       
 

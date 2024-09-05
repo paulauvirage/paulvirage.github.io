@@ -9,7 +9,7 @@ output:
     toc_depth: 5
  
 date: "8/17/2024"
-date-modified: "8/28/2024"
+date-modified: "9/05/2024"
 categories: [R, regression] # self-defined categories
 citation: 
   url: https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/ 
@@ -126,7 +126,7 @@ We will follow [@Cox_Donnelly_2011] in defining seven steps for an applied stati
 When possible choose an important question that is likely to be soluble from the data. The Lion is classified as globally [Vulnerable](https://www.iucnredlist.org/species/15951/259030422). Trophy hunting is economically valuable. Therefore an investigation of how selective trophy hunting could minimise the impact on the lion population size is of importance. There is evidence that trophy hunting older lions could cause less impact on the population and that lion age can be measured unobtrusively from the amount of black marking on the nose. The broad questions are:
 
 a.  Is there a difference in nose marking with age (hypothesis test)?
-b.  Can the difference be modelled to provide a measure of how nose markings change with age (regression model); and
+b.  Can the difference be modeled to provide a measure of how nose markings change with age (regression model); and
 c.  Can the model be applied, for example to regulate permits for trophy hunting?
 
 ### Step 4. Exploratory data analysis (EDA), jumping Steps 2 (Study Design) and 3 (Measurement validity) as existing data is being used.
