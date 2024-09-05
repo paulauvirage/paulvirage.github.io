@@ -14,10 +14,12 @@ m5
 
 summary(m5)
 
-names(m5)
+names(m5) # bring up objects in m5
 
 round(confint(m5, level = 0.9), 3)
 
 round(predict (m5, data.frame(percentage.black = (seq(10,80,10))), interval = "confidence", level = 0.9), 3)
 
-# repeat predict as for main rstanarm and same for brms 
+# repeat predict as for main rstanarm and same for brms
+
+
