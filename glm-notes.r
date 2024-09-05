@@ -8,7 +8,7 @@ round(confint(m4, level = 0.9), 3)
 
 ### from ISLR 3.6.2
 
-m5 <- lm(age ~ percentage.black, data = lion_noses)
+m5 <- lm(age ~ percentage.black, data = lion_noses) # using lm rather than glm, check any difference
 
 m5 # bare bones output of parameters 
 
