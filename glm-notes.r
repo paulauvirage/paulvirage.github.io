@@ -12,7 +12,7 @@ m5 <- lm(age ~ percentage.black, data = lion_noses)
 
 m5
 
-summary(m5)
+summary(m5) # more info than the m5 print
 
 names(m5) # bring up objects in m5
 
