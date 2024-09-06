@@ -9,12 +9,12 @@ output:
     toc_depth: 5
  
 date: "8/17/2024"
-date-modified: "9/05/2024"
-categories: [R, regression] # self-defined categories
+date-modified: "9/06/2024"
+categories: [R, regression]
 citation: 
   url: https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/ 
 image: weblog-simple-linear-regression.png
-draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+draft: false
 bibliography: references.bib
 filters:
   - line-highlight
@@ -39,7 +39,7 @@ As with all posts in this group, the main text is interspersed with two types of
 ## Working example - trophy hunting of lions
 
 
-Trophy hunting of lions, particularly males, is a controversial, but [active](https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!), means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride [@whitman2004], [@loveridge2023]. The amount of black on a lion's nose is the best remote indicator of age . This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package `abd` and has been used for an example of linear regression in the online book [Statistics for ecologists](https://statistics4ecologists-v2.netlify.app/linreg) [@fieberg_2024].
+	Trophy hunting of lions, particularly males, is a controversial, but [active](https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!), means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride [@whitman2004], [@loveridge2023]. The amount of black on a lion's nose is the best remote indicator of age . This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package `abd` and has been used for an example of linear regression in the online book [Statistics for ecologists](https://statistics4ecologists-v2.netlify.app/linreg) [@fieberg_2024].
 
 ::: {.callout-note collapse="true"}
 ## The advantages of open data
@@ -173,7 +173,8 @@ library(patchwork)                                                            # 
 library(Hmisc)                                                                # <1>
 library(broom.mixed)                                                          # <1>
 library(janitor)                                                              # <1>
-library(huxtable)                                                             # <1>
+library(flextable)                                                            # <1>
+library(gtsummary)                                                            # <1>
 ```
 
 1.  The first lines of any `R` script usually add packages from your library into your current work session with the `library` function. If you do not have one or more of these packages installed you will need to first run `install.packages(abd)` etc or alternatively, if the package is on`CRAN` (Comprehensive R Archive Network's 21,000 packages) use the package -\> install button in R Studio's lower right window and follow the instructions.
@@ -282,33 +283,27 @@ m1 <- stan_glm(age ~ percentage.black, data = lion_noses,                     # 
 some text
 
 ```{r}
-#| code-summary: "Output from r packages broom.mixed and gt"
+#| code-summary: "Output from r packages broom.mixed and flextable"
 m1_table <- broom.mixed::tidy(m1, effects = c("fixed", "aux"), 
                   conf.int = TRUE, conf.level = 0.90)
 
 m1_table <- m1_table |> 
     slice(1:3)
 
-gt_tbl <- gt(m1_table)
-
-gt_tbl <- gt_tbl |> 
-    tab_header(
-        title = "Model 1 parameter and uncertainty interval estimates",
-        subtitle = "Using R with rstnarm"
-) |> 
-    cols_label(
-        term = md("**parameter**"),
-        estimate = md("**estimate**"),
-        conf.low = md("**5% CI**"),
-        conf.high = md("**95% CI**"),
-        std.error = md("**std.error**")
-    ) |> 
-    fmt_number(
-        decimals = 2
-    )
+ft1 <- flextable(m1_table) |>
+    theme_vanilla() |>
+    colformat_double(digits = 2
+                     ) |>
+    set_header_labels(values = list(
+    term  = "parameters",
+    conf.low = "5%",
+    conf.high = "95%")) |>
+     add_header_row(colwidths = c(3, 2),
+                    values = c("", "90% CIs")) |>
+                        align(align = "center", part = "all")
 
 
-gt_tbl
+ft1
 ```
 
 
