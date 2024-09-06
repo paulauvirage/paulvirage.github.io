@@ -1,11 +1,20 @@
 library(abd)
 library(dplyr)
+library(gtsummary)
 
 lion_noses <- as.data.frame(LionNoses)                                                      
 
 lion_noses <- mutate(lion_noses, percentage.black = 100*proportion.black)
 lion_noses
 m4 <- glm(age ~ percentage.black, data = lion_noses, family = gaussian)
+
+
+# summarize the data with our package
+table1 <- lion_noses |>  tbl_summary(include = c(age, percentage.black))
+
+t1 <- tbl_regression(m4, conf.level = 0.9)
+help(tbl_regression)
+t1
 
 broom::tidy(m4, prob = 0.9, effects = c("fixed", "aux"))
 
