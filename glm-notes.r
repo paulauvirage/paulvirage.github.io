@@ -9,7 +9,7 @@ m4 <- glm(age ~ percentage.black, data = lion_noses, family = gaussian)
 
 broom::tidy(m4, prob = 0.9, effects = c("fixed", "aux"))
 
-broom::glance(m4)
+broom::glance(m4) # returms regression parameters
 
 round(confint(m4, level = 0.9), 3)
 
