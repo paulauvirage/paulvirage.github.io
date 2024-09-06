@@ -1,8 +1,8 @@
 library(abd)
 library(dplyr)
 
-lion_noses <- as.data.frame(LionNoses)
-lion_noses
+lion_noses <- as.data.frame(LionNoses)                                                      
+
 lion_noses <- mutate(lion_noses, percentage.black = 100*proportion.black)
 
 m4 <- glm(age ~ percentage.black, data = lion_noses, family = gaussian)
