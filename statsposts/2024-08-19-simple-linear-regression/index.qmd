@@ -39,7 +39,7 @@ As with all posts in this group, the main text is interspersed with two types of
 ## Working example - trophy hunting of lions
 
 
-	Trophy hunting of lions, particularly males, is a controversial, but [active](https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!), means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride [@whitman2004], [@loveridge2023]. The amount of black on a lion's nose is the best remote indicator of age . This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package `abd` and has been used for an example of linear regression in the online book [Statistics for ecologists](https://statistics4ecologists-v2.netlify.app/linreg) [@fieberg_2024].
+Trophy hunting of lions, particularly males, is a controversial, but [active](https://www.discountafricanhunts.com/hunts/hunt-lion-in-tanzania.html#:~:text=Hunt%20Lion%20in%20Tanzania&text=Rifle%20Only%201%20x%201%20Starting%20at%20%2455%2C000!), means of conserving populations. Selective killing of older lions is thought to result in fewer knock-on deaths, as older animals are less likely to be breeding and the killing of a younger breeding male can result in further lion deaths, particularly through infanticide, as a new male replaces the killed male in the pride [@whitman2004], [@loveridge2023]. The amount of black on a lion's nose is the best remote indicator of age . This measure has been taken for lions of known age in a long term study at the Serengeti, Tanzania. The data is available for re-analysis in the R package `abd` and has been used for an example of linear regression in the online book [Statistics for ecologists](https://statistics4ecologists-v2.netlify.app/linreg) [@fieberg_2024].
 
 ::: {.callout-note collapse="true"}
 ## The advantages of open data
@@ -222,11 +222,12 @@ code-annotations: select
 #| code-summary: "Code 3.3 Create new variable and plot lion nose data"
 #| code-block-bg: true
 #| highlight-style: github
-lion_noses <- lion_noses |>                               # <1> 
-    mutate(percentage.black = 100*proportion.black)       # <1> 
+lion_noses <- lion_noses |>
+  mutate(percentage.black = 100*proportion.black)         # <1> 
+
 ggplot(lion_noses, aes(percentage.black, age)) +          # <2>
   geom_point() +                                          # <3>
-    theme_bw() +                                          # <4>
+ theme_bw() +                                             # <4>                                  
   xlab("Percentage of nose black") +                      # <5>
   ylab("Age (years)") +                                   # <5>
     annotate("rect", xmin = 5, xmax = 35, ymin = 0.5,     # <6>      
