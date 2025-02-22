@@ -1,22 +1,18 @@
 ---
 title: "Birding from my balcony"
-description: "A year of breakfast birding in suburban Freetown"
+description: "A year of breakfast birding in Lakka"
  
-date: 08-19-2024
+date: 02-22-2025
 categories: [birding] # self-defined categories
 citation: 
   url: https://paulauvirage.github.io/sl-wildlife-posts/2024-08-19-birding-my-balcony/
-image: house-panorama-front.jpg
+image: lakka_panorama.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 
-::: {#fig-phouse-panoramas layout-ncol=2}
 
-![Balcony view](house-panorama-front.jpg)
+![Balcony view](lakka_panorama.jpg)
 
-![Bedroom balcony view](house-panorama-back.jpg)
-
-:::
 
 ## Introduction
 
