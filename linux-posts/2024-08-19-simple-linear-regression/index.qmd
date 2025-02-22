@@ -1,11 +1,52 @@
 ---
-title: "Simple linear regression"
-description: "An introduction to regression, through modelling with one predictor linearly related to a continuous outcome"
+title: "Recording and tidying live coding with OBS Studio, Audacity and ffpmeg"
+description: "Tools to record video and audio screencasts and clean background noise"
  
-date: 10-24-2022
-categories: [R, regression] # self-defined categories
-citation: 
-  url: https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/ 
-image: ../../media/moi.jpg
+date: 09-19-2024
+author: Paul
+categories: [OBS Studio, Audacity, Ubuntu 24.04 LTS] # self-defined categories
+#citation: 
+#  url: https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/ 
+#image: ../../media/moi.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
+
+## Introduction
+
+A new work task for me is to leave for posterity (!) the material from my short courses at Fourah Bay College. As a lot of this is live coding in `R` I've decide to supplement the usual slides, code and written notes with screen-casts mixing slides with my talking over live coding in R Studio.
+
+After some trial and error I decided to go for [OBS Studio](https://obsproject.com/) for recording, [Audacity](https://www.audacityteam.org/), with which I was already familiar from editing bird calls, for tidying the video sound, a line of [ffmpeg](https://www.ffmpeg.org/) to pull it all together and the multi-media player [VLC](https://www.videolan.org/vlc/download-ubuntu.html) to play and so test the video. Below is my rationale, procedures and troubleshooting for the four steps.
+
+## OBS Studio
+
+OBS Studio seems to be the most richly featured of the free video recording software for Linux. With Ubuntu now using [Wayland](https://wayland.freedesktop.org/), it is also seems to be one of the few options
+
+[I'll keep saying "seems to be" where things are way outside my expertise and my evidence is no more than a bit of Google or [DuckDuckGo](https://duckduckgo.com/) search]{.aside}
+
+Installation is three lines of `bash` in the terminal:
+
+```{r}
+#| eval: FALSE
+
+# sudo add-apt-repository ppa:obsproject/obs-studio
+# sudo apt update
+# sudo apt install ffmpeg obs-studio
+```
+
+## Audacity
+
+-   `sudo add-apt-repository ppa:ubuntuhandbook1/audacity`;
+-   `sudo apt update` and
+-   `sudo apt-get install audacity`
+
+![](noise-selection.png) xxx
+
+![](noise-reduction-popup.png)
+
+## FFmpeg
+
+`ffmpeg -i video1.mkv -i audio1.wav -c:v copy -map 0:v -map 1:a -y output.mkv`
+
+## VLC
+
+Installed from the Ubuntu App Center

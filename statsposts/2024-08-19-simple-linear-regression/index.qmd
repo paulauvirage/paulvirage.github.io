@@ -7,7 +7,6 @@ output:
     toc: true
     toc_expand: true
     toc_depth: 5
- 
 date: "8/17/2024"
 date-modified: "9/06/2024"
 categories: [R, regression]
@@ -20,7 +19,7 @@ filters:
   - line-highlight
 ---
 
-To start, click on the arrow in the "Document structure" box, below.
+To start, click on the right hand arrow in the "Document structure" box, below.
 
 ::: {.callout-note collapse="true"}
 ## Document structure
@@ -160,7 +159,6 @@ library(tidyverse) # eight packages including ggplot2 for data visualisation  # 
 library(modelsummary)                                                         # <1>
 library(marginaleffects)                                                      # <1>
 library(rstanarm) # Bayesian inference                                        # <1>
-library(modelr)                                                               # <1>
 library(ggdist)                                                               # <1>
 library(ggtext)                                                               # <1>
 library(gridExtra)                                                            # <1>

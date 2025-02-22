@@ -1,0 +1,39 @@
+---
+title: "Birding from my balcony"
+description: "A year of breakfast birding in suburban Freetown"
+ 
+date: 08-19-2024
+categories: [birding] # self-defined categories
+citation: 
+  url: https://paulauvirage.github.io/sl-wildlife-posts/2024-08-19-birding-my-balcony/
+image: house-panorama-front.jpg
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+::: {#fig-phouse-panoramas layout-ncol=2}
+
+![Balcony view](house-panorama-front.jpg)
+
+![Bedroom balcony view](house-panorama-back.jpg)
+
+:::
+
+## Introduction
+
+My day often starts with breakfast on the balcony of my apartment in Juba, in the south west suburbs of Freetown, with some casual birding. This is a new suburbs. Once upon a time, certainly some 25 years ago when my landlord bought the land for the compound within which my apartment sits, (CHECK GOOGLE EARTH FOR HISTORY) this was scrub and trees with a view up to forested hills. Today there is a mix of housing types and the forest is gone. I moved here in February, left for the UK, with the rains just starting, in late May and have just returned and started this blog, with the rains still plentiful, in late September.
+
+Nevertheless there are birds and as most visitors and residents will spend some time in urban Freetown, worth documenting. [Maps.me](), (SIDE NOTE ON CAPABILITIES) tells me I am some 800m from the Atlantic Ocean, partly visible between new builds and providing glorious sunsets, and c1km from the deforested foothills below [Western Area Peninsula Forest](), a National Park and Important Bird Area. A few economically useful trees remain in the larger compounds and there is some irrigated farmland between me and the ocean, which I have yet to visit.
+
+## Regular species
+
+If the Red List of Sierra Leone's [Globally Threatened Species]() sets your priorities, then urban Freetown's star and only threatened species is [**Hooded Vulture**](). A few more in this category (LIST THEM, YC HORNBILL, PICATHARTES, OTHERS?) occur within Freetown (URBAN, RURAL??).
+
+Whilst people will tell you there used to be more Hooded Vultures in the city, any decline here has not been documented and is anecdote. They remain widespread in the city and 10 or so lift themselves up from roosts I'm assuming are nearby each morning.
+
+The other daily raptors are **Yellow-billed Kite** in the dry season and **Shikra**, a relatively recent colonist and now widespread resident.
+
+That is all waiting for daylight. if I'm awake before dawn during the rains, which for me so far means May, the first song, some half hour before sunrise, is **African Thrush**. In no particular order, vocalisations ome soon after sunrise from **Common Bulbul**, **Grey-headed Sparrow**, **Pied Crow**. The phone wires are a popular perch, with different species in season; a hunting perch for **Blue-cheeekd Bee-eaters**, dry season visitors from North African breeding grounds; and a singing and displaying perch for Freetown's one widespread sunbird, **Variable Sunbird**, ni the dry season and the noisy **Woodland Kingfisher** which appeared with the rains.
+
+Of hirundines and swifts, so far I have onlly see the two common urban species; **red-chested Swallow** and, less frequently, **Little Swift**.
+
+

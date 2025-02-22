@@ -1,4 +1,4 @@
-library (brms)
+library(brms)
 library(abd)
 library(broom.mixed)
 

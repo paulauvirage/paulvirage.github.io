@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.9">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-10-24">
-<meta name="description" content="An introduction to regression, through modelling with one predictor linearly related to a continuous outcome">
+<meta name="author" content="Paul">
+<meta name="dcterms.date" content="2024-09-19">
+<meta name="description" content="Tools to record video and audio screencasts and clean background noise">
 
-<title>Simple linear regression</title>
+<title>Recording and tidying live coding with OBS Studio, Audacity and ffpmeg</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -37,11 +72,11 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-79bb3942e891885f9f7af119cd221462.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-37bb72f48501692975d9c066fdeb097b.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c984497e6ef092f163020b637e612917.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
@@ -129,28 +164,35 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Simple linear regression</h1>
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Recording and tidying live coding with OBS Studio, Audacity and ffpmeg</h1>
                   <div>
         <div class="description">
-          An introduction to regression, through modelling with one predictor linearly related to a continuous outcome
+          Tools to record video and audio screencasts and clean background noise
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">R</div>
-                <div class="quarto-category">regression</div>
+                <div class="quarto-category">OBS Studio</div>
+                <div class="quarto-category">Audacity</div>
+                <div class="quarto-category">Ubuntu 24.04 LTS</div>
               </div>
                   </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta column-page-left">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Paul </p>
+            </div>
+    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 24, 2022</p>
+        <p class="date">September 19, 2024</p>
       </div>
     </div>
     
@@ -161,29 +203,67 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#obs-studio" id="toc-obs-studio" class="nav-link" data-scroll-target="#obs-studio"><span class="header-section-number">2</span> OBS Studio</a></li>
+  <li><a href="#audacity" id="toc-audacity" class="nav-link" data-scroll-target="#audacity"><span class="header-section-number">3</span> Audacity</a></li>
+  <li><a href="#ffmpeg" id="toc-ffmpeg" class="nav-link" data-scroll-target="#ffmpeg"><span class="header-section-number">4</span> FFmpeg</a></li>
+  <li><a href="#vlc" id="toc-vlc" class="nav-link" data-scroll-target="#vlc"><span class="header-section-number">5</span> VLC</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block page-columns page-full column-page-left" id="quarto-document-content">
 
 
 
 
 
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>A new work task for me is to leave for posterity (!) the material from my short courses at Fourah Bay College. As a lot of this is live coding in <code>R</code> I’ve decide to supplement the usual slides, code and written notes with screen-casts mixing slides with my talking over live coding in R Studio.</p>
+<p>After some trial and error I decided to go for <a href="https://obsproject.com/">OBS Studio</a> for recording, <a href="https://www.audacityteam.org/">Audacity</a>, with which I was already familiar from editing bird calls, for tidying the video sound, a line of <a href="https://www.ffmpeg.org/">ffmpeg</a> to pull it all together and the multi-media player <a href="https://www.videolan.org/vlc/download-ubuntu.html">VLC</a> to play and so test the video. Below is my rationale, procedures and troubleshooting for the four steps.</p>
+</section>
+<section id="obs-studio" class="level2 page-columns page-full" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="obs-studio"><span class="header-section-number">2</span> OBS Studio</h2>
+<p>OBS Studio seems to be the most richly featured of the free video recording software for Linux. With Ubuntu now using <a href="https://wayland.freedesktop.org/">Wayland</a>, it is also seems to be one of the few options</p>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside">I’ll keep saying “seems to be” where things are way outside my expertise and my evidence is no more than a bit of Google or <a href="https://duckduckgo.com/">DuckDuckGo</a> search</span></div></div>
+<p>Installation is three lines of <code>bash</code> in the terminal:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sudo add-apt-repository ppa:obsproject/obs-studio</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sudo apt update</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sudo apt install ffmpeg obs-studio</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="audacity" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="audacity"><span class="header-section-number">3</span> Audacity</h2>
+<ul>
+<li><code>sudo add-apt-repository ppa:ubuntuhandbook1/audacity</code>;</li>
+<li><code>sudo apt update</code> and</li>
+<li><code>sudo apt-get install audacity</code></li>
+</ul>
+<p><img src="noise-selection.png" class="img-fluid"> xxx</p>
+<p><img src="noise-reduction-popup.png" class="img-fluid"></p>
+</section>
+<section id="ffmpeg" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="ffmpeg"><span class="header-section-number">4</span> FFmpeg</h2>
+<p><code>ffmpeg -i video1.mkv -i audio1.wav -c:v copy -map 0:v -map 1:a -y output.mkv</code></p>
+</section>
+<section id="vlc" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="vlc"><span class="header-section-number">5</span> VLC</h2>
+<p>Installed from the Ubuntu App Center</p>
 
 
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{2022,
-  author = {},
-  title = {Simple Linear Regression},
-  date = {2022-10-24},
-  url = {https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/},
-  langid = {en}
-}
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-2022" class="csl-entry quarto-appendix-citeas" role="listitem">
-<span>“Simple Linear Regression.”</span> 2022. October 24, 2022. <a href="https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/">https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/</a>.
-</div></div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -752,13 +832,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2024, Paul Robinson</p>
+<p>Written and designed by Paul Robinson, licenced under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC_SA 4.0</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>This website is built with <a href="https://github.com/samanthacsik/samanthacsik.github.io" target="_blank"><i class="fa-brands fa-github" title="GitHub octocat logo" aria-label="github"></i></a>, <a href="https://www.r-project.org/about.html" target="_blank"><i class="fa-brands fa-r-project" title="R Project" aria-label="r-project"></i></a> and <a href="https://quarto.org/" target="_blank">Quarto</a></p>
+<p>This website is built with <a href="https://github.com/paulauvirage/paulauvirage.github.io" target="_blank"><i class="fa-brands fa-github" title="GitHub octocat logo" aria-label="github"></i></a>, <a href="https://www.r-project.org/about.html" target="_blank"><i class="fa-brands fa-r-project" title="R Project" aria-label="r-project"></i></a> and <a href="https://quarto.org/" target="_blank">Quarto</a></p>
 </div>
   </div>
 </footer>

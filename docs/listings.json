@@ -1,11 +1,5 @@
 [
   {
-    "listing": "/linux-posts.html",
-    "items": [
-      "/linux-posts/2024-08-19-simple-linear-regression/index.html"
-    ]
-  },
-  {
     "listing": "/statsposts.html",
     "items": [
       "/statsposts/2024-08-18-course-introduction/index.html",
@@ -13,9 +7,16 @@
     ]
   },
   {
+    "listing": "/linux-posts.html",
+    "items": [
+      "/linux-posts/2024-08-19-simple-linear-regression/index.html"
+    ]
+  },
+  {
     "listing": "/sl-wildlife-posts.html",
     "items": [
-      "/sl-wildlife-posts/2024-08-19-simple-linear-regression/index.html"
+      "/sl-wildlife-posts/2024-09-23-birding-resources/index.html",
+      "/sl-wildlife-posts/2024-08-19-birdin-my-balcony/index.html"
     ]
   }
 ]

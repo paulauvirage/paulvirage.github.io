@@ -2,10 +2,10 @@
 title: "Paul Robinson"
 image: media/moi.jpg
 about:
-  template: trestles
-  image-shape: rectangle
-  image-width: 20em
-  links:
+ template: trestles
+ image-shape: rectangle
+ image-width: 20em
+ links:
     - icon: github
       text: GitHub
       href: https://github.com/paulauvirage
@@ -20,6 +20,15 @@ about:
 ### Me
 
 I am a conservation biologist, with a background in statistics, based in Sierra Leone for half of the year and otherwise working remotely from the UK.
+
+#code for full page image <style>
+#  body {
+#  background-image: url(oknp.png);
+#  background-size: cover;
+#  background-repeat: no-repeat;
+#}
+#  
+#</style>
 
 My employment comprises three part-time posts: data scientist for the charity [World Parrot Trust](https://www.parrots.org/) Central and West African projects, with particular emphasis on Timneh and Grey Parrots; managing biodiversity projects at Outamba-Kilimi National Park in Sierra Leone for the charity and national NGO Pan Verus Project; and, as Visiting Lecturer, teaching and supervising data science/statistics to postgraduate students and professionals through the Department of Biological Sciences, Fourah Bay College, University of Sierra Leone.
 

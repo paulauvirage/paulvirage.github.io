@@ -1,0 +1,45 @@
+---
+title: "Resources for the birder in Sierra Leone 1: bird identification"
+description: "books, apps and websites"
+ 
+date: 23-09-2024
+categories: [birding] # self-defined categories
+citation: 
+  url: https://paulauvirage.github.io/posts/2024-08-19-simple-linear-regression/ 
+image: birdnet-screenshot.png
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+## Introduction
+
+How many bird species? There is no official list for Sierra Leone, so the answer depends on your source and the different taxonomies used by the muddle of global bird lists. For now, let's go with the [African Bird Club (ABC) list](https://www.birdpics.co.za/abcbirdlists/) based on the [IOC global bird list](https://www.worldbirdnames.org/new/). This gives Sierra Leone 643 species, of which 578 are, seasonally or resident, regularly occurring and the remaining 65 are vagrants.  The [ABC country account](https://www.africanbirdclub.org/countries/sierra-leone/sierra-leone-introduction/) cautiously states that there are "approximately 650 recorded species". 
+An earlier careful enumeration from 1998/99 for the Important Bird Areas (IBA) programme (see the "Further reading" section of the ABC country account for a download of the useful Okoni-Willliams chapter) gives 626 species, of which 574 are regular. So in the intervening 25 years there has been a small increase in the number of recorded vagrants.
+
+[The Birdlife country profile](https://datazone.birdlife.org/country/sierra-leone/resources) gives some detail of the Globally Threatened Species and some key sites for bird conservation (IBAs). 
+
+I'll discuss the country's birds from a birder's perspective elsewhere.
+
+Are we at the point where there is no need to buy identification books? Why I now (almost) do everything with apps and websites.
+
+## Books
+
+Since 2001 bird identification in Sierra Leone has been covered by Borrow and Demey's Birds of Western Africa, now in its second edition. If you prefer an electronic version, it is available and somewhat cheaper to download for offline use on Google Books and Kindle. 
+
+I supplement this with [Collins Bird Guide app](https://play.google.com/store/apps/details?id=com.natureguides.birdguide&hl=en-US&pli=1) for more detail on European migrants, with sound recordings. 
+
+Then, depending on your interests, specialist books for groups difficult to identify include:
+
+- [African Raptors](https://www.amazon.co.uk/African-Raptors-Field-Guides-Identification/dp/0713665386) is available in paper or electronic (Google Books, Kindle) format
+- [Chamberlain's waders](https://www.amazon.co.uk/Chamberlains-Waders-Definitive-Southern-Shorebirds/dp/062073552X), paper only, a wonderful book written for South Africa, but very good for West Africa;
+
+- [Gulls of the World](https://www.amazon.co.uk/Gulls-World-Klaus-Malling-Olsen/dp/1408181649); paper, Google Books, Kindle; and
+
+- [Oceanic Birds of the World](https://press.princeton.edu/books/paperback/9780691175010/oceanic-birds-of-the-world); Pepr, Google Books, Kindle. Not much seabird recording is done here.
+
+## Apps
+
+
+
+## Websites
+
+Xeno-cantos
